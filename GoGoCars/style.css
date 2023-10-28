@@ -14,7 +14,7 @@
     background-position: center;
 }
 
-nav{
+.search-nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -418,3 +418,23 @@ footer p {
     margin-left: 44px;
   }
 
+.header-nav {
+    align-items: center;
+    text-align: center;
+    background-color: #003366;
+}
+.header-nav li{
+    align-items: center;
+    display: inline;
+}
+
+.header-nav a{
+    display: inline-block;
+    padding: 30px;
+    color: #fd5003;
+    text-decoration: none;
+}
+
+.header-nav a:hover {
+    background-color: rgba(255,255,255,0.6)
+}
