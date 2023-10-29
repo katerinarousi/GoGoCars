@@ -418,6 +418,9 @@ footer p {
     margin-left: 44px;
   }
 
+
+/*------------Register use case-----------------*/
+
 .header-nav {
     align-items: center;
     text-align: center;
@@ -437,4 +440,55 @@ footer p {
 
 .header-nav a:hover {
     background-color: rgba(255,255,255,0.6)
+}
+
+.h2 {
+    margin-left: 110px;
+    margin-top: 175px;
+}
+
+.h5 {
+    margin-left: 110px;
+}
+
+.data-inputs {
+    flex-direction: column;
+    margin-left: 123px;
+    margin-top: 66px;
+    position: relative;
+    width: 360px;
+}
+
+.data-inputs label {
+    color: rgba(0, 0, 0, 0.30); 
+    font-size: 10px;
+    font-weight: 500
+}
+
+.data-inputs input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #003366;
+    color: #fd5003;
+    outline: none;
+    font-size: 18px;
+}
+
+.data-inputs label, .data-inputs input {
+    margin-bottom: 46px; 
+}
+
+.btn-continue a{
+    text-decoration: none;
+    color: #fd5003;
+    background-color: #003366;
+    border: none;
+    cursor: pointer;
+    padding: 10px 60px;
+    border-radius: 20px;
+}
+
+.btn-continue {
+    margin-left: 110px;
+    margin-bottom: 76px;
 }
