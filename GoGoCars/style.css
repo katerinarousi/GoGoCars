@@ -474,6 +474,10 @@ footer p {
     font-size: 18px;
 }
 
+.data-inputs input:focus {
+    border-bottom: 2px solid #000;
+  }
+
 .data-inputs label, .data-inputs input {
     margin-bottom: 46px; 
 }
@@ -492,3 +496,6 @@ footer p {
     margin-left: 110px;
     margin-bottom: 76px;
 }
+
+
+/*----------------CREATE THE HIDE/SHOW BUTTON---------*/
