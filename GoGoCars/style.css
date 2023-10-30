@@ -33,14 +33,16 @@
 
 .profile-btn{
     padding-left: 80%;
+    padding-right: 10%;
     width: auto;
 
 }
 .profile-btn a{
     border:0.5px solid #fff;
     color:#fd5003;
+    text-align: center;
     padding: 8px 20px;
-    border-radius: 50%;
+    border-radius: 5%;
     text-decoration: none;
     outline: none;
     font-size: 14px;
@@ -52,7 +54,7 @@
 
 /*------------profile button transition----------*/
 .profile-btn a span{
-    border-radius: 50%;
+    border-radius: 5%;
     border: 0%;
     width: 0%;
     height: 100%;
@@ -243,7 +245,7 @@ footer p {
     gap: 20px;
     display: grid;
     padding-bottom: 10px;
-    padding-left: 20%;
+    /*padding-left: 20%;*/
     position: relative;
 }
 
@@ -299,11 +301,40 @@ footer p {
     background-color: green;
     border-radius: 8px;
     align-items: center;
+    padding: 5px 5px;
+
 }
   
+/*-------------------filter bar aristera---------------------------*/
 
 
+.filter-card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: green;
+}
 
+.card-group-item {
+    flex: 1;
+    max-width: calc(50% - 10px);
+    margin: 5px;
+}
+
+.card-header {
+    background-color: pink;
+    padding: 10px;
+}
+
+.card-body {
+    padding: 10px;
+}
+
+.form-check {
+    display: block;
+    margin-bottom: 10px;
+}
 
 
 
