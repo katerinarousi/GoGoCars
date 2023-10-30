@@ -7,7 +7,6 @@ CREATE TABLE Users (
     account_password VARCHAR(80) NOT NULL
 );
 
-
 CREATE TABLE Cars (
     carID INT AUTO_INCREMENT PRIMARY KEY,
     carType VARCHAR(50),

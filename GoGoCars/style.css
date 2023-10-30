@@ -7,18 +7,25 @@
 
 /*--------------header---------------*/
 .header{
-    height: 100vh;
+    /*height: 100vh;*/
     width: 100%;
-    background-image: linear-gradient(rgba(0,0,0,0.3), #036), url(images/background-rocks.jpg);
     background-size: cover;
     background-position: center;
+    display: flexbox;
 }
 
 .search-nav{
-    display: flex;
-    align-items: center;
     justify-content: space-between;
     padding: 20px 7%;
+    
+
+}
+
+.logo-span{
+    padding-left: 5%;
+    padding-top: 3vh;
+    border-radius: 5%;
+
 }
 
 .logo{
@@ -26,6 +33,7 @@
     width: 140px;
     cursor: pointer;
     height: 50px;
+    border-radius: 10%;
 }
 
 
@@ -35,6 +43,7 @@
     padding-left: 80%;
     padding-right: 10%;
     width: auto;
+    padding-top: 3vh;
 
 }
 .profile-btn a{
@@ -96,6 +105,7 @@
     font-weight: lighter;
 }
 
+/*-------------search bar---------------*/
 .search-bar{
     background: #fff;
     border: solid #036;
@@ -134,13 +144,14 @@
     outline: none;
     cursor: pointer;
     flex: 1;
-
 }
 
+.search-bar form button:hover{
+    transform: scale(1.1);
+}
 .location-input{
     flex: 0.5;
 }
-
 
 .Dropoff-input{
     padding-left: 5px;
@@ -151,7 +162,7 @@
 
 /*------------------browse use case-----------------*/
 
-.sub-title{
+/*.sub-title{
     margin: 50px 0px 20px;
     font-size: 2.2vw;
     font-weight: 500;
@@ -245,8 +256,9 @@ footer p {
     gap: 20px;
     display: grid;
     padding-bottom: 10px;
-    /*padding-left: 20%;*/
+    padding-left: 5%;
     position: relative;
+    padding-top: 20px;
 }
 
 /* Apply styles to product cards */
@@ -291,8 +303,6 @@ footer p {
     text-align: center;
     color:#395;
 }
-
-
   
   /* Style buttons */
 .book-button {
@@ -307,13 +317,20 @@ footer p {
   
 /*-------------------filter bar aristera---------------------------*/
 
-
+.filter-header{
+    text-align: center;
+    font-weight: bold;
+    font-size: large;
+    font-style: italic;
+}
 .filter-card {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    background-color: green;
+    background-color: #f0f0f0;
+    padding-bottom: 10px;
+    padding-top: 10px;
 }
 
 .card-group-item {
@@ -337,13 +354,11 @@ footer p {
 }
 
 
-
-
-
 /*------------lang switch non functional-----------------*/
 .switch {
     position: relative;
     display: inline-block;
+    align-items: flex-end;
     margin: 0 5px;
   }
   
