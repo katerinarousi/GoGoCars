@@ -467,6 +467,18 @@ footer p {
 
 /*------------Register use case-----------------*/
 
+.register-body {
+    background-color: #f0f0f0;
+    background-image: url(images/logo_w_backg2.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgba(255, 255, 255, 0.5); 
+    background-blend-mode: overlay;
+    background-size: 1000px;
+    background-position-x: 90%;
+    background-position-y: 35%;
+}
+
 .header-nav {
     align-items: center;
     text-align: center;
@@ -489,12 +501,12 @@ footer p {
 }
 
 .h2 {
-    margin-left: 110px;
-    margin-top: 175px;
+    margin-left: 123px;
+    margin-top: 80px;
 }
 
 .h5 {
-    margin-left: 110px;
+    margin-left: 123px;
 }
 
 .data-inputs {
@@ -508,7 +520,7 @@ footer p {
 .data-inputs label {
     color: rgba(0, 0, 0, 0.30); 
     font-size: 10px;
-    font-weight: 500
+    font-weight: 500;
 }
 
 .data-inputs input {
@@ -518,6 +530,7 @@ footer p {
     color: #fd5003;
     outline: none;
     font-size: 18px;
+    background-color: #f0f0f0;
 }
 
 .data-inputs input:focus {
@@ -536,12 +549,24 @@ footer p {
     cursor: pointer;
     padding: 10px 60px;
     border-radius: 20px;
+    margin-left: 123px;
 }
 
 .btn-continue {
-    margin-left: 110px;
-    margin-bottom: 76px;
+    margin-bottom: 90px;
 }
 
+.toggle-password input {
+    position: relative;
+    bottom: 55px;
+    right: 100px;
+    cursor: pointer;
+    color: #000;
+}
 
-/*----------------CREATE THE HIDE/SHOW BUTTON---------*/
+.toggle-password label {
+    position: relative;
+    bottom: 40px;
+    color: #003366;
+    font-size: 10px;
+}
