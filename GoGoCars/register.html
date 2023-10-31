@@ -5,7 +5,7 @@
         <title>Register/Login</title>
         <link rel = "stylesheet" href="style.css">
     </head>
-    <body>
+    <body class="register-body">
         <header>
             <nav class="header-nav">
                 <ul>
@@ -17,34 +17,40 @@
 
         <h2 class="h2">Welcome to the world</h2>
         <h5 class="h5">of the fast and easy car rentals</h5>
-
-        <div class="data-inputs">
-            <div>
-                <label for="userInput">USERNAME</label>
+        <form>
+            <div class="data-inputs">
+                <div>
+                    <label for="username">USERNAME</label>
+                </div>
+                <div>
+                    <input type="text" id="username" name="userInput">
+                </div>
+                <br>
+                <div>
+                    <label for="mail">MAIL</label>
+                </div>
+                <div>
+                    <input type="text" id="mail" name="userInput">
+                </div>
+                <br>
+                <div>
+                    <label for="password">PASSWORD</label>
+                </div>
+                <div>
+                    <input type="password" id="password" name="userInput" required>
+                    <div class="toggle-password" onclick="togglePasswordVisibility()">
+                        <label for="myCheckbox">Show password</label>
+                        <input type="checkbox" id="toggle-icon" name="myCheckbox">
+                    </div>
+                </div>
+                <br>
             </div>
-            <div>
-                <input type="text" id="userInput" name="userInput">
+            
+            <div class="btn-continue">
+                <a href="search.html" onclick="return checkFields()">Register</a>
             </div>
-            <br>
-            <div>
-                <label for="userInput">MAIL</label>
-            </div>
-            <div>
-                <input type="text" id="userInput" name="userInput">
-            </div>
-            <br>
-            <div>
-                <label for="userInput">PASSWORD</label>
-            </div>
-            <div>
-                <input type="password" id="userInput" name="userInput">
-            </div>
-            <br>
-        </div>
-        
-        <div class="btn-continue">
-            <a href="search.html">Register</a>
-        </div>
+    
+        </form>
 
         <div class="footer">
             <label>GoGoCars</label>
@@ -65,6 +71,7 @@
                 
             </div>
         </div>
+        <script src="script.js"></script>
     </body>
 </html>
 
