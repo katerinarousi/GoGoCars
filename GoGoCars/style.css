@@ -14,9 +14,10 @@
     display: flexbox;
 }
 
-.search-nav{
+.header-nav{
     justify-content: space-between;
     padding: 20px 7%;
+    float:right;
     
 
 }
