@@ -498,12 +498,16 @@ footer p {
 }
 
 .h2 {
-    margin-left: 123px;
-    margin-top: 80px;
+    margin-left: 136px;
+    margin-top: 60px;
+    color: #003366;
+    font-style: italic;
 }
 
 .h5 {
-    margin-left: 123px;
+    margin-left: 136px;
+    color: #003366;
+    font-style: italic;
 }
 
 .data-inputs {
@@ -561,21 +565,21 @@ footer p {
     background-color: #003366;
     border: none;
     cursor: pointer;
-    padding: 10px 40px;
+    padding: 10px 155px;
     border-radius: 20px;
     margin-left: 123px;
 }
 
 .btn-continue {
     margin-bottom: -110px;
-    margin-top: -60px;
+    margin-top: -20px;
     margin-left: -123px;
 }
 
 .our-logo-register {
     position: relative;
     left: 600px;
-    top: -180px;
+    top: -210px;
     opacity: 0.8;
     width: 700px;
     height: auto;
@@ -584,7 +588,7 @@ footer p {
 .our-logo-login {
     position: relative;
     left: 600px;
-    top: -120px;
+    top: -150px;
     opacity: 0.8;
     width: 700px;
     height: auto;
