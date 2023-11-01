@@ -710,7 +710,7 @@ footer p {
   margin-right: 20px;
 }
 
-button {
+.checkout-button {
   margin-top: 20px;
   background-color: #036;
   color: white;
@@ -723,9 +723,6 @@ button {
   display: block;
 }
 
-button:hover {
-  background-color: #034; /* Change to your desired hover color */
-}
 
 .col-sm-9 {
   flex: 1;
