@@ -600,6 +600,23 @@ footer p {
 
 
 /*-----------------------------------checkout-----------------------------------------------*/
+.form-group {
+  flex-direction: column;
+  margin-left: 80px;
+  margin-top: 20px;
+  position: relative;
+  width: 450px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  border: none;
+  font-size: 15px;
+  background-color: #f0f0f0;
+  background-size: auto;
+}
 
 .contact-input {
     display: flex;
@@ -650,46 +667,20 @@ footer p {
   width: 600px;
   justify-content: center; 
   align-items: center; 
+  float:left;
+  margin-right: 0.5px;
+  margin-top: 10px;
 
-}
-
-.big-field {
-    background-size: auto;
-    margin: 20px auto;
-    max-width: 600pxs;
-    background-color: #f0f0f0;
-    border: 3px solid #092273;
-    padding: 10px;
-    padding-bottom: 20px;
-    width: 600px;
-    justify-content: center; 
-    align-items: center; 
-    
-}
-
-.form-group {
-  margin-bottom: 20px;
 }
 
 .main-label {
   font-weight: bold;
-  justify-content: center; /* Horizontal centering */
+  justify-content: center;
   align-items: center; 
-    
-}
-
-.contact-info {
-  max-width: 400px;
-  margin: 0 auto;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-  margin: 0 auto;
-
 }
 
 .contact-input select {
+  background-color: #f0f0f0;
   padding: 5px;
   border: 2px solid #464444;
   border-radius: 5px;
@@ -701,16 +692,13 @@ footer p {
   border: 2px solid #464444;
   border-radius: 5px;
 }
-.contact-input select {
-  margin-right: 10px; /* Add space between select and input */
-}
-
 .payment-method label {
   display: inline-block;
   margin-right: 20px;
 }
 
 .checkout-button {
+  clear: both;
   margin-top: 20px;
   background-color: #036;
   color: white;
@@ -721,17 +709,48 @@ footer p {
   border-radius: 5px;
   margin: 0 auto;
   display: block;
-}
 
+}
 
 .col-sm-9 {
   flex: 1;
   padding: 5px;
   border: 2px solid #464444;
   border-radius: 5px;
+  margin-top: 12px;
 
 }
 .billing-container {
   text-align: center; 
   color:orangered;
 }
+
+
+/* Style product card images */
+.card-img-top {
+  max-width: 100%;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.Billing-info{
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.045);
+  text-align: center;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  justify-content: center;
+  gap: 20px;
+  display: grid;
+  position: relative;
+  padding-top: 20px;
+  background-size: auto;
+  margin: 20px auto;
+  max-width: 600pxs;
+  padding-bottom: 20px;
+  width: 600px;
+  float:right;
+  margin-left:0.5px;
+  margin-top: 10px;
+}
+
+
