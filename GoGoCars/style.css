@@ -648,6 +648,12 @@ footer p {
 
 
 /*-----------------------------------checkout-----------------------------------------------*/
+.my_title_checkout{
+  display: flex;
+  align-items: center;
+  color:#fd5003;
+
+}
 .form-group {
   flex-direction: column;
   margin-left: 80px;
@@ -662,7 +668,7 @@ footer p {
   width: 100%;
   border: none;
   font-size: 15px;
-  background-color: #f0f0f0;
+  background-color: #fff;
   background-size: auto;
 }
 
@@ -707,7 +713,8 @@ footer p {
   height: auto;
 }
 .big-field-car{
-  border: 1px solid #ddd;
+  background-color: #f0f0f0f0;
+  border: 1px solid #f0f0f0;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.045);
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -732,7 +739,7 @@ footer p {
 }
 
 .contact-input select {
-  background-color: #f0f0f0;
+  background-color: #fff;
   padding: 5px;
   border: 2px solid #464444;
   border-radius: 5px;
@@ -753,7 +760,7 @@ footer p {
   clear: both;
   margin-top: 20px;
   background-color: #036;
-  color: white;
+  color: rgb(239, 110, 5);
   border: none;
   padding: 20px 40px;
   font-size: 24px;
@@ -785,7 +792,7 @@ footer p {
   border-top-right-radius: 8px;
 }
 .Billing-info{
-  border: 1px solid #ddd;
+  border: 1px solid #f0f0f0;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.045);
   text-align: center;
@@ -803,6 +810,7 @@ footer p {
   float:right;
   margin-left:0.5px;
   margin-top: 10px;
+  background-color: #f0f0f0f0;
 }
 
 
