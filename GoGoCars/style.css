@@ -723,10 +723,11 @@ footer p {
   position: relative;
   padding-top: 20px;
   background-size: auto;
-  margin: 20px auto;
-  max-width: 700pxs;
+  margin: 55px;
+  padding:50px;
+  max-width: 750pxs;
   padding-bottom: 20px;
-  width: 600px;
+  width: 700px;
   float:left;
   margin-right:0.5px;
   margin-top: 10px;
@@ -758,7 +759,7 @@ footer p {
 
 .checkout-button {
   clear: both;
-  margin-top: 20px;
+  margin-top: 40px;
   background-color: #036;
   color: rgb(239, 110, 5);
   border: none;
@@ -766,7 +767,8 @@ footer p {
   font-size: 24px;
   cursor: pointer;
   border-radius: 5px;
-  margin: 0 auto;
+  margin: 100px;
+  padding: 40px;
   display: block;
 
 }
