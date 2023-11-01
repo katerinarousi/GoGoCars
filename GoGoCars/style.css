@@ -630,6 +630,7 @@ footer p {
 .car-image {
   flex: 1;
   padding: 20px;
+  float:left;
 }
 .car-image img {
   max-width: 100%;
@@ -658,19 +659,22 @@ footer p {
   height: auto;
 }
 .big-field-car{
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.045);
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  display: grid;
+  position: relative;
+  padding-top: 20px;
   background-size: auto;
   margin: 20px auto;
-  max-width: 600pxs;
-  background-color: #f0f0f0;
-  border: 2px solid #092273;
-  padding: 10px;
+  max-width: 700pxs;
+  padding-bottom: 20px;
   width: 600px;
-  justify-content: center; 
-  align-items: center; 
   float:left;
-  margin-right: 0.5px;
+  margin-right:0.5px;
   margin-top: 10px;
-
 }
 
 .main-label {
