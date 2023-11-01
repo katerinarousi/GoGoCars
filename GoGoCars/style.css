@@ -494,20 +494,26 @@ footer p {
 }
 
 .header-nav a:hover {
-    background-color: rgba(255,255,255,0.6)
+    background-color: rgba(255,255,255,0.1)
 }
 
-.h2 {
-    margin-left: 136px;
+.about-us {
+    margin-right: 1050px;
+
+}
+
+.log-h1 {
+    font-style: italic;
     margin-top: 60px;
+    margin-left: 115px;
     color: #003366;
-    font-style: italic;
 }
 
-.h5 {
-    margin-left: 136px;
-    color: #003366;
+.reg-h1 {
     font-style: italic;
+    margin-top: 60px;
+    margin-left: 115px;
+    color: #003366;
 }
 
 .data-inputs {
@@ -565,21 +571,34 @@ footer p {
     background-color: #003366;
     border: none;
     cursor: pointer;
-    padding: 10px 155px;
+    padding: 10px 25px;
     border-radius: 20px;
     margin-left: 123px;
 }
 
-.btn-continue {
-    margin-bottom: -110px;
-    margin-top: -20px;
-    margin-left: -123px;
+.btn-continue .as-host {
+    position: relative;
+    top: -20px;
+    left: 70px;
+}
+
+.btn-continue .as-guest {
+    position: relative;
+    top: -38.5px;
+    left: -125px;
+}
+
+.btn-continue .my-login {
+    padding: 10px 165px;
+    position: relative;
+    top: -38.5px;
+    left: -125px;
 }
 
 .our-logo-register {
     position: relative;
     left: 600px;
-    top: -210px;
+    top: -360px;
     opacity: 0.8;
     width: 700px;
     height: auto;
@@ -588,15 +607,49 @@ footer p {
 .our-logo-login {
     position: relative;
     left: 600px;
-    top: -150px;
+    top: -290px;
     opacity: 0.8;
     width: 700px;
     height: auto;
 }
 
-.about-us {
-    margin-right: 1050px;
+.quote-reg {
+    position: relative;
+    bottom: 400px;
+    left: 800px;
+    color: rgba(251, 114, 15, 0.5);
+    font-style: italic;
 }
+
+.quote-log {
+    position: relative;
+    bottom: 330px;
+    left: 800px;
+    color: rgba(251, 114, 15, 0.5);
+    font-style: italic;
+}
+
+.reg-log-footer {
+    text-align: center;
+    background-color: #f0f0f0;
+    padding: 0px;
+    margin-top: -100px
+}
+
+.reg-log-footer label {
+    font-size: 24px;
+}
+
+.reg-log-footer ul {
+    list-style: none;
+    padding: 20px;
+}
+
+.reg-log-footer p {
+    color: #fd5003;
+    font-size: 14px;
+}
+
 
 
 /*-----------------------------------checkout-----------------------------------------------*/
