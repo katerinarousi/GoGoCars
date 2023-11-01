@@ -6,139 +6,135 @@
     <link rel = "stylesheet" href="style.css">
 </head>
 <body style="background-color: #f0f0f0;">
+  <div class="header" style="height: 10vh; background-color: #036;">
+    <nav>
+      <span class="logo-span" style="align-self: center;">
+           <img src="images/logo_w_backg2.png" class="logo" onclick="window.location.href='search.html'" >
+      </span>
+      <div class="profile-btn">
+           <a href="#"><span></span>Profile</a>
+      </div>
+      
+      <div class="switch">
+           <input id="language-toggle" class="check-toggle check-toggle-round-flat" type="checkbox">
+           <label for="language-toggle"></label>
+           <span class="on">EN</span>
+           <span class="off">GR</span>
+      </div>
 
-    <div class="header" style="height: 18vh; background-color: #036;">
-     <nav>
-          <span class="logo-span" style="align-self: center;">
-            <img src="images/Screenshot 2023-10-30 155005.png" class="logo" onclick="window.location.href='search.html'" >
-       </span>
-       <div class="profile-btn">
-                <a href="#"><span></span>Profile</a>
-       </div>
-     </nav>
+    </nav>
+  </div>
+  <div class="container">
+    <h1 style="font-size:5vw">Checkout</h1>
+    <h2 style="font-size:1.5vw">Next...Confirmation</h2>
+    <div class="big-field-car">
+      <div class="car-details">
+        <div class="car-image">
+          <img src="images/citroen_c1.jpg" alt="Image Description" width="500">
+        </div>
+        <div class="car-info">
+          <h4>Citroen C1</h4>
+          <div>
+            <img class="user-image" src="images/user.jpg" alt="User Photo">
+            <span> <strong>Nikos Papadopoulos</strong></span>
+          </div>
+          <div>
+            <img class="date-image" src="images/pickupς.png" alt="Calendar Image">
+            <span><strong>Pick up:</strong> 10/11/2023 10:00</span>
+          </div>
+          <div>
+            <img class="date-image" src="images/dropoff.png" alt="Calendar Image">
+            <span><strong>Drop Off:</strong> 12/11/2023 13:00</span>
+          </div>
+          <div>
+            <img class="map-image" src="images/maps.jpg" alt="Map Image">
+            <span><strong>Location:</strong>Leoforos Adrea Siggrou</span>
+          </div>
+          <div>
+            <img class="price-image" src="images/total cost.png" alt="Price Image">
+            <span><strong>Total price:</strong> 70 &nbsp;&euro;</span>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="container">
-        <h1 style="font-size:5vw">Checkout</h1>
-        <h2 style="font-size:1.5vw">Next...Confirmation</h2>
-        <div class="big-field-car">
-          <div class="car-details">
-            <div class="car-image">
-                <img src="images/citroen_c1.jpg" alt="Image Description" width="500">
-            </div>
-              <div class="car-info">
-                <h4>Citroen C1</h4>
-                <div>
-                  <img class="user-image" src="images/user.jpg" alt="User Photo">
-                  <span> <strong>Nikos Papadopoulos</strong></span>
-                </div>
-
-                <div>
-                  <img class="date-image" src="images/pickupς.png" alt="Calendar Image">
-                  <span><strong>Pick up:</strong> 10/11/2023 10:00</span>
-                </div>
-                <div>
-                  <img class="date-image" src="images/dropoff.png" alt="Calendar Image">
-                  <span><strong>Drop Off:</strong> 12/11/2023 13:00</span>
-                </div>
-                <div>
-                  <img class="map-image" src="images/maps.jpg" alt="Map Image">
-                  <span><strong>Location:</strong>Leoforos Adrea Siggrou</span>
-                </div>
-                <div>
-                  <img class="price-image" src="images/total cost.png" alt="Price Image">
-                  <span><strong>Total price:</strong> 70 &nbsp;&euro;</span>
-                </div>
-              </div>
-              
-             
-            </div>
-          </div>
-        
-        <div class="billing-container">
-          <h3 style="font-size: 2vw;">Billing Info:</h3>
+    <div class="billing-container">
+      <h3 style="font-size: 2vw;">Billing Info:</h3>
+    </div>
+    <div class="Billing-info">
+      <div class="form-group">
+        <label for="name"class="col-sm-3 control-label main-label">First name: </label>
+        <div class="col-sm-9">
+          <input type="text" id="firstname" class="form-control" placeholder="please enter your surname" >
         </div>
-        <div class="big-field">
-          <!-- firstname -->
-          <div class="form-group">
-            <label for="name" class="col-sm-3 control-label main-label">First name: </label>
-            <div class="col-sm-9">
-              <input type="text" name="firstname" id="name" class="form-control" placeholder="please enter your name">
-            </div>
-          </div>
-
-          <!-- lastaname -->
-          <div class="form-group">
-            <label for="lastname" class="col-sm-3 control-label main-label">Last name: </label>
-            <div class="col-sm-9">
-              <input type="text" name="lastname" id="surname" class="form-control" placeholder="please enter your surname">
-            </div>
-          </div>
-          <!--email-->
-          <div class="form-group">
-            <label for="email" class="col-sm-3 control-label main-label">Email: </label>
-            <div class="col-sm-9">
-              <input type="text" name="email" id="email" class="form-control" placeholder="please enter your email">
-            </div>
-          </div>
-
-        <div class="form-group">
-            <label for="Date of birth" class="col-sm-3 control-label main-label">Date of birth: </label>
-            <div class="col-sm-9">
-              <input type="text" name="Date of birth" id="Date of birth" class="form-control" placeholder="please enter your date">
-            </div>
-        </div>    
-        <div class="contact-info">
-            <label for="contact-number" class="col-sm-3 control-label main-label">Contact number:</label>
-            <div class="contact-input">
-                <select id="contact_country_code" name="contact_country_code">
-                    <option value="Greece">+30 (Greece)</option>
-                    <option value="Germany">+49 (Germany)</option>
-                    <option value="France">+33 (France)</option>
-                    <option value="Italy">+39 (Italy)</option>
-                    <option value="Kenya">+254 (Kenya)</option>
-                </select>
-                <input type="tel" id="contact_number" name="contact_number" required>
-            </div>
+      </div>
+      <div class="form-group">
+        <label for="lastname"class="col-sm-3 control-label main-label">Last name: </label>
+        <div class="col-sm-9">
+          <input type="text" name="lastname" id="surname" class="form-control" placeholder="please enter your surname">
         </div>
-        
-        <div class="form-group">
-          <label for="Payment-method" class="col-sm-3 control-label main-label">Payment Method: </label>
-          <div class="payment-method">
-              <label>
-                  <input type="radio" name="payment" value="Credit card" required> Cash
-              </label>
-              <label>
-                <input type="radio" name="payment" value="Debit card" required> Cash
-            </label>
-            <label>
-              <input type="radio" name="payment" value="Paypal" required> Cash
-          </label>
-              <label>
-                  <input type="radio" name="payment" value="Cash" required> Card
-              </label>
-          </div>
+      </div>
+      <div class="form-group">
+        <label for="email"class="col-sm-3 control-label main-label">Email: </label>
+        <div class="col-sm-9">
+          <input type="text" name="email" id="email" class="form-control" placeholder="please enter your email">
         </div>
-      </div>   
-      <button type="button">Continue to Checkout</button>
-      <div class="footer">
-        <label>GoGoCars</label>
-        <div class="b-example-divider"></div>
-
-        <div class="container">
-            <footer>
-                <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
-                </ul>
-                <p>&copy; 2023 Company, Inc</p>
-            </footer>
+      </div>
+      <div class="form-group">
+        <label for="Date of birth" class="col-sm-3 control-label main-label">Date of birth: </label>
+        <div class="col-sm-9">
+          <input type="text" name="Date of birth" id="Date of birth" class="form-control" placeholder="please enter your date">
         </div>
+      </div>    
+      <div class="form-group">
+        <label for="contact-number" class="col-sm-3 control-label main-label">Contact number:</label>
+        <div class="contact-input">
+          <select id="contact_country_code" name="contact_country_code">
+            <option value="Greece">+30 (Greece)</option>
+            <option value="Germany">+49 (Germany)</option>
+            <option value="France">+33 (France)</option>
+            <option value="Italy">+39 (Italy)</option>
+            <option value="Kenya">+254 (Kenya)</option>
+          </select>
+          <input type="tel" id="contact_number" name="contact_number" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="Payment-method" class="col-sm-3 control-label main-label">Payment Method: </label>
+        <div class="payment-method">
+        <label>
+          <input type="radio" name="payment" value="Credit card" required> Cash
+        </label>
+        <label>
+          <input type="radio" name="payment" value="Debit card" required> Cash
+        </label>
+        <label>
+          <input type="radio" name="payment" value="Paypal" required> Cash
+        </label>
+        <label>
+          <input type="radio" name="payment" value="Cash" required> Card
+        </label>
+      </div>
+    </div>
+  </div> 
+  <button class="checkout-button" type="button">Continue to Checkout</button>
+ </div>
+ <div class="footer">
+  <label>GoGoCars</label>
+  <div class="container">
+    <footer>
+     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+     </ul>
+     <p>&copy; 2023 Company, Inc</p>
+    </footer>
+  </div>
+ </div>
             
-        </div>
-    </div>
+      
 
 </body>
 </html>
