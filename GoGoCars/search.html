@@ -8,26 +8,15 @@
 <body>
     <div class="header" style=" background-image: linear-gradient(rgba(0,0,0,0.3), #036), url(images/background-rocks.jpg)">
         
-        <nav class="search">
+        <span href="search.html" class="logo">
+            <img src="images/logo_w_backg2.png">
+        </span>
+        <div class="header-right">
+            <a class="profile-btn" href="#"><span></span>Rental Information</a>
+            <a class="profile-btn" href="#"><span></span>Profile</a>            
+        </div>
 
-            <span class="logo-span">
-                <img src="images/logo_w_backg2.png" class="logo" >
-            </span>
-
-           <div class="profile-btn">
-                <a href="#"><span></span>Profile</a>
-           </div>
-           
-            <div class="switch">
-                <input id="language-toggle" class="check-toggle check-toggle-round-flat" type="checkbox">
-                <label for="language-toggle"></label>
-                <span class="on">EN</span>
-                <span class="off">GR</span>
-              </div>
-
-        </nav>
         <div class = "container">
-            <!--<img src="images/background-rocks.jpg" class="background-img">-->
             <h1 style="font-size:5vw">Find the drive that suits you</h1>
             <h2 style="font-size:2vw">Explore our peer-to-peer rentals</h2>
             <div class="search-bar">
@@ -60,45 +49,101 @@
         </div>
     </div>
 
-    
-    <!-- <div class="col-md-6">
-        <div class="h-100 p-5 text-bg-dark rounded-3">
-          <h2>I AM A JUMBOTRON</h2>
-          <p>your days are limited</p>
-          <button class="btn btn-outline-light" type="button">Self-Destruction Button</button>
+    <!--<div class="multi-carousel" data-mdb-interval="3000" data-mdb-items="5">
+        <div class="d-flex justify-content-center m-2 mb-3">
+            <button class="carousel-control-prev btn btn-pink btn-floating mx-3" type="button" tabindex="0" data-mdb-slide="prev">
+                <i class="fas fa-angle-left fa-lg"></i>
+            </button>
+            <button class="carousel-control-next btn btn-pink btn-floating mx-3" type="button" tabindex="0" data-mdb-slide="next">
+                <i class="fas fa-angle-right fa-lg"></i>
+            </button>
         </div>
-      </div>
-
-   <div class="main">
-        <div class="container">
-            <h2 class="sub-title">Browse Options</h2>
-                <div class="browse">
-                    <div>
-                        <img src="images/citroen_c1.jpg">
-                        <span>
-                            <h3>Citroen C1</h3>
-                            <p>14.52€/day</p>
-                        </span>
+        <div class="multi-carousel-inner">
+            <div class="multi-carousel-item">
+                <div class="card">
+                    <img class="card-img-top" src="images/fiat_panda.jpg" alt="Card image cap" />
+                    <div class="card-body">
+                        <h5 class="card-title">Moda</h5>
+                        <p class="card-text">Plan B</p>
+                        <ul class="list-unstyled list-inline my-2">
+                            <li class="list-inline-item mx-0"><i class="fas fa-star"></i></li>
+                            <li class="list-inline-item mx-0"><i class="fas fa-star"></i></li>
+                            <li class="list-inline-item mx-0"><i class="fas fa-star"></i></li>
+                            <li class="list-inline-item mx-0"><i class="fas fa-star"></i></li>
+                            <li class="list-inline-item mx-0"><i class="fas fa-star-half-alt"></i></li>
+                        </ul>
+                        <p class="price mb-0">9,99 $</p>
                     </div>
-                    <div>
-                        <img src="images/fiat_panda.jpg">
-                        <span>
-                            <h3>Fiat Panda</h3>
-                            <p>14.52€/day</p>
-                        </span>
-                    </div>
-                    <div>
-                        <img src="images/nissan_micra.jpg">
-                        <span>
-                            <h3>Nissan Micra</h3>
-                            <p>14.52€/day</p>
-                        </span>
-                    </div>
-
-
-
                 </div>
-
+            </div>
+            <div class="multi-carousel-item">
+                <div class="card m-2">
+                    <img class="card-img-top" src="images/nissan_micra.jpg" alt="Card image cap" />
+                    <div class="card-body">
+                        <h5 class="card-title">Rockferry</h5>
+                        <p class="card-text">Duffy</p>
+                        <ul class="list-unstyled list-inline my-2">
+                            <li class="list-inline-item mx-0"><i class="fas fa-star"></i></li>
+                            <li class="list-inline-item mx-0"><i class="fas fa-star"></i></li>
+                            <li class="list-inline-item mx-0"><i class="fas fa-star"></i></li>
+                            <li class="list-inline-item mx-0"><i class="fas fa-star"></i></li>
+                            <li class="list-inline-item mx-0"><i class="fas fa-star-half-alt"></i></li>
+                        </ul>
+                        <p class="price mb-0">17,99 $</p>
+                    </div>
+                </div>
+            </div>
+            <div class="multi-carousel-item">
+                <div class="card m-2">
+                    <img class="card-img-top" src="images/giagia.jpg" alt="Card image cap" />
+                    <div class="card-body">
+                        <h5 class="card-title">Indie Pop</h5>
+                        <p class="card-text">Various artists</p>
+                        <ul class="list-unstyled list-inline my-2">
+                            <li class="list-inline-item mx-0"><i class="fas fa-star"></i></li>
+                            <li class="list-inline-item mx-0"><i class="fas fa-star"></i></li>
+                            <li class="list-inline-item mx-0"><i class="fas fa-star"></i></li>
+                            <li class="list-inline-item mx-0"><i class="fas fa-star"></i></li>
+                            <li class="list-inline-item mx-0"><i class="far fa-star"></i></li>
+                        </ul>
+                        <p class="price mb-0">9,99 $</p>
+                    </div>
+                </div>
+            </div>
+            <div class="multi-carousel-item">
+                <div class="card m-2">
+                    <img class="card-img-top" src="images/citroen_c1.jpg" alt="Card image cap" />
+                    <div class="card-body">
+                        <h5 class="card-title">Rock 'N' Roll</h5>
+                        <p class="card-text">Chuck Berry</p>
+                        <ul class="list-unstyled list-inline my-2">
+                            <li class="list-inline-item mx-0"><i class="fas fa-star"></i></li>
+                            <li class="list-inline-item mx-0"><i class="fas fa-star"></i></li>
+                            <li class="list-inline-item mx-0"><i class="fas fa-star"></i></li>
+                            <li class="list-inline-item mx-0"><i class="fas fa-star"></i></li>
+                            <li class="list-inline-item mx-0"><i class="fas fa-star-half-alt"></i></li>
+                        </ul>
+                        <p class="price mb-0">29,99 $</p>
+                    </div>
+                </div>
+            </div>
+            <div class="multi-carousel-item">
+                <div class="card m-2">
+                    <img class="card-img-top" src="images/citroen_c1.jpg" alt="Card image cap" />
+                    <div class="card-body">
+                        <h5 class="card-title">High Voltage</h5>
+                        <p class="card-text">AC/DC</p>
+                        <ul class="list-unstyled list-inline my-2">
+                            <li class="list-inline-item mx-0"><i class="fas fa-star"></i></li>
+                            <li class="list-inline-item mx-0"><i class="fas fa-star"></i></li>
+                            <li class="list-inline-item mx-0"><i class="fas fa-star"></i></li>
+                            <li class="list-inline-item mx-0"><i class="fas fa-star"></i></li>
+                            <li class="list-inline-item mx-0"><i class="fas fa-star"></i></li>
+                        </ul>
+                        <p class="price mb-0">24,99 $</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>-->
 
@@ -111,10 +156,9 @@
             <footer>
                 <ul class="nav justify-content-center border-bottom pb-3 mb-3">
                     <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About Us</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Contact</a></li>
                     <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
                 </ul>
                 <p>&copy; 2023 Company, Inc</p>
             </footer>

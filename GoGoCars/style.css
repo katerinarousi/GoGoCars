@@ -29,11 +29,10 @@
 }
 
 .header-right{
-  float: right;
+  float:right;
 }
 
 .logo{
-   /* background: rgba(255,255,255,0.5);*/
     width: 140px;
     cursor: pointer;
     height: 50px;
@@ -51,7 +50,7 @@
 
 .header a.profile-btn {
     border:0.5px solid #fff;
-    color:#fd5003;
+    color:#003366;
     text-align: center;
     padding: 8px 20px;
     border-radius: 5%;
@@ -62,6 +61,7 @@
     z-index: 1;
     transition: color 0.5s;  
     display: block;
+
 }
 
 /*---PROFILE BUTTON TRANSITION----*/
@@ -141,11 +141,12 @@
 
 .search-bar form button{
     background: #fd5003;
+    color: #fff;
+    text-align: center;
     width: 70%;
     height: 50px;
     border-radius: 50px;
     border: solid #fff;
-
     border: 0%;
     outline: none;
     cursor: pointer;
@@ -153,7 +154,7 @@
 }
 
 .search-bar form button:hover{
-    transform: scale(1.1);
+    transform: scale(0.9);
 }
 .location-input{
     flex: 0.5;
@@ -166,7 +167,7 @@
     font-weight: 600;
 }
 
-
+/*----------------------------FOOTER--------------------------*/
 .footer {
     text-align: center;
     background-color: #f0f0f0;
@@ -337,6 +338,25 @@ footer p {
     padding: 5px 5px;
     cursor: pointer;
     transform: scale(1.1);
+}
+
+
+/*-------------------CAROUSEL FOR SEARCH-----------------------*/
+
+.card-title {
+  color: #db0075;
+}
+.card-text {
+  color: #17E6E6;
+}
+.list-inline-item {
+  color: #ffd700
+}
+.price {
+  color: #9B1B30;
+}
+.btn-pink {
+  background-color: #fcb2b2 !important;
 }
 
 /*-------------------TEST FILTER DROP DOWN----------------------------*/
@@ -703,6 +723,7 @@ footer p {
   display: flex;
   align-items: center;
   color:#fd5003;
+  justify-content: center;
 
 }
 .form-group {
@@ -748,7 +769,7 @@ footer p {
 }
 .car-info h4 {
   font-size: 1.5rem;
-  color: #f55f08;
+  color: #fd5003;
 }
 .car-info h5 {
   font-size: 1.2rem;
@@ -810,8 +831,8 @@ footer p {
 }
 
 .checkout-button {
-  clear: both;
-  margin-top: 40px;
+
+  margin-top: -200px;
   background-color: #036;
   color: rgb(239, 110, 5);
   border: none;
@@ -835,16 +856,9 @@ footer p {
 }
 .billing-container {
   text-align: center; 
-  color:orangered;
+  color:#fd5003;
 }
 
-
-/* Style product card images */
-.card-img-top {
-  max-width: 100%;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-}
 .Billing-info{
   border: 1px solid #f0f0f0;
   border-radius: 10px;
@@ -867,5 +881,7 @@ footer p {
   background-color: #f0f0f0f0;
   font-size: 20px;
 }
-
+.footer-checkout{
+  clear: both;
+}
 
