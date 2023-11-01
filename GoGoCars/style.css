@@ -29,11 +29,10 @@
 }
 
 .header-right{
-  float: right;
+  float:right;
 }
 
 .logo{
-   /* background: rgba(255,255,255,0.5);*/
     width: 140px;
     cursor: pointer;
     height: 50px;
@@ -51,7 +50,7 @@
 
 .header a.profile-btn {
     border:0.5px solid #fff;
-    color:#fd5003;
+    color:#003366;
     text-align: center;
     padding: 8px 20px;
     border-radius: 5%;
@@ -62,6 +61,7 @@
     z-index: 1;
     transition: color 0.5s;  
     display: block;
+
 }
 
 /*---PROFILE BUTTON TRANSITION----*/
@@ -141,11 +141,12 @@
 
 .search-bar form button{
     background: #fd5003;
+    color: #fff;
+    text-align: center;
     width: 70%;
     height: 50px;
     border-radius: 50px;
     border: solid #fff;
-
     border: 0%;
     outline: none;
     cursor: pointer;
@@ -153,7 +154,7 @@
 }
 
 .search-bar form button:hover{
-    transform: scale(1.1);
+    transform: scale(0.9);
 }
 .location-input{
     flex: 0.5;
@@ -166,7 +167,7 @@
     font-weight: 600;
 }
 
-
+/*----------------------------FOOTER--------------------------*/
 .footer {
     text-align: center;
     background-color: #f0f0f0;
@@ -286,6 +287,25 @@ footer p {
     padding: 5px 5px;
     cursor: pointer;
     transform: scale(1.1);
+}
+
+
+/*-------------------CAROUSEL FOR SEARCH-----------------------*/
+
+.card-title {
+  color: #db0075;
+}
+.card-text {
+  color: #17E6E6;
+}
+.list-inline-item {
+  color: #ffd700
+}
+.price {
+  color: #9B1B30;
+}
+.btn-pink {
+  background-color: #fcb2b2 !important;
 }
 
 /*-------------------TEST FILTER DROP DOWN----------------------------*/
