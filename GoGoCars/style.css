@@ -18,7 +18,7 @@
     display: flexbox;
 }
 
-.header a{
+.header a {
     float: left;
     text-align: center;
     padding: 12px;
@@ -294,7 +294,7 @@ footer p {
     padding-left: 5%;
     padding-right: 5%;
     position: relative;
-    left: 55%;
+    left: 2%;
 }
 
 .dropdown {
@@ -509,24 +509,21 @@ footer p {
 
 .register-body {
     background-color: #f0f0f0;
-    background-image: url(images/logo_w_backg2.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-color: rgba(255, 255, 255, 0.5); 
-    background-blend-mode: overlay;
-    background-size: 1000px;
-    background-position-x: 90%;
-    background-position-y: 35%;
 }
 
 .header-nav {
     align-items: center;
-    text-align: center;
+    text-align: right;
     background-color: #003366;
 }
-.header-nav li{
-    align-items: center;
+
+.header-nav li {
     display: inline;
+}
+
+.header-nav ul {
+    display: flex;
+    justify-content: end;
 }
 
 .header-nav a{
@@ -541,12 +538,16 @@ footer p {
 }
 
 .h2 {
-    margin-left: 123px;
-    margin-top: 80px;
+    margin-left: 136px;
+    margin-top: 60px;
+    color: #003366;
+    font-style: italic;
 }
 
 .h5 {
-    margin-left: 123px;
+    margin-left: 136px;
+    color: #003366;
+    font-style: italic;
 }
 
 .data-inputs {
@@ -571,6 +572,7 @@ footer p {
     outline: none;
     font-size: 18px;
     background-color: #f0f0f0;
+    background-size: auto;
 }
 
 .data-inputs input:focus {
@@ -579,21 +581,6 @@ footer p {
 
 .data-inputs label, .data-inputs input {
     margin-bottom: 46px; 
-}
-
-.btn-continue a{
-    text-decoration: none;
-    color: #fd5003;
-    background-color: #003366;
-    border: none;
-    cursor: pointer;
-    padding: 10px 60px;
-    border-radius: 20px;
-    margin-left: 123px;
-}
-
-.btn-continue {
-    margin-bottom: 90px;
 }
 
 .toggle-password input {
@@ -609,4 +596,185 @@ footer p {
     bottom: 40px;
     color: #003366;
     font-size: 10px;
+    width: 20px;
+}
+
+.btn-continue a{
+    text-decoration: none;
+    color: #fd5003;
+    background-color: #003366;
+    border: none;
+    cursor: pointer;
+    padding: 10px 155px;
+    border-radius: 20px;
+    margin-left: 123px;
+}
+
+.btn-continue {
+    margin-bottom: -110px;
+    margin-top: -20px;
+    margin-left: -123px;
+}
+
+.our-logo-register {
+    position: relative;
+    left: 600px;
+    top: -210px;
+    opacity: 0.8;
+    width: 700px;
+    height: auto;
+}
+
+.our-logo-login {
+    position: relative;
+    left: 600px;
+    top: -150px;
+    opacity: 0.8;
+    width: 700px;
+    height: auto;
+}
+
+.about-us {
+    margin-right: 1050px;
+}
+
+
+/*-----------------------------------checkout-----------------------------------------------*/
+
+.contact-input {
+    display: flex;
+    margin-bottom: 20px;
+}
+.car-details {
+  display: flex;
+  align-items: center;
+}
+
+.car-image {
+  flex: 1;
+  padding: 20px;
+}
+.car-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+.car-info {
+  flex: 2;
+}
+.car-info h4 {
+  font-size: 1.5rem;
+  color: #f55f08;
+}
+.car-info h5 {
+  font-size: 1.2rem;
+  color: #030303;}
+
+.user-image, .date-image, .price-image , .map-image {
+    max-width: 30px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.owner-image {
+  max-width: 100px;
+  height: auto;
+}
+.big-field-car{
+  background-size: auto;
+  margin: 20px auto;
+  max-width: 600pxs;
+  background-color: #f0f0f0;
+  border: 2px solid #092273;
+  padding: 10px;
+  width: 600px;
+  justify-content: center; 
+  align-items: center; 
+
+}
+
+.big-field {
+    background-size: auto;
+    margin: 20px auto;
+    max-width: 600pxs;
+    background-color: #f0f0f0;
+    border: 3px solid #092273;
+    padding: 10px;
+    padding-bottom: 20px;
+    width: 600px;
+    justify-content: center; 
+    align-items: center; 
+    
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.main-label {
+  font-weight: bold;
+  justify-content: center; /* Horizontal centering */
+  align-items: center; 
+    
+}
+
+.contact-info {
+  max-width: 400px;
+  margin: 0 auto;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  margin: 0 auto;
+
+}
+
+.contact-input select {
+  padding: 5px;
+  border: 2px solid #464444;
+  border-radius: 5px;
+}
+
+.contact-input input[type="tel"] {
+  flex: 1;
+  padding: 5px;
+  border: 2px solid #464444;
+  border-radius: 5px;
+}
+.contact-input select {
+  margin-right: 10px; /* Add space between select and input */
+}
+
+.payment-method label {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+button {
+  margin-top: 20px;
+  background-color: #036;
+  color: white;
+  border: none;
+  padding: 20px 40px;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 0 auto;
+  display: block;
+}
+
+button:hover {
+  background-color: #034; /* Change to your desired hover color */
+}
+
+.col-sm-9 {
+  flex: 1;
+  padding: 5px;
+  border: 2px solid #464444;
+  border-radius: 5px;
+
+}
+.billing-container {
+  text-align: center; 
+  color:orangered;
 }

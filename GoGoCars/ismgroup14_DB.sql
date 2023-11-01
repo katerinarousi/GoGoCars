@@ -4,7 +4,12 @@ CREATE TABLE Users (
     userID INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(20) NOT NULL UNIQUE,
     email VARCHAR(50) NOT NULL UNIQUE,
-    account_password VARCHAR(80) NOT NULL
+    account_password VARCHAR(80) NOT NULL,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    date_of_birth DATE,
+    phone VARCHAR(20),
+    is_host BOOLEAN NOT NULL 
 );
 
 CREATE TABLE Cars (
@@ -30,13 +35,4 @@ CREATE TABLE Rental (
     place VARCHAR(80) NOT NULL,
     FOREIGN KEY (renterID) REFERENCES Users(userID),
     FOREIGN KEY (carID) REFERENCES Cars(carID)
-);
-CREATE TABLE UserInfo (
-    userInfoID INT AUTO_INCREMENT PRIMARY KEY,
-    rentalID INT ,
-    first_name VARCHAR(50),
-    last_name VARCHAR(50),
-    date_of_birth DATE,
-    phone VARCHAR(20),
-    FOREIGN KEY (rentalID) REFERENCES Rental(rentalID)
 );

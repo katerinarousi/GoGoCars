@@ -2,21 +2,22 @@
 <html>
     <head>
         <meta name="viewport" content="width=device=width, initial-scale=1.0">
-        <title>Register/Login</title>
+        <title>Register Page</title>
         <link rel = "stylesheet" href="style.css">
     </head>
     <body class="register-body">
         <header>
             <nav class="header-nav">
                 <ul>
-                    <li><a href="register.html">Register</a></li>
+                    <li><a class="about-us" href="about_us.html">About us</a></li>
+                    <li><a id="login-regiser" href="register.html">Register</a></li>
                     <li><a href="login.html">Login</a></li>
                 </ul>
             </nav>
         </header>
 
-        <h2 class="h2">Welcome to the world</h2>
-        <h5 class="h5">of the fast and easy car rentals</h5>
+        <h1 class="h2"><strong>Welcome to the world</strong></h2>
+        <h4 class="h5">of the fast and easy car rentals!</h5>
         <form>
             <div class="data-inputs">
                 <div>
@@ -42,15 +43,18 @@
                         <label for="myCheckbox">Show password</label>
                         <input type="checkbox" id="toggle-icon" name="myCheckbox">
                     </div>
+                    <div class="btn-continue">
+                        <a href="search.html" onclick="return checkFieldsRegister()">Register</a>
+                    </div>
                 </div>
                 <br>
             </div>
-            
-            <div class="btn-continue">
-                <a href="search.html" onclick="return checkFields()">Register</a>
-            </div>
-    
+
         </form>
+        <img class="our-logo-register" src="images/GOGOCARSLOGOF0F0F0.jpg" alt="">
+
+
+
 
         <div class="footer">
             <label>GoGoCars</label>
