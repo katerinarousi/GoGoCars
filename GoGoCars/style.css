@@ -652,6 +652,7 @@ footer p {
   display: flex;
   align-items: center;
   color:#fd5003;
+  justify-content: center;
 
 }
 .form-group {
@@ -787,13 +788,6 @@ footer p {
   color:orangered;
 }
 
-
-/* Style product card images */
-.card-img-top {
-  max-width: 100%;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-}
 .Billing-info{
   border: 1px solid #f0f0f0;
   border-radius: 10px;
