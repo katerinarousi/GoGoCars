@@ -9,7 +9,7 @@ CREATE TABLE Users (
     last_name VARCHAR(50),
     date_of_birth DATE,
     phone VARCHAR(20),
-    user_Type BOOLEAN NOT NULL 
+    is_host BOOLEAN NOT NULL 
 );
 
 CREATE TABLE Cars (
