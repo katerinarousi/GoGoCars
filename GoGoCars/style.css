@@ -759,8 +759,8 @@ footer p {
 }
 
 .checkout-button {
-  clear: both;
-  margin-top: 40px;
+
+  margin-top: -200px;
   background-color: #036;
   color: rgb(239, 110, 5);
   border: none;
@@ -816,5 +816,7 @@ footer p {
   background-color: #f0f0f0f0;
   font-size: 20px;
 }
-
+.footer-checkout{
+  clear: both;
+}
 
