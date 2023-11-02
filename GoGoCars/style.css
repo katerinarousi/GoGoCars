@@ -222,22 +222,18 @@ footer p {
 
 /*-------------------------------------Filters---------------------------------------*/
 
-/* Fixed sidenav, full height */
 .sidenav {
   position: relative;
-  height: 80%;
-  width: 130px;
+  width: 150px;
   z-index: 1;
-  top: -150px;
-  left: 60px;
+  top: -100px;
+  left: 210px;
   background-color: #003366;
   overflow-x: hidden;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  border-radius: 20px;
 }
 
-/* Style the sidenav links and the dropdown button */
-.sidenav a, .dropdown-btn, .filters-btn {
+.sidenav a, .engine-type-btn, .filters-btn ,.category-btn {
   padding: 5px 10px 6px 16px;
   text-decoration: none;
   font-size: 20px;
@@ -252,36 +248,34 @@ footer p {
 }
 
 .filters-btn {
+  text-align: center;
   padding-top: 0px;
   padding-bottom: 0px;
-  
 }
-.sidenav a:hover, .dropdown-btn:hover {
+
+.sidenav a:hover, .engine-type-btn:hover, .category-btn:hover {
   color: #003366;
   background-color: #fd5003;
 }
 
-/* Main content */
 .main {
-  margin-left: 200px; /* Same as the width of the sidenav */
-  font-size: 20px; /* Increased text to enable scrolling */
+  margin-left: 200px; 
+  font-size: 20px; 
   padding: 0px 10px;
 }
 
-/* Add an active class to the active dropdown button */
 .active {
   background-color: #fd5003;
   color: #003366;
 }
 
-/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
 .dropdown-container {
   display: none;
   background-color: #262626;
   padding-left: 8px;
 }
 
-/* Optional: Style the caret down icon */
+
 .fa-caret-down {
   float: right;
   padding-right: 8px;
@@ -602,7 +596,7 @@ footer p {
     color: #fd5003;
     outline: none;
     font-size: 18px;
-    background-color: #f0f0f0;
+    background-color: #fff;
     background-size: auto;
 }
 

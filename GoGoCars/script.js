@@ -60,29 +60,46 @@ function updateCarousel() {
 /*---------------------------------------------------------------------*/
 function dropDownMenu() {
     var dropdown1 = document.getElementsByClassName("filters-btn")
-    var dropdown2 = document.getElementsByClassName("dropdown-btn");
+    var dropdown2 = document.getElementsByClassName("engine-type-btn");
+    var dropdown3 = document.getElementsByClassName("category-btn");
     var i;
 
-    for (i = 0; i < dropdown1.length || i < dropdown2.length; i++) {
-    dropdown1[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var dropdownContent = this.nextElementSibling;
-        if (dropdownContent.style.display === "block") {
-        dropdownContent.style.display = "none";
-        } else {
-        dropdownContent.style.display = "block";
+    for (i = 0; i < dropdown1.length || i < dropdown2.length || i < dropdown3.length; i++) {
+        
+        if (i < dropdown1.length) {
+            dropdown1[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var dropdownContent = this.nextElementSibling;
+                if (dropdownContent.style.display === "block") {
+                dropdownContent.style.display = "none";
+                } else {
+                dropdownContent.style.display = "block";
+                }
+            });
+
         }
-    });
-    }
-    for (i = 0; i < dropdown1.length || i < dropdown2.length; i++) {
-    dropdown2[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var dropdownContent = this.nextElementSibling;
-        if (dropdownContent.style.display === "block") {
-        dropdownContent.style.display = "none";
-        } else {
-        dropdownContent.style.display = "block";
+        if (i < dropdown2.length) {
+            dropdown2[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var dropdownContent = this.nextElementSibling;
+                if (dropdownContent.style.display === "block") {
+                dropdownContent.style.display = "none";
+                } else {
+                dropdownContent.style.display = "block";
+                }
+            });
         }
-    });
+
+        if (i < dropdown2.length) {
+            dropdown3[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var dropdownContent = this.nextElementSibling;
+                if (dropdownContent.style.display === "block") {
+                dropdownContent.style.display = "none";
+                } else {
+                dropdownContent.style.display = "block";
+                }
+            });
+        }
     }
 }
