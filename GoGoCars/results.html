@@ -4,7 +4,6 @@
     <meta name="viewport" content="width=device=width, initial-scale=1.0">
     <title>Results</title>
     <link rel = "stylesheet" href="style.css">
-    <script src="script.js"></script>
 </head>
 <body style="background-color: #fff;">
 
@@ -56,15 +55,27 @@
     </div>
     
     <!-- Filters by Jasonys Neratzoulis-->
+    <div class="sidenav">
+        <button class="filters-btn" onclick="dropDownMenu()"><h3>Filters</h3> 
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+            <a href="#services"><h5>Category</h5></a>
+            <a href="#clients"><h5>Color</h5></a>
+            <a href="#contact"><h5>Fuel Consumption</h5></a>
+            <button class="dropdown-btn" onclick="dropDownMenu()"><h5>Engine Type</h5> 
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+            </div>
+            <a href="#contact"><h5>Interior</h5></a>
+        </div>
+        </div>
 
-    <div class="dropdown">
-        <button class="dropbtn">Dropdown</button>
-        <div class="dropdown-content">
-            <a href="#">Option 1</a>
-            <a href="#">Option 2</a>
-            <a href="#">Option 3</a>
-    </div>
-
+    <!-- Filters by Jasonys Neratzoulis-->
 
         <!-- Products -->
     <div class="Products">
@@ -243,6 +254,6 @@
             
         </div>
     </div>
-
+    <script src="script.js"></script>
 </body>
 </html>
