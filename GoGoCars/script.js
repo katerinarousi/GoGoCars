@@ -35,3 +35,32 @@ function checkFieldsLogin() {
     }
     return true;
 }
+
+function dropDownMenu() {
+    var dropdown1 = document.getElementsByClassName("filters-btn")
+    var dropdown2 = document.getElementsByClassName("dropdown-btn");
+    var i;
+
+    for (i = 0; i < dropdown1.length || i < dropdown2.length; i++) {
+    dropdown1[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var dropdownContent = this.nextElementSibling;
+        if (dropdownContent.style.display === "block") {
+        dropdownContent.style.display = "none";
+        } else {
+        dropdownContent.style.display = "block";
+        }
+    });
+    }
+    for (i = 0; i < dropdown1.length || i < dropdown2.length; i++) {
+    dropdown2[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var dropdownContent = this.nextElementSibling;
+        if (dropdownContent.style.display === "block") {
+        dropdownContent.style.display = "none";
+        } else {
+        dropdownContent.style.display = "block";
+        }
+    });
+    }
+}
