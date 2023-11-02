@@ -35,7 +35,7 @@ function checkFieldsLogin() {
     }
     return true;
 }
-
+/*-------------------- carousel katerina ---------------------- */
 let currentItem = 0;
 const items = document.querySelectorAll('.carousel-item');
 const carousel = document.querySelector('.carousel');
@@ -56,6 +56,8 @@ function updateCarousel() {
     const translateX = -currentItem * 100 / items.length;
     carousel.style.transform = `translateX(${translateX}%)`;
 }
+
+/*---------------------------------------------------------------------*/
 function dropDownMenu() {
     var dropdown1 = document.getElementsByClassName("filters-btn")
     var dropdown2 = document.getElementsByClassName("dropdown-btn");
