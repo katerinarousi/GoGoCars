@@ -35,3 +35,24 @@ function checkFieldsLogin() {
     }
     return true;
 }
+
+let currentItem = 0;
+const items = document.querySelectorAll('.carousel-item');
+const carousel = document.querySelector('.carousel');
+const prevButton = document.getElementById('prev');
+const nextButton = document.getElementById('next');
+
+nextButton.addEventListener('click', function() {
+    currentItem = (currentItem + 1) % items.length;
+    updateCarousel();
+});
+
+prevButton.addEventListener('click', function() {
+    currentItem = (currentItem - 1 + items.length) % items.length;
+    updateCarousel();
+});
+
+function updateCarousel() {
+    const translateX = -currentItem * 100 / items.length;
+    carousel.style.transform = `translateX(${translateX}%)`;
+}
