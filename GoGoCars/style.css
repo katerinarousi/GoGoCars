@@ -50,7 +50,7 @@
 
 .header a.profile-btn {
     border:0.5px solid #fff;
-    color:#003366;
+    color:#fd5003;
     text-align: center;
     padding: 8px 20px;
     border-radius: 5%;
@@ -292,21 +292,6 @@ footer p {
 
 /*-------------------CAROUSEL FOR SEARCH-----------------------*/
 
-.card-title {
-  color: #db0075;
-}
-.card-text {
-  color: #17E6E6;
-}
-.list-inline-item {
-  color: #ffd700
-}
-.price {
-  color: #9B1B30;
-}
-.btn-pink {
-  background-color: #fcb2b2 !important;
-}
 
 /*-------------------TEST FILTER DROP DOWN----------------------------*/
 
@@ -367,8 +352,15 @@ footer p {
 
 
 
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+
+
+
+
 /*------------lang switch non functional-----------------*/
-.switch {
+/*.switch {
     position: relative;
     display: inline-block;
     align-items: flex-end;
@@ -475,15 +467,14 @@ footer p {
   /*input.check-toggle-round-flat:checked + label {
   }*/
   
-  input.check-toggle-round-flat:checked + label:after {
+  /**input.check-toggle-round-flat:checked + label:after {
     margin-left: 44px;
   }
-
-
+*/
 /*------------Register use case-----------------*/
 
 .register-body {
-    background-color: #f0f0f0;
+    background-color: #fff;
 }
 
 .header-nav {
