@@ -224,16 +224,16 @@ footer p {
 
 .sidenav {
   position: relative;
-  width: 150px;
+  width: 200px;
   z-index: 1;
-  top: -100px;
-  left: 210px;
-  background-color: #003366;
+  top: -125px;
+  left: 200px;
+  background-color: rgba(0, 0, 0, 0);
   overflow-x: hidden;
-  border-radius: 20px;
+  border-radius: 30px;
 }
 
-.sidenav a, .engine-type-btn, .filters-btn ,.category-btn {
+.sidenav a, .engine-type-btn, .filters-btn, .category-btn, .interior-btn, .vechile-type-btn, .transmissiom-btn {
   padding: 5px 10px 6px 16px;
   text-decoration: none;
   font-size: 20px;
@@ -248,12 +248,19 @@ footer p {
 }
 
 .filters-btn {
+  width: 100%;
   text-align: center;
-  padding-top: 0px;
-  padding-bottom: 0px;
+  background-color: #fd5003;
+  color: #fff;
 }
 
-.sidenav a:hover, .engine-type-btn:hover, .category-btn:hover {
+.glyphicon  {
+  margin-top: 10px;
+  color: #fff;
+  left: 20px;
+}
+
+.sidenav a:hover, .engine-type-btn:hover, .category-btn:hover, .interior-btn:hover, .vechile-type-btn:hover, .transmissiom-btn:hover {
   color: #003366;
   background-color: #fd5003;
 }
@@ -265,13 +272,13 @@ footer p {
 }
 
 .active {
-  background-color: #fd5003;
+  background-color: #f0f0f0;
   color: #003366;
 }
 
 .dropdown-container {
   display: none;
-  background-color: #262626;
+  background-color: #f0f0f0;
   padding-left: 8px;
 }
 
@@ -280,6 +287,8 @@ footer p {
   float: right;
   padding-right: 8px;
 }
+
+
 
 /*---------------------------------------product grid for results.html-----------------------------*/
 
