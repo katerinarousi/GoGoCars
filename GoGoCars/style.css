@@ -540,6 +540,9 @@ footer p {
 
 .register-body {
     background-color: #fff;
+    background-image: url(images/lalala2.png);
+    object-fit: cover;
+
 }
 
 .header-nav {
@@ -669,7 +672,7 @@ footer p {
 
 .our-logo-register {
     position: relative;
-    left: 600px;
+    /*left: 600px;*/
     top: -500px;
     opacity: 0.8;
     /*width: 700px;*/
@@ -685,27 +688,26 @@ footer p {
     height: auto;
 }
 
-.quote-reg {
+/*.quote-reg {
     position: relative;
     bottom: 400px;
     left: 800px;
     color: rgba(251, 114, 15, 0.5);
     font-style: italic;
 }
-
-.quote-log {
+*/
+/*.quote-log {
     position: relative;
     bottom: 330px;
     left: 800px;
     color: rgba(251, 114, 15, 0.5);
     font-style: italic;
-}
+}*/
 
 .reg-log-footer {
     text-align: center;
     background-color: #f0f0f0;
-    padding: 0px;
-    margin-top: -100px;
+    margin-top: 150px;
 }
 
 .reg-log-footer label {
@@ -714,14 +716,13 @@ footer p {
 
 .reg-log-footer ul {
     list-style: none;
-    padding: 20px;
+    /*padding: 20px;*/
 }
 
 .reg-log-footer p {
     color: #fd5003;
     font-size: 14px;
 }
-
 
 
 /*-----------------------------------checkout-----------------------------------------------*/
