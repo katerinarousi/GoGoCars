@@ -419,6 +419,10 @@ footer p {
   background-color: #0056b3;
 }
 
+.carousel a {
+  text-decoration: none;
+}
+
 
 
 /*--------------------PRICE--------------------*/
