@@ -428,6 +428,11 @@ footer p {
 .carousel a {
   text-decoration: none;
 }
+
+.car-image-carousel{
+  width: 290px;
+  height: 240px;
+}
 /*--------------------cars--------------------*/
 .car-owner{
   color: #00000088;
