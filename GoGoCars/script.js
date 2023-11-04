@@ -58,6 +58,7 @@ function updateCarousel() {
 }
 
 /*---------------------------------------------------------------------*/
+
 function dropDownMenu() {
     var dropdown1 = document.getElementsByClassName("filters-btn")
     var dropdown2 = document.getElementsByClassName("engine-type-btn");
@@ -142,3 +143,5 @@ function dropDownMenu() {
         }
     }
 }
+
+
