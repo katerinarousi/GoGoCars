@@ -428,7 +428,16 @@ footer p {
 .carousel a {
   text-decoration: none;
 }
+/*--------------------cars--------------------*/
+.car-owner{
+  color: #00000088;
+  text-align: center;
+}
+.card-img-top{
+  width: 310px;
+  height: 260px;
 
+}
 
 
 /*--------------------PRICE--------------------*/
