@@ -113,7 +113,7 @@
 }
 
 /*-----------------------------SEARCH BAR-------------------------------*/
-.search-bar{
+.search-bar {
     background: #fff;
     border: solid #036;
     width: 80%;
@@ -142,28 +142,23 @@
     background: transparent;
 }
 
-.search-bar form button{
+.search-btn {
     background: #fd5003;
     color: #fff;
     text-align: center;
-    width: 70%;
-    height: 50px;
-    border-radius: 50px;
-    border: solid #fff;
-    border: 0%;
+    border-radius: 30px;
     outline: none;
     cursor: pointer;
     flex: 1;
+    padding: 15px 30px 15px 30px;
 }
 
-.search-bar form button a{
-  color:#fff;
-}
-
-.search-bar form button:hover{
+.search-btn:hover{
   text-decoration: none;
   transform: scale(0.9);
+  color: #fff;
 }
+
 .location-input{
     flex: 0.5;
 }
@@ -171,6 +166,7 @@
 .Dropoff-input{
     padding-left: 5px;
 }
+
 .search-bar form label{
     font-weight: 600;
 }
@@ -363,7 +359,7 @@ footer p {
 }
   
   /* Style buttons */
-.book-button {
+.book-button, .book-button a {
     border-color: none;
     color: #fff;
     background-color: green;
