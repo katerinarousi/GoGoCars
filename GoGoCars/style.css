@@ -370,6 +370,12 @@ footer p {
     transform: scale(1.1);
 }
 
+.card a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+
 
 /*-------------------CAROUSEL FOR SEARCH-----------------------*/
 
