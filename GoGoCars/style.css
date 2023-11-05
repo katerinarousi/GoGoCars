@@ -24,9 +24,15 @@
     text-decoration: none;
     font-size: 18px;
     line-height: 25px;
-    border-radius: 4px;
+    border-radius: 50px;
 }
 
+.header a.search-btn{
+  padding: 15px 30px 15px 30px;
+  margin-left: 30px;
+  margin-right: 10px;
+
+}
 .header-right{
   float:right;
 }
@@ -146,7 +152,7 @@
     background: #fd5003;
     color: #fff;
     text-align: center;
-    border-radius: 30px;
+    border-radius: 50px;
     outline: none;
     cursor: pointer;
     flex: 1;
@@ -180,6 +186,7 @@
 
 .footer label {
     font-size: 24px;
+    font-weight: lighter;
 }
 
 .b-example-divider {
@@ -189,7 +196,7 @@
 }
 
 .container {
-    padding: 20px;
+    padding: 10px;
 }
 
 footer ul {
@@ -218,10 +225,11 @@ footer ul {
     color: #fd5003;
 }
 
-/* Copyright text */
+/* Copyright */
 footer p {
     color: #fd5003;
     font-size: 14px;
+    padding-top: 10px;
 }
 
 /*-------------------------------------Filters---------------------------------------*/
@@ -259,6 +267,8 @@ footer p {
   position: relative;
   color: #fff;
   flex: 1;
+  border-radius: 50px;
+
 }
 
 .filters-btn:hover{
@@ -314,7 +324,6 @@ footer p {
     padding-top: 20px;
 }
 
-/* Apply styles to product cards */
 .card {
     border: 1px solid #ddd;
     background-color: #f0f0f0;
@@ -324,6 +333,7 @@ footer p {
     position: relative;
     text-align: center;
     padding-bottom: 10px;
+    height: auto;
 
 }
 
@@ -334,14 +344,12 @@ footer p {
     transform: scale(1.1);
 }
   
-  /* Style product card images */
 .card-img-top {
     max-width: 100%;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
 }
   
-  /* Style product card titles */
 .text-secondary {
     text-align: center;
     text-decoration: none;
@@ -351,14 +359,12 @@ footer p {
     color: #000;
 }
 
-
 .price{
     font-weight: bold;
     text-align: center;
     color:#395;
 }
   
-  /* Style buttons */
 .book-button, .book-button a {
     border-color: none;
     color: #fff;
@@ -376,7 +382,6 @@ footer p {
 }
 
 
-
 /*-------------------CAROUSEL FOR SEARCH-----------------------*/
 
 .carousel-container {
@@ -389,7 +394,7 @@ footer p {
 
 .carousel {
   display: flex;
-  width: 80%; /* Adjust as needed based on the number of items */
+  width: 80%; 
   transition: all 0.5s;
 }
 
@@ -401,7 +406,7 @@ footer p {
 
 .carousel-item img {
   max-width: 100%;
-  height: auto;
+  height: 260px;
 }
 
 #prev, #next {
@@ -444,13 +449,6 @@ footer p {
 
 }
 
-
-/*--------------------PRICE--------------------*/
-
-
-
-/* CUSTOMIZE THE CAROUSEL
--------------------------------------------------- */
 
 
 /*------------Register use case-----------------*/
@@ -586,13 +584,11 @@ footer p {
     top: -38.5px;
     left: -125px;
 }
-
+/*
 .our-logo-register {
     position: relative;
-    /*left: 600px;*/
     top: -500px;
     opacity: 0.8;
-    /*width: 700px;*/
     height: auto;
 }
 
@@ -601,10 +597,9 @@ footer p {
     left: 500px;
     top: -400px;
     opacity: 0.8;
-    /*width: 700px;*/
     height: auto;
 }
-
+*/
 .reg-log-footer {
     text-align: center;
     background-color: #f0f0f0;
@@ -617,7 +612,6 @@ footer p {
 
 .reg-log-footer ul {
     list-style: none;
-    /*padding: 20px;*/
 }
 
 .reg-log-footer p {
@@ -637,7 +631,6 @@ footer p {
 }
 .form-group {
   flex-direction: column;
-  /*margin-left: 80px;*/
   margin-top: 20px;
   position: relative;
   width: 100%;
@@ -711,8 +704,7 @@ footer p {
   background-size: auto;
   float:none;
   width: 40% auto;
-  vertical-align: top;
-  
+  vertical-align: top;  
   box-sizing: border-box;
   margin: 0% 10% 10% 12%;
 }
@@ -760,7 +752,7 @@ footer p {
   padding: 20px;
   display: block;
   position: relative;
-  width:auto;
+  width: auto;
   margin: auto;
   margin-bottom: 50px;
 }
@@ -809,29 +801,16 @@ footer p {
 
 /*----------------------------RENTAL INFO PAGE-----------------------------------*/
 
-/*!
- * Bootstrap v4.3.1 (https://getbootstrap.com/)
- * Copyright 2011-2019 The Bootstrap Authors
- * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
- /*
- :root {
+:root {
   
   --red: #dc3545;
   --orange: #fd7e14;
   --yellow: #ffc107;
   --green: #28a745;
   --white: #fff;
-  --gray: #6c757d;
-  --gray-dark: #343a40;
-  --primary: #007bff;
-  --secondary: #6c757d;
   --success: #28a745;
   --warning: #ffc107;
   --danger: #dc3545;
-  --light: #f8f9fa;
-  --dark: #343a40;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
   --breakpoint-xl: 1200px;
@@ -840,13 +819,6 @@ footer p {
 
 
 
-
-
-article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
-  display: block; }*/
-
-
-/*
 .table-striped{
   border-collapse: collapse; }
 
@@ -854,23 +826,21 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 th {
   text-align: inherit; }
 
-label {
-  display: inline-block;
-  margin-bottom: 0.5rem; }
-
 
 .containerT {
-  width: 100%;
+  width: 85%;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto; }
-  @media (min-width: 576px) {
-    .container {
-      max-width: 540px; } }
-  @media (min-width: 1200px) {
-    .container {
-      max-width: 1140px; } }
+  @media (max-width:800px) {
+    .containerT{
+      width: 100%;
+      padding-bottom: 30px;
+    }
+  }
+  
+
 
 .container-fluid {
   width: 100%;
@@ -880,13 +850,11 @@ label {
   margin-left: auto; }
 
 .row {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px; }
+  margin-right: 40px;
+  margin-left: 40px; }
 
 
 .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm,
@@ -899,18 +867,7 @@ label {
   padding-right: 15px;
   padding-left: 15px; }
 
-.table-sm th,
-.table-sm td {
-  padding: 0.3rem; }
 
-.table-bordered {
-  border: 1px solid #dee2e6; }
-  .table-bordered th,
-  .table-bordered td {
-    border: 1px solid #dee2e6; }
-  .table-bordered thead th,
-  .table-bordered thead td {
-    border-bottom-width: 2px; }
 
 
 
@@ -948,23 +905,6 @@ label {
 
 
 
-@media (max-width: 575.98px) {
-  .table-responsive-sm {
-    display: block;
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch; }
-    .table-responsive-sm > .table-bordered {
-      border: 0; } }
-
-@media (max-width: 1199.98px) {
-  .table-responsive-xl {
-    display: block;
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch; }
-    .table-responsive-xl > .table-bordered {
-      border: 0; } } 
 
 .box { 
   display: inline-block;
@@ -972,10 +912,6 @@ label {
   color: #212529;
   text-align: center;
   vertical-align: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
   background-color: transparent;
   border: 1px solid transparent;
   padding: 0.375rem 0.75rem;
@@ -1007,12 +943,12 @@ label {
 
 .ftco-section {
   padding: 3em 0; }
+  @media (max-width:800px) {
+    .ftco-section{
+      padding: 0px;
+    }
+  }
 
-.ftco-no-pt {
-  padding-top: 0; }
-
-.ftco-no-pb {
-  padding-bottom: 0; }
 
 .heading-section {
   font-size: 28px;
@@ -1020,7 +956,11 @@ label {
   color: #000;
   margin: -10px;
   text-align: center;
- 
+} 
+@media (max-width: 800px){
+  .heading-section {
+    margin: 50px;
+  }
 }
 
 .img {
@@ -1058,14 +998,77 @@ label {
     font-size: 122px;
     color: #dc3545; }
 
-    .logo2 {
+  .logo2 {
       display: block;
       width: 30%;
       margin-left: auto;
       margin-right: auto;
       margin-bottom: 70px;
       margin-top: 50px;
-      
+   }
+   @media (max-width: 800px) {
+    .logo2 {
+      width: 50%;
     }
+   }
 
-    */
+
+
+   
+
+   /* κάτω από .logo img κλαση
+   
+   
+   @media (max-width:800px) {
+  .logo img{
+    width: 120px;
+  }
+}
+*/
+
+
+
+/*κάτω από .header a.profile-btn κλαση 
+
+@media (max-width:800px){
+  .header a.profile-btn {
+    padding: 8px 10px;
+    margin-top: 5px;
+  }
+}
+
+
+
+
+/* κάτω απο κλαση header h1
+
+@media (max-width:800px){
+  .header h1{
+    padding-top: 150px;
+  
+  }
+}
+
+*/
+
+
+/* κάτω από την header-right
+
+@media (max-width:800px) {
+ .header-right{
+  padding-right: 30px ;
+ }
+
+ */
+
+
+ /* κάτω από τη search-bar
+ 
+ @media (max-width:800px){
+  .search-bar{
+    width: 100%;
+  
+  }
+}
+*/
+    
