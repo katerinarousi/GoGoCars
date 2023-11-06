@@ -405,6 +405,14 @@ footer p {
     color:#395;
     padding-top: 10%;
 }
+.price .glyphicon {
+  font-weight: normal;
+  text-align: center;
+  color: #395;
+  padding-top: 10%;
+  padding-right: 22px;
+
+}
   
 .book-button, .book-button a {
     border-color: none;
@@ -424,6 +432,7 @@ footer p {
 
 
 /*-------------------CAROUSEL FOR SEARCH-----------------------*/
+
 
 .carousel-container {
   width: 100%;
