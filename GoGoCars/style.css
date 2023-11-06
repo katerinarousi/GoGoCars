@@ -413,6 +413,14 @@ footer p {
   padding-right: 22px;
 
 }
+.d-block .price .glyphicon {
+  font-weight: normal;
+  text-align: center;
+  color: #395;
+  padding-top: 10%;
+  padding-right: 22px;
+
+}
   
 .book-button, .book-button a {
     border-color: none;
