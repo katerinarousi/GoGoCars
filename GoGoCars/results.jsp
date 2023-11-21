@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device=width, initial-scale=1.0">
+    <title>Results</title>
+    <link rel = "stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: #fff;">
+
+    <div class="header" style="height: 10vh; background-color: #036;">
+        <span href="#" class="logo" onclick="window.location.href='search.html'">
+            <img src="images/blue_back-removebg-preview.png">
+        </span>
+        <div class="header-right">
+            <a class="profile-btn" href="#"><span></span>Profile</a>
+        
+        </div>
+    </div>
+
+    <div class="main">
+        <div class = "container">
+            <div class="search-bar">
+                <form>
+                    <div class="location-input">
+                        <label>Location</label>
+                        <input type="text" placeholder="Add location">
+                    </div>
+                    <div class="Pickup-input">
+                        <label>Pick Up</label>
+                        <input type="date" placeholder= "e.g. 01-01-2023" value="">
+                    </div>
+                    <div class="Pickup-Time">
+                        <label>Time</label>
+                        <input type="time" placeholder= "e.g. 01-01-2023" value="">
+                    </div>
+                    <div class="Dropoff-input">
+                        <label>Drop Off</label>
+                        <input type="date" placeholder="Add Date">
+                    </div>
+                    <div class="Dropoff-Time">
+                        <label>Time</label>
+                        <input type="time" placeholder= "e.g. 01-01-2023" value="">
+                    </div>
+                    <a class="search-btn" href="results.html">Search</a>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+    
+    <!-- Filters -->
+    <div class="sidenav">
+        <button class="filters-btn" onclick="dropDownMenu()"><p>Filters<span class="glyphicon glyphicon-filter"></span></p>
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+
+            <button class="vechile-type-btn" onclick="dropDownMenu()"><h5>Vechile Type</h5> 
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <a href="#"><h6>Car</h5></a>
+                <a href="#"><h6>Motorcycle</h6></a>
+                <a href="#"><h6>Bicycle</h6></a>
+                <a href="#"><h6>Truck</h6></a>
+            </div>
+
+            <button class="category-btn" onclick="dropDownMenu()"><h5>Category</h5> 
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <a href="#"><h6>Super Sport</h5></a>
+                <a href="#"><h6>Off-Road</h6></a>
+                <a href="#"><h6>SUV</h6></a>
+                <a href="#"><h6>Sedan</h6></a>
+            </div>
+
+            <button class="engine-type-btn" onclick="dropDownMenu()"><h5>Engine Type</h5> 
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <a href="#"><h6>Gas</h6></a>
+                <a href="#"><h6>Petrol</h6></a>
+                <a href="#"><h6>Hybrid</h6></a>
+                <a href="#"><h6>Fully Electric</h6></a>
+            </div>
+
+            <button class="transmissiom-btn" onclick="dropDownMenu()"><h5>Transmission</h5> 
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <a href="#"><h6>Auto</h6></a>
+                <a href="#"><h6>Manual</h6></a>
+            </div>
+            
+            <button class="interior-btn" onclick="dropDownMenu()"><h5>Interior</h5> 
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <a href="#"><h6>Cloth Interior</h6></a>
+                <a href="#"><h6>Leather Interior</h6></a>
+                <a href="#"><h6>High-End Interior</h6></a>
+                <a href="#"><h6>Customized Interior</h6></a>
+            </div>
+        </div>
+    </div>
+
+    
+
+</body>
+</html>
+
+
+
+
+    <!-- Filters -->
+
+    <!-- Products -->
+    <div class="Products">
+
+        <!-- Product -->
+        <div class="card">
+        <img class="card-img-top" src="images/volkswagen_up.jpeg" alt="Image Description">
+    
+        <div class="card-body">
+            <div class="mb-2">
+            <h4>
+                <a class="text-secondary" href="#">Volkswagen E-Up </a>
+            </h4>
+            <h5>
+                <div class="car-owner" href="#">by Maria Dimitrakopoulou</div>
+                <div>electric|2022</div>
+            </h5>
+            <div class="d-block">
+                <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>52.90/day</span>
+            </div>
+            </div>
+        </div>
+    
+        <div class="card-footer">
+            <div class="mb-3">
+            <a class="d-inline-flex align-items-center small" href="#">
+            </a>
+            </div>
+            <button class="book-button"><a href="checkout.html">Book Now</a></button>
+        </div>
+        </div>
+        <!-- End Product -->
+    
+        <!-- Product -->
+        <div class="card">
+        <div class="position-relative">
+            <img class="card-img-top" src="images/nissan_red.jpeg" alt="Image Description">  
+        </div>
+    
+        <div class="card-body">
+            <h4>
+                <a class="text-secondary" href="#">Nissan Micra</a>
+            </h4>
+            <h5>
+                <div class="car-owner" href="#">by Maria Dimitrakopoulou</div>
+                <div>gasoline|manual|2022</div>
+            </h5>
+            <div>
+                <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>35.80/day</span>
+            </div>
+        </div>
+    
+        <div class="card-footer border-0 pt-0 pb-4 px-4">
+            <div class="mb-3">
+            <a class="d-inline-flex align-items-center small" href="#">
+            </a>
+            </div>
+            <button class="book-button"><a href="checkout.html">Book Now</a></button>
+        </div>
+        </div>
+        <!-- End Product -->
+        <!-- Product -->
+        <div class="card">
+            <img class="card-img-top" src="images/aygo_red.jpeg" alt="Image Description">
+    
+        <div class="card-body">
+            <div class="mb-2">
+            <h4>
+                <a class="text-secondary" href="#">Toyota Aygo</a>
+            </h4>
+            <h5>
+                <div class="car-owner" href="#">by Georgia Soursou</div>
+                <div>gasoline|manual|2020</div>
+            </h5>
+            <div>
+                <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>31.90/day</span>
+            </div>
+            </div>
+        </div>
+    
+        <div class="card-footer">
+            <div class="mb-3">
+            <a class="d-inline-flex align-items-center small" href="#">
+            </a>
+            </div>
+            <button class="book-button"><a href="checkout.html">Book Now</a></button>
+        </div>
+        </div>
+        <!-- End Product -->
+                <!-- Product -->
+                <div class="card">
+                    <img class="card-img-top" src="images/yaris_leuko.jpeg" alt="Image Description">
+            
+                <div class="card-body">
+                    <h4>
+                        <a class="text-secondary" href="#">Toyota Yaris Hybrid 2023</a>
+                    </h4>
+                    <h5>
+                        <div class="car-owner" href="#">by Georgia Soursou</div>
+                        <div>gasoline|hybrid|automatic|2023</div>
+                    </h5>
+                    <div>
+                        <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>47.50/day</span>
+                    </div>
+                </div>
+            
+                <div class="card-footer">
+                    <div class="mb-3">
+                    <a class="d-inline-flex align-items-center small" href="#">
+                    </a>
+                    </div>
+                    <button class="book-button"><a href="checkout.html">Book Now</a></button>
+                </div>
+                </div>
+                <!-- End Product -->
+
+        <!-- Product -->
+        <div class="card">
+            <img class="card-img-top" src="images/opel_corsa_2020.jpeg" alt="Image Description">
+    
+        <div class="card-body">
+            <h4>
+                <a class="text-secondary" href="#">Opel Corsa</a>
+            </h4>
+            <h5>
+                <div class="car-owner" href="#">by Anna Pappa</div>
+                <div>diesel|manual|2020</div>
+            </h5>
+            <div>
+                <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>32.20/day</span>
+            </div>
+        </div>
+    
+        <div class="card-footer">
+            <div class="mb-3">
+            <a class="d-inline-flex align-items-center small" href="#">
+            </a>
+            </div>
+            <button class="book-button"><a href="checkout.html">Book Now</a></button>
+        </div>
+        </div>
+        <!-- End Product -->
+        <!-- Product -->
+        <div class="card">
+            <img class="card-img-top" src="images/opel_astra_2000.jpeg" alt="Image Description">
+    
+        <div class="card-body">
+            <h4>
+                <a class="text-secondary" href="#">Opel Astra </a>
+            </h4>
+            <h5>
+                <div class="car-owner" href="#">by Nikos Xalkias</div>
+                <div>gasoline|manual|2000</div>
+            </h5>
+            <div>
+                <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>20/day</span>
+            </div>
+        </div>
+    
+        <div class="card-footer">
+            <div class="mb-3">
+            <a class="d-inline-flex align-items-center small" href="#">
+            </a>
+            </div>
+            <button class="book-button"><a href="checkout.html">Book Now</a></button>
+        </div>
+        </div>
+        <!-- End Product -->
+
+        <!-- Product -->
+        <div class="card">
+            <img class="card-img-top" src="images/yaris_black.jpeg" alt="Image Description">
+    
+        <div class="card-body">
+            <div class="mb-2">
+            <h4>
+                <a class="text-secondary" href="#">Toyota Yaris Hybrid 2021</a>
+            </h4>
+            <h5>
+                <div class="car-owner" href="#">by Christos Psarologos</div>
+                <div>gasoline|hybrid|automatic|2021</div>
+            </h5>
+            <div>
+                <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>39.50/day</span>
+            </div>
+            </div>
+        </div>
+    
+        <div class="card-footer">
+            <div class="mb-3">
+            <a class="d-inline-flex align-items-center small" href="#">
+            </a>
+            </div>
+            <button class="book-button"><a href="checkout.html">Book Now</a></button>
+        </div>
+        </div>
+        <!-- End Product -->
+        <!-- Product -->
+        <div class="card">
+            <img class="card-img-top" src="images/Bmv_320_2015.jpeg" alt="Image Description">
+    
+        <div class="card-body">
+            <div class="mb-2">
+            <h4>
+                <a class="text-secondary" href="#">BMV 320</a>
+            </h4>
+            <h5>
+                <div class="car-owner" href="#">by Giannis Spyridis</div>
+                <div>gasoline|automatic|2015</div>
+            </h5>
+            <div>
+                <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>49.10/day</span>
+            </div>
+            </div>
+        </div>
+    
+        <div class="card-footer">
+            <div class="mb-3">
+            <a class="d-inline-flex align-items-center small" href="#">
+            </a>
+            </div>
+            <button class="book-button"><a href="checkout.html">Book Now</a></button>
+        </div>
+        </div>
+        <!-- End Product -->
+        <!-- Product -->
+        <div class="card">
+            <img class="card-img-top" src="images/colf_4_2002.jpeg" alt="Image Description">
+    
+        <div class="card-body">
+            <div class="mb-2">
+            <h4>
+                <a class="text-secondary" href="#">Volkswagen Colf4</a>
+            </h4>
+            <h5>
+                <div class="car-owner" href="#">by Thomas Kontos</div>
+                <div>gasoline|manual|2002</div>
+            </h5>
+            <div>
+                <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>25/day</span>
+            </div>
+            </div>
+        </div>
+    
+        <div class="card-footer">
+            <div class="mb-3">
+            <a class="d-inline-flex align-items-center small" href="#">
+            </a>
+            </div>
+            <button class="book-button"><a href="checkout.html">Book Now</a></button>
+        </div>
+        </div>
+        <!-- End Product -->
+                <!-- Product -->
+                <div class="card">
+                    <img class="card-img-top" src="images/Daewoo_Matiz_2001.jpeg" alt="Image Description">
+            
+                <div class="card-body">
+                    <div class="mb-2">
+                    <h4>
+                        <a class="text-secondary" href="#">Daewoo Matiz</a>
+                    </h4>
+                    <h5>
+                        <div class="car-owner" href="#">by Gerasimos Papandreou</div>
+                        <div>gasoline|manual|2001</div>
+                    </h5>
+                    <div>
+                        <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>20/day</span>
+                    </div>
+                    </div>
+                </div>
+            
+                <div class="card-footer">
+                    <div class="mb-3">
+                    <a class="d-inline-flex align-items-center small" href="#">
+                    </a>
+                    </div>
+                    <button class="book-button"><a href="checkout.html">Book Now</a></button>
+                </div>
+                </div>
+                <!-- End Product -->
+                        <!-- Product -->
+        <div class="card">
+            <img class="card-img-top" src="images/ford_fiest_2006.jpeg" alt="Image Description">
+    
+        <div class="card-body">
+            <div class="mb-2">
+            <h4>
+                <a class="text-secondary" href="#">Ford Fiesta 2006</a>
+            </h4>
+            <h5>
+                <div class="car-owner" href="#">by Flora Konstantinidou</div>
+                <div>gasoline|manual|2006</div>
+            </h5>
+            <div>
+                <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>25/day</span>
+            </div>
+            </div>
+        </div>
+    
+        <div class="card-footer">
+            <div class="mb-3">
+            <a class="d-inline-flex align-items-center small" href="#">
+            </a>
+            </div>
+            <button class="book-button"><a href="checkout.html">Book Now</a></button>
+        </div>
+        </div>
+        <!-- End Product -->
+                <!-- Product -->
+                <div class="card">
+                    <img class="card-img-top" src="images/Hyundai_Accent_2002.jpeg" alt="Image Description">
+            
+                <div class="card-body">
+                    <div class="mb-2">
+                    <h4>
+                        <a class="text-secondary" href="#">Hyundai Accent 2002</a>
+                    </h4>
+                    <h5>
+                        <div class="car-owner" href="#">by Alexis Anagnostou</div>
+                        <div>gasoline|manual|2002</div>
+                    </h5>
+                    <div>
+                        <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>17/day</span>
+                    </div>
+                    </div>
+                </div>
+            
+                <div class="card-footer">
+                    <div class="mb-3">
+                    <a class="d-inline-flex align-items-center small" href="#">
+                    </a>
+                    </div>
+                    <button class="book-button"><a href="checkout.html">Book Now</a></button>
+                </div>
+                </div>
+                <!-- End Product -->
+                        <!-- Product -->
+        <div class="card">
+            <img class="card-img-top" src="images/mini_cooper_2008.jpeg" alt="Image Description">
+    
+        <div class="card-body">
+            <div class="mb-2">
+            <h4>
+                <a class="text-secondary" href="#">Mini Cooper 2008</a>
+            </h4>
+            <h5>
+                <div class="car-owner" href="#">by Anna Adamidou</div>
+                <div>gasoline|automatic|2008</div>
+            </h5>
+            <div>
+                <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>32/day</span>
+            </div>
+            </div>
+        </div>
+    
+        <div class="card-footer">
+            <div class="mb-3">
+            <a class="d-inline-flex align-items-center small" href="#">
+            </a>
+            </div>
+            <button class="book-button"><a href="checkout.html">Book Now</a></button>
+        </div>
+        </div>
+        <!-- End Product -->
+                <!-- Product -->
+                <div class="card">
+                    <img class="card-img-top" src="images/polo_2007.jpeg" alt="Image Description">
+            
+                <div class="card-body">
+                    <div class="mb-2">
+                    <h4>
+                        <a class="text-secondary" href="#">Volkswagen Polo 2007</a>
+                    </h4>
+                    <h5>
+                        <div class="car-owner" href="#">by Christos Giannas</div>
+                        <div>diesel|manual|2007</div>
+                    </h5>
+                    <div>
+                        <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>25/day</span>
+                    </div>
+                    </div>
+                </div>
+            
+                <div class="card-footer">
+                    <div class="mb-3">
+                    <a class="d-inline-flex align-items-center small" href="#">
+                    </a>
+                    </div>
+                    <button class="book-button"><a href="checkout.html">Book Now</a></button>
+                </div>
+                </div>
+                <!-- End Product -->
+                  <!-- Product -->
+                  <div class="card">
+                    <img class="card-img-top" src="images/Audi_a1_2017.jpeg" alt="Image Description">
+            
+                <div class="card-body">
+                    <div class="mb-2">
+                    <h4>
+                        <a class="text-secondary" href="#">Audi A1 2017</a>
+                    </h4>
+                    <h5>
+                        <div class="car-owner" href="#">by Konstantina Karageorgopoulou</div>
+                        <div>gasoline|automatic|hybrid|2017</div>
+                    </h5>
+                    <div>
+                        <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>43.40/day</span>
+                    </div>
+                    </div>
+                </div>
+            
+                <div class="card-footer">
+                    <div class="mb-3">
+                    <a class="d-inline-flex align-items-center small" href="#">
+                    </a>
+                    </div>
+                    <button class="book-button"><a href="checkout.html">Book Now</a></button>
+                </div>
+                </div>
+                <!-- End Product -->
+                  <!-- Product -->
+                  <div class="card">
+                    <img class="card-img-top" src="images/mercedes_180CDE-180E.jpeg" alt="Image Description">
+            
+                <div class="card-body">
+                    <div class="mb-2">
+                    <h4>
+                        <a class="text-secondary" href="#">Mercedes-Benz C-Class</a>
+                    </h4>
+                    <h5>
+                        <div class="car-owner" href="#">by Giannis Spyridis</div>
+                        <div>diesel|automatic|2020</div>
+                    </h5>
+                    <div>
+                        <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>72.90/day</span>
+                    </div>
+                    </div>
+                </div>
+            
+                <div class="card-footer">
+                    <div class="mb-3">
+                    <a class="d-inline-flex align-items-center small" href="#">
+                    </a>
+                    </div>
+                    <button class="book-button"><a href="checkout.html">Book Now</a></button>
+                </div>
+                </div>
+                <!-- End Product -->
+                  <!-- Product -->
+                  <div class="card">
+                    <img class="card-img-top" src="images/renault_clio_2017.jpeg" alt="Image Description">
+            
+                <div class="card-body">
+                    <div class="mb-2">
+                    <h4>
+                        <a class="text-secondary" href="#">Renault Clio 2017</a>
+                    </h4>
+                    <h5>
+                        <div class="car-owner" href="#">by Georgia Soursou</div>
+                        <div>diesel|manual|2017</div>
+                    </h5>
+                    <div>
+                        <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>35/day</span>
+                    </div>
+                    </div>
+                </div>
+            
+                <div class="card-footer">
+                    <div class="mb-3">
+                    <a class="d-inline-flex align-items-center small" href="#">
+                    </a>
+                    </div>
+                    <button class="book-button"><a href="checkout.html">Book Now</a></button>
+                </div>
+                </div>
+                <!-- End Product -->
+                  <!-- Product -->
+                  <div class="card">
+                    <img class="card-img-top" src="images/fiat_punto_2006.jpeg" alt="Image Description">
+            
+                <div class="card-body">
+                    <div class="mb-2">
+                    <h4>
+                        <a class="text-secondary" href="#">Fiat Pundo 2006</a>
+                    </h4>
+                    <h5>
+                        <div class="car-owner" href="#">by Stella Stavropoulou</div>
+                        <div>gasoline|manual|2006</div>
+                    </h5>
+                    <div>
+                        <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>23.90/day</span>
+                    </div>
+                    </div>
+                </div>
+            
+                <div class="card-footer">
+                    <div class="mb-3">
+                    <a class="d-inline-flex align-items-center small" href="#">
+                    </a>
+                    </div>
+                    <button class="book-button"><a href="checkout.html">Book Now</a></button>
+                </div>
+                </div>
+                <!-- End Product -->
+                  <!-- Product -->
+                  <div class="card">
+                    <img class="card-img-top" src="images/picanto_kia_2014.jpeg" alt="Image Description">
+            
+                <div class="card-body">
+                    <div class="mb-2">
+                    <h4>
+                        <a class="text-secondary" href="#">Picanto Kia</a>
+                    </h4>
+                    <h5>
+                        <div class="car-owner" href="#">by Andreas Salesiotis</div>
+                        <div>diesel|manual|2014</div>
+                    </h5>
+                    <div>
+                        <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>22/day</span>
+                    </div>
+                    </div>
+                </div>
+            
+                <div class="card-footer">
+                    <div class="mb-3">
+                    <a class="d-inline-flex align-items-center small" href="#">
+                    </a>
+                    </div>
+                    <button class="book-button"><a href="checkout.html">Book Now</a></button>
+                </div>
+                </div>
+                <!-- End Product -->
+                  <!-- Product -->
+                  <div class="card">
+                    <img class="card-img-top" src="images/peugeot_208.jpeg" alt="Image Description">
+            
+                <div class="card-body">
+                    <div class="mb-2">
+                    <h4>
+                        <a class="text-secondary" href="#">Peugeot 208 </a>
+                    </h4>
+                    <h5>
+                        <div class="car-owner" href="#">by Nina Katerini</div>
+                        <div>gasoline|automatic|2016</div>
+                    </h5>
+                    <div>
+                        <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>28/day</span>
+                    </div>
+                    </div>
+                </div>
+            
+                <div class="card-footer">
+                    <div class="mb-3">
+                    <a class="d-inline-flex align-items-center small" href="#">
+                    </a>
+                    </div>
+                    <button class="book-button"><a href="checkout.html">Book Now</a></button>
+                </div>
+                </div>
+                <!-- End Product -->
+    </div>
+
+
+    <div class="footer">
+        <label>GoGoCars</label>
+        <div class="b-example-divider"></div>
+
+        <div class="container">
+            <footer>
+                <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                    <li class="nav-item"><a href="search.html" class="nav-link px-2 text-body-secondary">Home</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About Us</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Contact</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
+                </ul>
+                <p>&copy; 2023 Company, Inc</p>
+            </footer>
+        </div>
+            
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
