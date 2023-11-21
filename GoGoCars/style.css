@@ -312,6 +312,7 @@ footer p {
 
 .filters-btn:hover{
   transform: scale(0.9);
+  border-radius: 30px;
 }
 
 .glyphicon  {
