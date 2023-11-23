@@ -54,12 +54,12 @@
     
     <!-- Filters -->
     <div class="sidenav">
-        <button class="filters-btn" onclick="dropDownMenu(this)"><p>Filters<span class="glyphicon glyphicon-filter"></span></p>
+        <button class="filters-btn" onclick="dropDownMenu()"><p>Filters<span class="glyphicon glyphicon-filter"></span></p>
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
 
-            <button class="vehicle-type-btn" onclick="dropDownMenu(this)"><h5>Vehicle Type</h5> 
+            <button class="vechile-type-btn" onclick="dropDownMenu()"><h5>Vechile Type</h5> 
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-container">
@@ -69,7 +69,7 @@
                 <a href="#"><h6>Truck</h6></a>
             </div>
 
-            <button class="category-btn" onclick="dropDownMenu(this)"><h5>Category</h5> 
+            <button class="category-btn" onclick="dropDownMenu()"><h5>Category</h5> 
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-container">
@@ -79,7 +79,7 @@
                 <a href="#"><h6>Sedan</h6></a>
             </div>
 
-            <button class="engine-type-btn" onclick="dropDownMenu(this)"><h5>Engine Type</h5> 
+            <button class="engine-type-btn" onclick="dropDownMenu()"><h5>Engine Type</h5> 
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-container">
@@ -89,7 +89,7 @@
                 <a href="#"><h6>Fully Electric</h6></a>
             </div>
 
-            <button class="transmission-btn" onclick="dropDownMenu(this)"><h5>Transmission</h5> 
+            <button class="transmissiom-btn" onclick="dropDownMenu()"><h5>Transmission</h5> 
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-container">
@@ -97,7 +97,7 @@
                 <a href="#"><h6>Manual</h6></a>
             </div>
             
-            <button class="interior-btn" onclick="dropDownMenu(this)"><h5>Interior</h5> 
+            <button class="interior-btn" onclick="dropDownMenu()"><h5>Interior</h5> 
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-container">

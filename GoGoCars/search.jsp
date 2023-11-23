@@ -3,7 +3,6 @@
 <head>
     <meta name="viewport" content="width=device=width, initial-scale=1.0">
     <title>Rent a car from our GoGo collection </title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel = "stylesheet" href="style.css">
 </head>
 <body>
@@ -70,7 +69,7 @@
                         <div class="car-owner" href="#">by Maria Dimitrakopoulou</div>
                         <div>electric|2022</div>
                     </h5>
-                     <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>52.90/day</span>
+                     <span class="price">52.90/day</span>
                         
                     </div>
             </div>
@@ -99,7 +98,7 @@
                         <div>diesel|automatic|2020</div>
                     </h5>
                     <div>
-                        <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>72.90/day</span>
+                        <span class="price">72.90/day</span>
                     </div>
                     </div>
             </div>
@@ -132,7 +131,7 @@
                         <div>diesel|manual|2017</div>
                     </h5>
                     <div>
-                        <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>35/day</span>
+                        <span class="price">35/day</span>
                     </div>
                     </div>
             </div>
@@ -162,7 +161,7 @@
                     <div>gasoline|hybrid|automatic|2023</div>
                 </h5>
                 <div>
-                    <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>47.50/day</span>
+                    <span class="price">47.50/day</span>
                 </div>
             </div>
         
@@ -190,7 +189,7 @@
                         <div>gasoline|automatic|hybrid|2017</div>
                     </h5>
                     <div>
-                        <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>43.40/day</span>
+                        <span class="price">43.40/day</span>
                     </div>
                     </div>
             </div>
@@ -219,7 +218,7 @@
                         <div>gasoline|automatic|2008</div>
                     </h5>
                     <div>
-                        <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>32/day</span>
+                        <span class="price">32/day</span>
                     </div>
                     </div>
             </div>
@@ -269,4 +268,3 @@
 
 </body>
 </html>
-

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device=width, initial-scale=1.0">
+        <title>Login Page</title>
+        <link rel = "stylesheet" href="style.css">
+    </head>
+    <body class="register-body">
+        <header>
+            <nav class="header-nav">
+                <ul>
+                    <li><a class="about-us" href="about_us.html"><h4>About us</h4></a></li>
+                    <li><a href="register.html"><h4>Register</h4></a></li>
+                    <li><a href="login.html"><h4>Login</h4></a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <h2 class="log-h1">WELCOME BACK!</h1>
+        <form>
+            <div class="data-inputs">
+                <div>
+                    <label for="username">USERNAME</label>
+                </div>
+                <div>
+                    <input type="text" id="username" name="userInput">
+                </div>
+                <br>
+                <div>
+                    <label for="password">PASSWORD</label>
+                </div>
+                <div>
+                    <input type="password" id="password" name="userInput" required>
+                    <div class="toggle-password" onclick="togglePasswordVisibility()">
+                        <label for="myCheckbox">Show password</label>
+                        <input type="checkbox" id="toggle-icon" name="myCheckbox">
+                    </div>
+                    <div class="btn-continue">
+                        <a class="my-login" href="search.html" onclick="return checkFieldsLogin()"><strong>Login</strong></a>
+                    </div>
+                </div>
+                <br>
+            </div>
+
+        </form>
+        <!--<img class="our-logo-login" src="images/fianil_logo2_slogan.png" alt="">-->
+        <!--<div class="quote-log">
+            <h2>The world of fast and easy car rentals!</h1>
+        </div>-->
+
+
+
+
+        <div class="reg-log-footer">
+            <label>GoGoCars</label>
+            <div class="b-example-divider"></div>
+        
+            <div class="container">
+                <footer>
+                    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                        <li class="nav-item"><a href="search.html" class="nav-link px-2 text-body-secondary">Home</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+                    </ul>
+                    <p>&copy; 2023 Company, Inc</p>
+                </footer>
+            </div>
+                
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

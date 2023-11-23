@@ -278,16 +278,16 @@ footer p {
   position: relative;
   width: 200px;
   z-index: 1;
-  top: -120px;
+  top: -105px;
   left:10%;
   background-color: rgba(0, 0, 0, 0);
   overflow-x: hidden;
-  border-radius: 50px;
+  border-radius: 30px;
 }
 
-.sidenav a, .engine-type-btn, .filters-btn, .category-btn, .interior-btn, .vechile-type-btn, .transmissiom-btn {
-  padding: 5px;/* 10px 6px 16px;*/
-  text-decoration: none;
+.sidenav a, .engine-type-btn, .filters-btn, .category-btn, .interior-btn, .vehicle-type-btn, .transmission-btn {
+  padding: 5px 10px;/* 10px 6px 16px;*/
+  text-decoration: solid;
   font-size: large;
   color: #fd5003;
   display: inline-block;
@@ -307,12 +307,12 @@ footer p {
   position: relative;
   color: #fff;
   flex: 1;
-  border-radius: 50px;
 
 }
 
 .filters-btn:hover{
   transform: scale(0.9);
+  border-radius: 30px;
 }
 
 .glyphicon  {
@@ -321,9 +321,11 @@ footer p {
   left: 20px;
 }
 
-.sidenav a:hover, .engine-type-btn:hover, .category-btn:hover, .interior-btn:hover, .vechile-type-btn:hover, .transmissiom-btn:hover {
+.sidenav a:hover, .engine-type-btn:hover, .category-btn:hover, .interior-btn:hover, .vehicle-type-btn:hover, .transmission-btn:hover {
   color: #003366;
   background-color: #fd5003;
+  border-radius: 10px;
+  text-decoration: solid;
 }
 
 .main {
@@ -405,6 +407,7 @@ footer p {
     color:#395;
     padding-top: 10%;
 }
+<<<<<<< HEAD
 
 .price .glyphicon{
     font-weight: normal;
@@ -414,6 +417,17 @@ footer p {
     padding-right:22px;
 
 }
+=======
+.price .glyphicon {
+  font-weight: normal;
+  text-align: center;
+  color: #395;
+  padding-top: 10%;
+  padding-right: 22px;
+
+}
+
+>>>>>>> 8031ead1555fa2e919e236512f53fdd279998deb
   
 .book-button, .book-button a {
     border-color: none;
@@ -434,12 +448,14 @@ footer p {
 
 /*-------------------CAROUSEL FOR SEARCH-----------------------*/
 
+
 .carousel-container {
   width: 100%;
   margin: 0 auto;
   overflow: hidden;
   position: relative;
   padding-bottom: 10px;
+  font-size: medium;
 }
 
 .carousel {
@@ -499,8 +515,9 @@ footer p {
 
 }
 
-
-
+.carousel-container .glyphicon {
+  font-size: 13px;
+}
 /*------------Register use case-----------------*/
 
 .register-body {
