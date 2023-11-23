@@ -17,7 +17,7 @@ public class Rental {
 
 
     /**
-     * Full constuctor
+     * Full constuctor -!-!-!-!-!-!-!-!-!-> kat: den eimai sigouri gia ton filo constructor. mipws prepei na einai adeios? 
      *   
      * @param rentalID
      * @param startDate
@@ -102,15 +102,24 @@ public class Rental {
     }
 
 
-    public void showRental(String rentalID) throws SQLException{
+    /**
+     * Retrieves and displays information about a rental specified by its unique ID.
+     *
+     * @param rentalID the unique identifier of the rental to be displayed.
+     * @throws SQLException if a database access error occurs or this method is
+     *                      called on a closed connection. Also, this exception is
+     *                      thrown if the SQL query is invalid.
+    */
+    
+    public void showRental(String renterID) throws SQLException{
 
-        String query = "select * from Rental where rentalID = ?";
+        String query = "select * from Rental where renterID = ?";
 
         BConnection obj = new BConnection();
         try {
             Connection c = obj.openConnection();
             stmt = c.prepareStatement(query);
-            stmt.setString(1, rentalID);
+            stmt.setString(1, renterID);
             
             rs = stmt.executeQuery();
 
@@ -134,6 +143,32 @@ public class Rental {
             }
 
         }
+        
+    }
+
+    public void makeRental(int renterID, int carID, String startDate, String endDate, String startTime, String endTime,  String Location){
+        
+        String query = "insert into rental (renterID, carID, start_datetime, end_datetime, place) values (?,?,?,?,?)";
+
+        BConnection obj = new BConnection();
+        try {
+            Connection c = obj.openConnection();
+            stmt = c.prepareStatement(query);
+            stmt.setInt(1, renterID);
+            stmt.setInt(2, carID);
+            stmt.setString(3, startDate + " " + startTime);
+            stmt.setString(4, endDate + " " + endTime);
+            stmt.setString(5, location);
+
+            
+            stmt.executeUpdate();
+            stmt.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        
 
     }
 }

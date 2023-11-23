@@ -40,10 +40,12 @@ public class User {
         this.isHost = isHost;
     }
 
+    /* -!-!-!-!-!-!-> kat: apla gia test treximatos */
     public static void main(String[] args) throws SQLException{
         
         Rental object = new Rental("1","1","1","1","1","1",2);
-        object.showRental("1");
+        object.showRental("3");
+        object.makeRental(1017,2004,"2023-11-23","2003-11-25","10:00:00","10:00:00", "Athens Panormou");
         
     }
 
@@ -127,12 +129,6 @@ public class User {
         this.isHost = isHost;
 
     }
-
-    
-    
-    
-    
-    
     
     
     public void Login(){
