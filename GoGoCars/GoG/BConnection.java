@@ -4,9 +4,6 @@ import java.sql.*;
 
 public class BConnection {
 
-    public static void main(String[] args) {
-              
-    }
 
     private Connection conn = null;
     private PreparedStatement stmt = null;
@@ -36,6 +33,7 @@ public class BConnection {
         return conn;
 
     }  
+    
     public void closeConnection() throws SQLException{
 
         try {

@@ -45,7 +45,7 @@ public class User {
         
         Rental object = new Rental("1","1","1","1","1","1",2);
         object.showRental("3");
-        object.makeRental(1017,2004,"2023-11-23","2003-11-25","10:00:00","10:00:00", "Athens Panormou");
+        /*object.makeRental(1017,2004,"2023-11-23","2003-11-25","10:00:00","10:00:00", "Athens Panormou");*/
         
     }
 
