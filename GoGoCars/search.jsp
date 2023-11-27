@@ -1,8 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<% List<price_Filter> price_filters = priceFilter.getPrices();%>
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device=width, initial-scale=1.0">
     <title>Rent a car from our GoGo collection </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel = "stylesheet" href="style.css">
 </head>
 <body>
@@ -50,198 +54,43 @@
     </div>
       
     <main>
-      
 
-      <div class="carousel-container">
-   <!----------------------------------------------------------->
-   
-        <div class="carousel">
-            <div class="carousel-item">
-              <div class="card">
-                <img class="car-image-carousel" src="images/volkswagen_up.jpeg" alt="Image Description">
-        
-            <div class="card-body">
-                <div class="mb-2">
-                    <h4>
-                        <a class="text-secondary" href="#">Volkswagen E-Up </a>
-                    </h4>
-                    <h5>
-                        <div class="car-owner" href="#">by Maria Dimitrakopoulou</div>
-                        <div>electric|2022</div>
-                    </h5>
-                     <span class="price">52.90/day</span>
-                        
-                    </div>
-            </div>
-        
-            <div class="card-footer">
-                <div class="mb-3">
-                <a class="d-inline-flex align-items-center small" href="#">
-                </a>
-                </div>
-                <button class="book-button"><a href="checkout.html">Book Now</a></button>
-            </div>
-            </div>
-            <!----------------------------------------------------------->
-            </div>
-            <div class="carousel-item">
-              <div class="card">
-                <img class="car-image-carousel" src="images/mercedes_180CDE-180E.jpeg" alt="Image Description">
-        
-            <div class="card-body">
-                <div class="mb-2">
-                    <h4>
-                        <a class="text-secondary" href="#">Mercedes-Benz C-Class</a>
-                    </h4>
-                    <h5>
-                        <div class="car-owner" href="#">by Giannis Spyridis</div>
-                        <div>diesel|automatic|2020</div>
-                    </h5>
-                    <div>
-                        <span class="price">72.90/day</span>
-                    </div>
-                    </div>
-            </div>
-        
-            <div class="card-footer">
-                <div class="mb-3">
-                <a class="d-inline-flex align-items-center small" href="#">
-                </a>
-                </div>
-                <button class="book-button"><a href="checkout.html">Book Now</a></button>
-            </div>
-            </div>
+        <div class="carousel-container">
+            <div class="carousel">
                 
-                        
 
-    <!----------------------------------------------------------->
+                <% for (price_Filter pr_f: departments) { %>
+                <div class="carousel-item">
+                <div class="card">
 
-            </div>
-            <div class="carousel-item">
-              <div class="card">
-                <img class="car-image-carousel" src="images/renault_clio_2017.jpeg" alt="Image Description">
-        
-            <div class="card-body">
-                <div class="mb-2">
-                    <h4>
-                        <a class="text-secondary" href="#">Renault Clio 2017</a>
-                    </h4>
-                    <h5>
-                        <div class="car-owner" href="#">by Georgia Soursou</div>
-                        <div>diesel|manual|2017</div>
-                    </h5>
-                    <div>
-                        <span class="price">35/day</span>
+                    <img class="car-image-carousel" src="image" alt="Image Description">
+                    <div class="card-body">
+                        <div class="mb-2">
+                            <h4>
+                                <a class="text-secondary" href="#"><%=car_Model[i] %> </a>
+                            </h4>
+                            <h5>
+                                <div class="car-owner" href="#">by <%=firstName[i] %> <%= lastName[i] %></div>
+                                <div><%=fuel[i] %>|<%=year[i] %></div>
+                            </h5>
+                            <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span><%=price[i] %>/day</span>
+                        </div>
                     </div>
+                
+                    <div class="card-footer">
+                        <div class="mb-3">
+                            <a class="d-inline-flex align-items-center small" href="#">
+                            </a>
+                        </div>
+                        <button class="book-button"><a href="checkout.html">Book Now</a></button>
                     </div>
+                </div>   
             </div>
-        
-            <div class="card-footer">
-                <div class="mb-3">
-                <a class="d-inline-flex align-items-center small" href="#">
-                </a>
-                </div>
-                <button class="book-button"><a href="checkout.html">Book Now</a></button>
-            </div>
-            </div>
-
-
-      <!----------------------------------------------------------->
-            </div>
-            <div class="carousel-item">
-              <div class="card">
-                <img class="car-image-carousel" src="images/yaris_leuko.jpeg" alt="Image Description">
-        
-            <div class="card-body">
-                <h4>
-                    <a class="text-secondary" href="#">Toyota Yaris Hybrid 2023</a>
-                </h4>
-                <h5>
-                    <div class="car-owner" href="#">by Georgia Soursou</div>
-                    <div>gasoline|hybrid|automatic|2023</div>
-                </h5>
-                <div>
-                    <span class="price">47.50/day</span>
-                </div>
-            </div>
-        
-            <div class="card-footer">
-                <div class="mb-3">
-                <a class="d-inline-flex align-items-center small" href="#">
-                </a>
-                </div>
-                <button class="book-button"><a href="checkout.html">Book Now</a></button>
-            </div>
-            </div>
-      <!----------------------------------------------------------->
-            </div>
-            <div class="carousel-item">
-              <div class="card">
-                <img class="card-img-top" src="images/Audi_a1_2017.jpeg" alt="Image Description">
-        
-            <div class="card-body">
-                <div class="mb-2">
-                    <h4>
-                        <a class="text-secondary" href="#">Audi A1 2017</a>
-                    </h4>
-                    <h5>
-                        <div class="car-owner" href="#">by Konstantina Karageorgopoulou</div>
-                        <div>gasoline|automatic|hybrid|2017</div>
-                    </h5>
-                    <div>
-                        <span class="price">43.40/day</span>
-                    </div>
-                    </div>
-            </div>
-        
-            <div class="card-footer">
-                <div class="mb-3">
-                <a class="d-inline-flex align-items-center small" href="#">
-                </a>
-                </div>
-                <button class="book-button"><a href="checkout.html">Book Now</a></button>
-            </div>
-            </div>
-        <!----------------------------------------------------------->
-            </div>
-            <div class="carousel-item">
-              <div class="card">
-                <img class="card-img-top" src="images/mini_cooper_2008.jpeg" alt="Image Description">
-        
-            <div class="card-body">
-                <div class="mb-2">
-                    <h4>
-                        <a class="text-secondary" href="#">Mini Cooper 2008</a>
-                    </h4>
-                    <h5>
-                        <div class="car-owner" href="#">by Anna Adamidou</div>
-                        <div>gasoline|automatic|2008</div>
-                    </h5>
-                    <div>
-                        <span class="price">32/day</span>
-                    </div>
-                    </div>
-            </div>
-        
-            <div class="card-footer">
-                <div class="mb-3">
-                <a class="d-inline-flex align-items-center small" href="#">
-                </a>
-                </div>
-                <button class="book-button"><a href="checkout.html">Book Now</a></button>
-            </div>
-            </div>
-      <!----------------------------------------------------------->
-            </div>
-            
+            <button id="prev"><span>&#8592;</span></button>
+            <button id="next"><span>&#8594;</span></button>
+            <% } %>
         </div>
-        <button id="prev"><span>&#8592;</span></button>
-        <button id="next"><span>&#8594;</span></button>
-    </div>
-
-    
-      
-        
+          
     </main>
 
  
