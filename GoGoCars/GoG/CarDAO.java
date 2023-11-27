@@ -35,8 +35,13 @@ public class CarDAO{
             PreparedStatement stmt = conn.prepareStatement(query);
 
             ResultSet rs = stmt.executeQuery();
+
             while (rs.next()){
-                Blob blob = rs.getBlob(10) ;
+
+                Blob blob = rs.getBlob(10);
+                if (blob == null){
+                    System.out.println("123456789");
+                }
                 String img = imgToBytes(blob);
                 cars.add( new Car(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getBoolean(5), rs.getBoolean(6), rs.getInt(7), rs.getFloat(8), false, img));
                 System.out.println(cars);
