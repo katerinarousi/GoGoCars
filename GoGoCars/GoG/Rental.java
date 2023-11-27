@@ -141,9 +141,7 @@ public class Rental {
             if (stmt != null) {
                 stmt.close();
             }
-
-        }
-        
+        }        
     }
 
     public void makeRental(int renterID, int carID, String startDate, String endDate, String startTime, String endTime,  String Location){
