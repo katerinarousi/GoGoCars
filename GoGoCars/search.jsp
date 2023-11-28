@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<% List<Car> cars = CarDAO.getCarouselCars();%>
+<% List<Car> cars = CarDAO.getCarouselCars(); %>
+<% List<User> users = UserDAO.getUsersID_First_Last_Name();%>
 
 <!DOCTYPE html>
 <html>

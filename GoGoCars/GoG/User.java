@@ -40,6 +40,14 @@ public class User {
         this.isHost = isHost;
     }
 
+
+    public User(String userID, String firstname, String lastname) {        
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.userID = userID;
+    }
+
+    
     /* -!-!-!-!-!-!-> kat: apla gia test treximatos */
     public static void main(String[] args) throws Exception{
         
