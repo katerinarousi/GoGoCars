@@ -74,11 +74,11 @@ public class Car{
         this.model = model;
     }
 
-    public String ownerID(){
+    public String getOwnerID(){
         return ownerID;
     }
 
-    public void setownerID(String ownerID){
+    public void setOwnerID(String ownerID){
         this.ownerID = ownerID;
 
     }

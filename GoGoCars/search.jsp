@@ -1,6 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<% List<Car> cars = CarDAO.getCarouselCars(); %>
-<% List<User> users = UserDAO.getUsersID_First_Last_Name();%>
+<%@ page import="java.util.List" %>
+<%@ page import="GoG.Car" %>
+<%@ page import="GoG.CarDAO" %>
+<%@ page import="GoG.User" %>
+<%@ page import="GoG.UserDAO" %>
+<%
+CarDAO carDAO = new CarDAO(); 
+UserDAO userDAO = new UserDAO();
+
+List<Car> cars = carDAO.getCarouselCars(); 
+List<User> users = userDAO.getUsersID_First_Last_Name();
+%>
 
 <!DOCTYPE html>
 <html>
@@ -68,20 +78,20 @@
                     <div class="card-body">
                         <div class="mb-2">
                             <h4>
-                                <a class="text-secondary" href="#"><%=car.getModel %> </a>
+                                <a class="text-secondary" href="#"><%=car.getModel() %> </a>
                             </h4>
                             <h5>
                                 <% for (User user: users) {
-                                    if (user.getUserID == car.getOwnerID) { %>
-                                        <div class="car-owner" href="#">by <%=user.getFirstName %> <%= user.getLastName %></div> <!-- Combine OwnerID with UserID to find Owner Name (add them to the sql + database proccess) -->
+                                    if (user.getUserID() == car.getOwnerID()) { %>
+                                        <div class="car-owner" href="#">by <%=user.getFirstname() %> <%= user.getLastname() %></div> <!-- Combine OwnerID with UserID to find Owner Name (add them to the sql + database proccess) -->
                                 <%
                                         break;
                                     }
                                 }
                                 %>
-                                <div><%=car.getFuel %>|<%=car.getYear %></div>
+                                <div><%=car.getFuel() %>|<%=car.getYear() %></div>
                             </h5>
-                            <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span><%=car.gerPrice %>/day</span>
+                            <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span><%=car.getPrice() %>/day</span>
                         </div>
                     </div>
                 
