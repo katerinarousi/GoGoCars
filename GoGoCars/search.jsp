@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<% List<price_Filter> price_filters = priceFilter.getPrices();%>
+<% List<Car> cars = CarDAO.getCarouselCars();%>
 
 <!DOCTYPE html>
 <html>
@@ -59,7 +59,7 @@
             <div class="carousel">
                 
 
-                <% for (price_Filter pr_f: departments) { %>
+        <% for (Car car: cars) { %>
                 <div class="carousel-item">
                 <div class="card">
 
@@ -67,13 +67,20 @@
                     <div class="card-body">
                         <div class="mb-2">
                             <h4>
-                                <a class="text-secondary" href="#"><%=car_Model[i] %> </a>
+                                <a class="text-secondary" href="#"><%=car.getModel %> </a>
                             </h4>
                             <h5>
-                                <div class="car-owner" href="#">by <%=firstName[i] %> <%= lastName[i] %></div>
-                                <div><%=fuel[i] %>|<%=year[i] %></div>
+                                <% for (User user: users) {
+                                    if (user.getUserID == car.getOwnerID) { %>
+                                        <div class="car-owner" href="#">by <%=user.getFirstName %> <%= user.getLastName %></div> <!-- Combine OwnerID with UserID to find Owner Name (add them to the sql + database proccess) -->
+                                <%
+                                        break;
+                                    }
+                                }
+                                %>
+                                <div><%=car.getFuel %>|<%=car.getYear %></div>
                             </h5>
-                            <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span><%=price[i] %>/day</span>
+                            <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span><%=car.gerPrice %>/day</span>
                         </div>
                     </div>
                 
@@ -88,7 +95,7 @@
             </div>
             <button id="prev"><span>&#8592;</span></button>
             <button id="next"><span>&#8594;</span></button>
-            <% } %>
+        <% } %>
         </div>
           
     </main>

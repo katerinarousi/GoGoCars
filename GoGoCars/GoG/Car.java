@@ -6,7 +6,7 @@ public class Car{
 	private String carType;
 	private float price;
 	private String model;
-    private boolean isRented;
+    private String ownerID;
     private int year;
     private String fuel; 
 	private boolean transmission;
@@ -21,7 +21,7 @@ public class Car{
      * @param carType
      * @param price
      * @param model
-     * @param isRented
+     * @param ownerID
      * @param year
      * @param fuel
      * @param trnsmission
@@ -29,7 +29,7 @@ public class Car{
      * 
      */
     
-    public Car(String carID, String carType, String model , String fuel, boolean isHybrid, boolean transmission, int year, float price, boolean isRented, String base64Image) {        
+    public Car(String carID, String carType, String model , String fuel, boolean isHybrid, boolean transmission, int year, float price, String ownerID, String base64Image) {        
        this.carID = carID;
        this.carType = carType;
        this.model = model;
@@ -38,7 +38,7 @@ public class Car{
        this.transmission = transmission;
        this.year = year;
        this.price = price;
-       this.isRented = isRented;
+       this.ownerID = ownerID;
 
     }
 
@@ -74,12 +74,12 @@ public class Car{
         this.model = model;
     }
 
-    public boolean isRented(){
-        return isRented;
+    public String ownerID(){
+        return ownerID;
     }
 
-    public void setIsRented(boolean isRented){
-        this.isRented = isRented;
+    public void setownerID(String ownerID){
+        this.ownerID = ownerID;
 
     }
 

@@ -38,7 +38,7 @@ public class CarDAO{
             while (rs.next()){
                 Blob blob = rs.getBlob(10) ;
                 String img = imgToBytes(blob);
-                cars.add( new Car(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getBoolean(5), rs.getBoolean(6), rs.getInt(7), rs.getFloat(8), false, img));
+                cars.add( new Car(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getBoolean(5), rs.getBoolean(6), rs.getInt(7), rs.getFloat(8), rs.getString(9), img));
                 System.out.println(cars);
             }
 
