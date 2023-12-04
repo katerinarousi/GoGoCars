@@ -1,3 +1,16 @@
+
+
+
+
+            /* DOKIMASE NA STORAREIS ME PATH !!!!!! */
+
+
+
+
+
+
+
+
 package GoG;
 
 import java.util.List;
@@ -27,7 +40,6 @@ public class CarDAO{
 
         BConnection db = new BConnection();
         Connection conn = null;
-
         String query = "Select * from Cars Where price >= 40";
 
         try {
@@ -39,7 +51,7 @@ public class CarDAO{
             while (rs.next()){
 
                 Blob blob = rs.getBlob(10);
-                if (blob == null){
+                if (blob != null){
                     System.out.println("123456789");
                 }
                 String img = imgToBytes(blob);
