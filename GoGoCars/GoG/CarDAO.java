@@ -12,7 +12,6 @@ import java.io.InputStream;
  * CarDAO provides all the necessary methods related to cars.
  * 
  */
-
 public class CarDAO{
   
     /**
