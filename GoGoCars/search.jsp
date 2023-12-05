@@ -82,7 +82,7 @@ List<User> users = userDAO.getUsersID_First_Last_Name();
                             </h4>
                             <h5>
                                 <% for (User user: users) {
-                                    if (user.getUserID() == car.getOwnerID()) { %>
+                                    if (user.getUserID().equals(car.getOwnerID())) { %>
                                         <div class="car-owner" href="#">by <%=user.getFirstname() %> <%= user.getLastname() %></div> <!-- Combine OwnerID with UserID to find Owner Name (add them to the sql + database proccess) -->
                                 <%
                                         break;
