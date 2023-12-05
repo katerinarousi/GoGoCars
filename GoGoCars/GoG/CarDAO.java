@@ -1,16 +1,3 @@
-
-
-
-
-            /* DOKIMASE NA STORAREIS ME PATH !!!!!! */
-
-
-
-
-
-
-
-
 package GoG;
 
 import java.util.List;
@@ -40,7 +27,7 @@ public class CarDAO{
 
         BConnection db = new BConnection();
         Connection conn = null;
-        String query = "Select * from Cars Where price >= 40";
+        String query = "Select * from Cars Where price >= 30";
 
         try {
             conn = db.openConnection();
@@ -50,12 +37,12 @@ public class CarDAO{
 
             while (rs.next()){
 
-                Blob blob = rs.getBlob(10);
-                if (blob != null){
-                    System.out.println("123456789");
-                }
-                String img = imgToBytes(blob);
+                //ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+                //String path = classLoader.getResource(rs.getString(10)).getPath();
+                String path = (rs.getString(10));
+                String img = imgToBytes(path);
                 cars.add( new Car(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getBoolean(5), rs.getBoolean(6), rs.getInt(7), rs.getFloat(8), rs.getString(9), img));
+                System.out.println("image okay");
             }
 
             rs.close();
@@ -69,22 +56,21 @@ public class CarDAO{
             throw new Exception(e);
 
         } finally {
-
-            try {
-
-                db.closeConnection();    
-
-            } catch (Exception e) {
-                
-            }
-            
+            db.closeConnection();    
+      
         }
     }
 
-    public String imgToBytes(Blob img) throws SQLException, IOException {
+    /**
+     * Transforms image path to byte sequence
+     * 
+     * @return The bytes sequence of the image.
+     * @throws Exception If any error occurs 
+     */
+    public String imgToBytes(String path) throws SQLException, IOException {
 
         try{
-            InputStream input = img.getBinaryStream();
+            InputStream input = ClassLoader.getSystemResourceAsStream(path);
             ByteArrayOutputStream output = new ByteArrayOutputStream();
             byte[] buffer = new byte[4096];
 
@@ -106,12 +92,5 @@ public class CarDAO{
             throw ex;
 
         }
-
-        
-
-         
-    
-
     }
-
 }

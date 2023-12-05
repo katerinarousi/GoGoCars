@@ -57,7 +57,7 @@ public class User {
 
         CarDAO test = new CarDAO();
        
-        System.out.println( test.getCarouselCars());
+        System.out.println(test.getCarouselCars());
 
         
     }
