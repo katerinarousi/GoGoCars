@@ -89,15 +89,13 @@ List<User> users = userDAO.getUsersID_First_Last_Name();
         <% for (Car car: cars) { %>
                 <div class="carousel-item">
                 <div class="card">
-                    <%
-                    request.setAttribute("car", car);
-                    %>
+                    
 
-                    <img class="car-image-carousel" src="<%=car.getBase64Image%>" alt="Image Description">
+                    <img class="car-image-carousel" src="<%=car.getImage()%>" alt="<%=car.getImage()%>">
                     <div class="card-body">
                         <div class="mb-2">
                             <h4>
-                                <a class="text-secondary" href="#"><%=car.getModel() %> </a>
+                                <a class="text-secondary" href="#"> <%=car.getModel() %>  </a>
                             </h4>
                             <h5>
                                 <% for (User user: users) {
@@ -122,10 +120,13 @@ List<User> users = userDAO.getUsersID_First_Last_Name();
                         <button class="book-button"><a href="checkout.html">Book Now</a></button>
                     </div>
                 </div>   
+                </div>
+            
+<% } %>
+               
             </div>
             <button id="prev"><span>&#8592;</span></button>
             <button id="next"><span>&#8594;</span></button>
-        <% } %>
         </div>
           
     </main>

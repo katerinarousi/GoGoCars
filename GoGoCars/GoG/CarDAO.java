@@ -10,15 +10,15 @@ import java.io.InputStream;
 
 /**
  * CarDAO provides all the necessary methods related to cars.
- * 
+ *
  */
 public class CarDAO{
-  
+
     /**
      * Returns all luxury cars.
-     * 
+     *
      * @return List the luxury cars for carousel.
-     * @throws Exception If any error occurs 
+     * @throws Exception If any error occurs
      */
     public List<Car> getSearchCars(String pick_up,String drop_off) throws Exception {
         Connection con = null;
@@ -41,7 +41,7 @@ public class CarDAO{
                 state.close();
                 db.closeConnection();
                 throw new Exception("Τhere are no cars available on these dates");
-                
+
             }
 
             while(rs.next()) {
@@ -49,7 +49,7 @@ public class CarDAO{
                 Car car = getCarByID(carID);
                 carList.add(car);
             }
-            
+
             rs.close();
             state.close();
             db.closeConnection();
@@ -69,7 +69,7 @@ public class CarDAO{
         Connection con = null;
         String sql = "SELECT * FROM ismgroup14.cars WHERE carID=?;";
         BConnection db = new BConnection();
-        try { 
+        try {
             con= db.openConnection();
             PreparedStatement state = con.prepareStatement(sql);
             ResultSet rs = state.executeQuery();
@@ -92,8 +92,8 @@ public class CarDAO{
             throw new Exception(e.getMessage());
 
         }
-            
-            
+
+
     }
 
 
@@ -113,10 +113,8 @@ public class CarDAO{
 
             while (rs.next()){
 
-                //ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-                //String path = classLoader.getResource(rs.getString(10)).getPath();
                 String path = (rs.getString(10));
-                /*String img = imgToBytes(path);*/
+                /*String img = imgToBytes(path); for when i worked with Byte Arrays*/
                 cars.add( new Car(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getBoolean(5), rs.getBoolean(6), rs.getInt(7), rs.getFloat(8), rs.getString(9), path/*img*/));
                 System.out.println("image okay");
             }
@@ -124,7 +122,7 @@ public class CarDAO{
             rs.close();
             stmt.close();
             db.closeConnection();
-            
+
             return cars;
 
         } catch (Exception e) {
@@ -132,16 +130,16 @@ public class CarDAO{
             throw new Exception(e);
 
         } finally {
-            db.closeConnection();    
-      
+            db.closeConnection();
+
         }
     }
 
     /**
      * Transforms image path to byte sequence
-     * 
+     *
      * @return The bytes sequence of the image.
-     * @throws Exception If any error occurs 
+     * @throws Exception If any error occurs
      */
     public String imgToBytes(String path) throws SQLException, IOException {
 
@@ -153,7 +151,7 @@ public class CarDAO{
             int bytesRead = -1;
 
             while ((bytesRead = input.read(buffer)) != -1) {
-                output.write(buffer, 0, bytesRead);                  
+                output.write(buffer, 0, bytesRead);
             }
             byte[] imageBytes = output.toByteArray();
             String base64Image = Base64.getEncoder().encodeToString(imageBytes);

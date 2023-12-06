@@ -12,7 +12,7 @@ public class Car{
 	private boolean transmission;
     private boolean isHybrid;
 
-    private String base64Image;
+    private String image;
 
     /**
      * Full constuctor
@@ -29,7 +29,7 @@ public class Car{
      * 
      */
     
-    public Car(String carID, String carType, String model , String fuel, boolean isHybrid, boolean transmission, int year, float price, String ownerID, String base64Image) {        
+    public Car(String carID, String carType, String model , String fuel, boolean isHybrid, boolean transmission, int year, float price, String ownerID, String image) {        
        this.carID = carID;
        this.carType = carType;
        this.model = model;
@@ -39,6 +39,7 @@ public class Car{
        this.year = year;
        this.price = price;
        this.ownerID = ownerID;
+       this.image = image;
 
     }
 
@@ -129,16 +130,13 @@ public class Car{
 
     }
 
-    public String getBase64Image() {
-        return base64Image;
+    public String getImage() {
+        return image;
     }
  
-    public void setBase64Image(String base64Image) {
-        this.base64Image = base64Image;
+    public void setImage(String image) {
+        this.image = image;
     }
- 
-    
-   
 
     
 }
