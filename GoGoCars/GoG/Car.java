@@ -111,8 +111,14 @@ public class Car{
         return fuel;
     }
 
-    public boolean getTransmission() {
-        return transmission;
+    public String getTransmission() {
+        String ismanual;
+        if (transmission) {
+            ismanual="manual";   
+        }else{
+            ismanual="automatic";
+        }
+        return ismanual;
     }
 
     public void setTransmission(boolean transmission) {
@@ -120,8 +126,12 @@ public class Car{
     }
     
     
-    public boolean isHybrid(){
-        return isHybrid;
+    public String isHybrid(){
+        String hybrid= "Not hybrid";
+        if (isHybrid) {
+            hybrid="hybrid";
+        }
+        return hybrid;
     }
 
     public void setIsHybrid(boolean isHybrid){
