@@ -8,6 +8,8 @@
 CarDAO carDAO = new CarDAO(); 
 UserDAO userDAO = new UserDAO();
 
+
+
 List<Car> cars = carDAO.getCarouselCars(); 
 List<User> users = userDAO.getUsersID_First_Last_Name();
 %>
@@ -87,8 +89,11 @@ List<User> users = userDAO.getUsersID_First_Last_Name();
         <% for (Car car: cars) { %>
                 <div class="carousel-item">
                 <div class="card">
+                    <%
+                    request.setAttribute("car", car);
+                    %>
 
-                    <img class="car-image-carousel" src="image" alt="Image Description">
+                    <img class="car-image-carousel" src="<%=car.getBase64Image%>" alt="Image Description">
                     <div class="card-body">
                         <div class="mb-2">
                             <h4>

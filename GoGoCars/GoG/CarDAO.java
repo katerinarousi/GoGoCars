@@ -116,8 +116,8 @@ public class CarDAO{
                 //ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
                 //String path = classLoader.getResource(rs.getString(10)).getPath();
                 String path = (rs.getString(10));
-                String img = imgToBytes(path);
-                cars.add( new Car(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getBoolean(5), rs.getBoolean(6), rs.getInt(7), rs.getFloat(8), rs.getString(9), img));
+                /*String img = imgToBytes(path);*/
+                cars.add( new Car(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getBoolean(5), rs.getBoolean(6), rs.getInt(7), rs.getFloat(8), rs.getString(9), path/*img*/));
                 System.out.println("image okay");
             }
 
