@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
+
+
+<%String pick_up= request.getAttribute("pick_up");
+String drop_off = request.getAttribute("drop_off");
+
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -123,6 +130,67 @@
 
     <!-- Products -->
     <div class="Products">
+
+      <%  CarDAO cDAO = new carDAO();
+
+          List <Car> carList = cDAO.getSearchCars(String pick_up, String drop_off);
+
+          for (Car c : carList) {
+
+                    <!-- Product -->
+        <div class="card">
+            <img class="card-img-top" src="images/volkswagen_up.jpeg" alt="Image Description">
+        
+            <div class="card-body">
+                <div class="mb-2">
+                <h4>
+                    <a class="text-secondary" href="#"> <%=c.getModel()%></a>
+                </h4>
+                <h5>
+                    <div class="car-owner" href="#">by <%=c.getOwnerID()%></div>
+                    <div>electric|2022</div>
+                </h5>
+                <div class="d-block">
+                    <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span><%=c.getPrice()%>/day</span>
+                </div>
+                </div>
+            </div>
+        
+            <div class="card-footer">
+                <div class="mb-3">
+                <a class="d-inline-flex align-items-center small" href="#">
+                </a>
+                </div>
+                <button class="book-button"><a href="checkout.jsp">Book Now</a></button>
+            </div>
+            </div>
+            <!-- End Product -->
+          }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <!-- Product -->
         <div class="card">

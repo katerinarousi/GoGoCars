@@ -32,31 +32,45 @@ List<User> users = userDAO.getUsersID_First_Last_Name();
         </div>
 
         <div class = "container">
+            
+            <%
+					if (request.getAttribute("message") != null) {
+			%>
+						<div class="alert alert-danger text-center">
+
+							<%=(String)request.getAttribute("message") %>
+
+						</div>
+			<%
+					}
+			%>	
+
+
             <h1 style="font-size:5vw">Find the drive that suits you</h1>
             <h2 style="font-size:2vw">Explore our peer-to-peer rentals</h2>
             <div class="search-bar">
-                <form>
+                <form method="post" action="searchbyluxuryservlet.java">
                     <div class="location-input">
                         <label>Location</label>
-                        <input type="text" placeholder="Add location">
+                        <input type="text" placeholder="Add location" name="location">
                     </div>
                     <div class="Pickup-input">
                         <label>Pick Up</label>
-                        <input type="date" placeholder= "e.g. 01-01-2023" value="">
+                        <input type="date" placeholder= "e.g. 01-01-2023" value="" name="pick_up">
                     </div>
                     <div class="Pickup-Time">
                         <label>Time</label>
-                        <input type="time" placeholder= "e.g. 01-01-2023" value="">
+                        <input type="time" placeholder= "e.g. 01-01-2023" value="" >
                     </div>
                     <div class="Dropoff-input">
                         <label>Drop Off</label>
-                        <input type="date" placeholder="Add Date">
+                        <input type="date" placeholder="Add Date" name="drop_off">
                     </div>
                     <div class="Dropoff-Time">
                         <label>Time</label>
                         <input type="time" placeholder= "e.g. 01-01-2023" value="">
                     </div>
-                    <a class="search-btn" href="results.html">Search</a>
+                    <button class="search-btn">Search</button>
                 </form>
 
 
