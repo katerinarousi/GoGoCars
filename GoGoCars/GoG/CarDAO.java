@@ -67,24 +67,29 @@ public class CarDAO{
     }
     private Car getCarByID(int carID) throws Exception{
         Connection con = null;
-        List<Car> carList = new ArrayList<Car>();
         String sql = "SELECT * FROM ismgroup14.cars WHERE carID=?;";
         BConnection db = new BConnection();
         try { 
             con= db.openConnection();
             PreparedStatement state = con.prepareStatement(sql);
             ResultSet rs = state.executeQuery();
+            if (!rs.next()) {
+				rs.close();
+				state.close();
+				return null;
+			}
             return new Car(
     			rs.getString("model"),
     			rs.getString("fuel"),
    				rs.getBoolean("hybrid"),
-    			rs.getFloat("transmission"),
+    			rs.getBoolean("transmission"),
     			rs.getInt("year_car"),
-                rs.getDouble("price"),
+                rs.getFloat("price"),
                 rs.getString("ownerID"));
 
 
         } catch (Exception e){
+            throw new Exception(e.getMessage());
 
         }
             
