@@ -13,7 +13,7 @@
 <body style="background-color: #fff;">
 
     <div class="header" style="height: 10vh; background-color: #036;">
-        <span href="#" class="logo" onclick="window.location.href='search.html'">
+        <span href="#" class="logo" onclick="window.location.href='search.jsp'">
             <img src="images/blue_back-removebg-preview.png">
         </span>
         <div class="header-right">
@@ -46,7 +46,7 @@
                         <label>Time</label>
                         <input type="time" placeholder= "e.g. 01-01-2023" value="">
                     </div>
-                    <a class="search-btn" href="results.html">Search</a>
+                    <a class="search-btn" href="results.jsp">Search</a>
                 </form>
 
 
@@ -148,7 +148,7 @@
             <a class="d-inline-flex align-items-center small" href="#">
             </a>
             </div>
-            <button class="book-button"><a href="checkout.html">Book Now</a></button>
+            <button class="book-button"><a href="checkout.jsp">Book Now</a></button>
         </div>
         </div>
         <!-- End Product -->
@@ -177,7 +177,7 @@
             <a class="d-inline-flex align-items-center small" href="#">
             </a>
             </div>
-            <button class="book-button"><a href="checkout.html">Book Now</a></button>
+            <button class="book-button"><a href="checkout.jsp">Book Now</a></button>
         </div>
         </div>
         <!-- End Product -->
@@ -205,7 +205,7 @@
             <a class="d-inline-flex align-items-center small" href="#">
             </a>
             </div>
-            <button class="book-button"><a href="checkout.html">Book Now</a></button>
+            <button class="book-button"><a href="checkout.jsp">Book Now</a></button>
         </div>
         </div>
         <!-- End Product -->
@@ -231,7 +231,7 @@
                     <a class="d-inline-flex align-items-center small" href="#">
                     </a>
                     </div>
-                    <button class="book-button"><a href="checkout.html">Book Now</a></button>
+                    <button class="book-button"><a href="checkout.jsp">Book Now</a></button>
                 </div>
                 </div>
                 <!-- End Product -->
@@ -258,7 +258,7 @@
             <a class="d-inline-flex align-items-center small" href="#">
             </a>
             </div>
-            <button class="book-button"><a href="checkout.html">Book Now</a></button>
+            <button class="book-button"><a href="checkout.jsp">Book Now</a></button>
         </div>
         </div>
         <!-- End Product -->
@@ -284,7 +284,7 @@
             <a class="d-inline-flex align-items-center small" href="#">
             </a>
             </div>
-            <button class="book-button"><a href="checkout.html">Book Now</a></button>
+            <button class="book-button"><a href="checkout.jsp">Book Now</a></button>
         </div>
         </div>
         <!-- End Product -->
@@ -313,7 +313,7 @@
             <a class="d-inline-flex align-items-center small" href="#">
             </a>
             </div>
-            <button class="book-button"><a href="checkout.html">Book Now</a></button>
+            <button class="book-button"><a href="checkout.jsp">Book Now</a></button>
         </div>
         </div>
         <!-- End Product -->
@@ -341,7 +341,7 @@
             <a class="d-inline-flex align-items-center small" href="#">
             </a>
             </div>
-            <button class="book-button"><a href="checkout.html">Book Now</a></button>
+            <button class="book-button"><a href="checkout.jsp">Book Now</a></button>
         </div>
         </div>
         <!-- End Product -->
@@ -369,7 +369,7 @@
             <a class="d-inline-flex align-items-center small" href="#">
             </a>
             </div>
-            <button class="book-button"><a href="checkout.html">Book Now</a></button>
+            <button class="book-button"><a href="checkout.jsp">Book Now</a></button>
         </div>
         </div>
         <!-- End Product -->
@@ -397,7 +397,7 @@
                     <a class="d-inline-flex align-items-center small" href="#">
                     </a>
                     </div>
-                    <button class="book-button"><a href="checkout.html">Book Now</a></button>
+                    <button class="book-button"><a href="checkout.jsp">Book Now</a></button>
                 </div>
                 </div>
                 <!-- End Product -->
@@ -425,7 +425,7 @@
             <a class="d-inline-flex align-items-center small" href="#">
             </a>
             </div>
-            <button class="book-button"><a href="checkout.html">Book Now</a></button>
+            <button class="book-button"><a href="checkout.jsp">Book Now</a></button>
         </div>
         </div>
         <!-- End Product -->
@@ -453,7 +453,7 @@
                     <a class="d-inline-flex align-items-center small" href="#">
                     </a>
                     </div>
-                    <button class="book-button"><a href="checkout.html">Book Now</a></button>
+                    <button class="book-button"><a href="checkout.jsp">Book Now</a></button>
                 </div>
                 </div>
                 <!-- End Product -->
@@ -481,7 +481,7 @@
             <a class="d-inline-flex align-items-center small" href="#">
             </a>
             </div>
-            <button class="book-button"><a href="checkout.html">Book Now</a></button>
+            <button class="book-button"><a href="checkout.jsp">Book Now</a></button>
         </div>
         </div>
         <!-- End Product -->
@@ -509,7 +509,7 @@
                     <a class="d-inline-flex align-items-center small" href="#">
                     </a>
                     </div>
-                    <button class="book-button"><a href="checkout.html">Book Now</a></button>
+                    <button class="book-button"><a href="checkout.jsp">Book Now</a></button>
                 </div>
                 </div>
                 <!-- End Product -->
@@ -537,7 +537,7 @@
                     <a class="d-inline-flex align-items-center small" href="#">
                     </a>
                     </div>
-                    <button class="book-button"><a href="checkout.html">Book Now</a></button>
+                    <button class="book-button"><a href="checkout.jsp">Book Now</a></button>
                 </div>
                 </div>
                 <!-- End Product -->
@@ -565,7 +565,7 @@
                     <a class="d-inline-flex align-items-center small" href="#">
                     </a>
                     </div>
-                    <button class="book-button"><a href="checkout.html">Book Now</a></button>
+                    <button class="book-button"><a href="checkout.jsp">Book Now</a></button>
                 </div>
                 </div>
                 <!-- End Product -->
@@ -593,7 +593,7 @@
                     <a class="d-inline-flex align-items-center small" href="#">
                     </a>
                     </div>
-                    <button class="book-button"><a href="checkout.html">Book Now</a></button>
+                    <button class="book-button"><a href="checkout.jsp">Book Now</a></button>
                 </div>
                 </div>
                 <!-- End Product -->
@@ -621,7 +621,7 @@
                     <a class="d-inline-flex align-items-center small" href="#">
                     </a>
                     </div>
-                    <button class="book-button"><a href="checkout.html">Book Now</a></button>
+                    <button class="book-button"><a href="checkout.jsp">Book Now</a></button>
                 </div>
                 </div>
                 <!-- End Product -->
@@ -649,7 +649,7 @@
                     <a class="d-inline-flex align-items-center small" href="#">
                     </a>
                     </div>
-                    <button class="book-button"><a href="checkout.html">Book Now</a></button>
+                    <button class="book-button"><a href="checkout.jsp">Book Now</a></button>
                 </div>
                 </div>
                 <!-- End Product -->
@@ -677,7 +677,7 @@
                     <a class="d-inline-flex align-items-center small" href="#">
                     </a>
                     </div>
-                    <button class="book-button"><a href="checkout.html">Book Now</a></button>
+                    <button class="book-button"><a href="checkout.jsp">Book Now</a></button>
                 </div>
                 </div>
                 <!-- End Product -->
@@ -691,7 +691,7 @@
         <div class="container">
             <footer>
                 <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                    <li class="nav-item"><a href="search.html" class="nav-link px-2 text-body-secondary">Home</a></li>
+                    <li class="nav-item"><a href="search.jsp" class="nav-link px-2 text-body-secondary">Home</a></li>
                     <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About Us</a></li>
                     <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Contact</a></li>
                     <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
