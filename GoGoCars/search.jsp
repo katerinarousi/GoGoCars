@@ -29,8 +29,8 @@ List<User> users = userDAO.getUsersID_First_Last_Name();
             <img src="images/final_logo1small-removebg-preview.png">
         </a>
         <div class="header-right">
-            <a class="profile-btn" href="rentalinfo.html"><span></span>Rental Information</a>
-            <a class="profile-btn" href="rentalinfo.html"><span></span>Profile</a>            
+            <a class="profile-btn" href="rentalinfo.jsp"><span></span>Rental Information</a>
+            <a class="profile-btn" href="rentalinfo.jsp"><span></span>Profile</a>            
         </div>
 
         <div class = "container">
@@ -62,7 +62,7 @@ List<User> users = userDAO.getUsersID_First_Last_Name();
                     </div>
                     <div class="Pickup-Time">
                         <label>Time</label>
-                        <input type="time" placeholder= "e.g. 01-01-2023" value="" >
+                        <input type="time" placeholder= "e.g. 01-01-2023" value="" name="pick_up_time" >
                     </div>
                     <div class="Dropoff-input">
                         <label>Drop Off</label>
@@ -70,7 +70,7 @@ List<User> users = userDAO.getUsersID_First_Last_Name();
                     </div>
                     <div class="Dropoff-Time">
                         <label>Time</label>
-                        <input type="time" placeholder= "e.g. 01-01-2023" value="">
+                        <input type="time" placeholder= "e.g. 01-01-2023" value="" name="drop_off_time">
                     </div>
                     <button class="search-btn">Search</button>
                 </form>
