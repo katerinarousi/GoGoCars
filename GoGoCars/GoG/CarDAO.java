@@ -28,12 +28,12 @@ public class CarDAO{
         try {
             con= db.openConnection();
             PreparedStatement state = con.prepareStatement(sql);
-            state.setString(1, pick_up);
-            state.setString(2, drop_off);
-            state.setString(3, pick_up);
-            state.setString(4, drop_off);
-            state.setString(5, pick_up);
-            state.setString(6, drop_off);
+            state.setString(1, drop_off);
+            state.setString(2, pick_up);
+            state.setString(3, drop_off);
+            state.setString(4, pick_up);
+            state.setString(5, drop_off);
+            state.setString(6, pick_up);
             ResultSet rs = state.executeQuery();
 
             if (!rs.next()) {
