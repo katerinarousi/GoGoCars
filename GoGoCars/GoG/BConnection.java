@@ -12,7 +12,7 @@ public class BConnection {
 	private final String dbpassword = "geg2hy";
     
     private Connection conn = null;
-    private PreparedStatement stmt = null;
+    /*private PreparedStatement stmt = null;*/
 
 
     public Connection openConnection() throws SQLException{

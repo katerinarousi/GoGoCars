@@ -91,7 +91,7 @@ List<User> users = userDAO.getUsersID_First_Last_Name();
                 <div class="card">
                     
 
-                    <img class="car-image-carousel" src="<%=car.getImage()%>" alt="<%=car.getImage()%>">
+                    <img class="car-image-carousel" src="" alt="">
                     <div class="card-body">
                         <div class="mb-2">
                             <h4>

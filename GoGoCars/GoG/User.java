@@ -1,7 +1,5 @@
 package GoG;
 
-import java.sql.SQLException;
-
 public class User {
     private String firstname;
 	private String lastname;
