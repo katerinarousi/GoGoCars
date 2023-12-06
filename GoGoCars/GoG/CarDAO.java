@@ -20,6 +20,38 @@ public class CarDAO{
      * @return List the luxury cars for carousel.
      * @throws Exception If any error occurs 
      */
+    public List<Car> get SearchCars(String pick_up, String drop_off) throws Exception{
+        Connection con = null;
+        PreparedStatement state = null;
+        ResultSet rs = null;
+        String sql = "SELECT carID
+            FROM ismgroup14.rental
+            WHERE carID NOT IN (
+            SELECT UNIQUE carID
+            FROM ismgroup14.rental
+            WHERE (start_datetime <=? AND end_datetime >= ?)
+                OR (start_datetime <= ? AND end_datetime >= ?)
+                OR (start_datetime >= ? AND end_datetime <= ?));";
+        BConnection db = BConnection();
+        try {
+            con= db.openConnection();
+            state = con.prepareStatement(sql);
+
+            List<Car> carList = new ArrayList();
+            state.setString(1,pick_up);
+            state.setString(2,drop_off);
+            rs = state.executeQuery();
+
+            while(rs.next()) {
+                 mycar = [rs.getString("carID")];
+            }
+
+
+        }
+
+    }
+
+
     public List<Car> getCarouselCars() throws Exception{
 
         List<Car> cars = new ArrayList<Car>();
