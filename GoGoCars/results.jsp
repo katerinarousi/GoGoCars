@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ page import="java.util.List" %>
+<%@ page import="GoG.Car" %>
+<%@ page import="GoG.CarDAO" %>
 
 
 <%String pick_up= request.getAttribute("pick_up");
 String drop_off = request.getAttribute("drop_off");
-
 %>
 
 <!DOCTYPE html>
@@ -33,13 +34,14 @@ String drop_off = request.getAttribute("drop_off");
         <div class = "container">
             <div class="search-bar">
                 <form>
+                
                     <div class="location-input">
                         <label>Location</label>
-                        <input type="text" placeholder="Add location">
+                        <input type="text" value="Add location">
                     </div>
                     <div class="Pickup-input">
                         <label>Pick Up</label>
-                        <input type="date" placeholder= "e.g. 01-01-2023" value="">
+                        <input type="date" value="<%=pick_up%>"">
                     </div>
                     <div class="Pickup-Time">
                         <label>Time</label>
@@ -47,7 +49,7 @@ String drop_off = request.getAttribute("drop_off");
                     </div>
                     <div class="Dropoff-input">
                         <label>Drop Off</label>
-                        <input type="date" placeholder="Add Date">
+                        <input type="date" value="<%=drop_off%>">
                     </div>
                     <div class="Dropoff-Time">
                         <label>Time</label>
@@ -92,18 +94,18 @@ String drop_off = request.getAttribute("drop_off");
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-container">
-                <a href="#"><h6>Gas</h6></a>
-                <a href="#"><h6>Petrol</h6></a>
-                <a href="#"><h6>Hybrid</h6></a>
-                <a href="#"><h6>Fully Electric</h6></a>
+                <a href="#"><h6>gasoline</h6></a>
+                <a href="#"><h6>diesel</h6></a>
+                <a href="#"><h6>hybrid</h6></a>
+                <a href="#"><h6>fully electric</h6></a>
             </div>
 
             <button class="transmissiom-btn" onclick="dropDownMenu()"><h5>Transmission</h5> 
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-container">
-                <a href="#"><h6>Auto</h6></a>
-                <a href="#"><h6>Manual</h6></a>
+                <a href="#"><h6>automatic</h6></a>
+                <a href="#"><h6>manual</h6></a>
             </div>
             
             <button class="interior-btn" onclick="dropDownMenu()"><h5>Interior</h5> 
@@ -148,7 +150,7 @@ String drop_off = request.getAttribute("drop_off");
                 </h4>
                 <h5>
                     <div class="car-owner" href="#">by <%=c.getOwnerID()%></div>
-                    <div>electric|2022</div>
+                    <div><%=c.getFuel()%>|<%=c.getTransmission()%>|<%=c.isHybrid()%> </div>
                 </h5>
                 <div class="d-block">
                     <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span><%=c.getPrice()%>/day</span>
