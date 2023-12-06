@@ -135,7 +135,7 @@ String drop_off = request.getAttribute("drop_off");
 
       <%  CarDAO cDAO = new carDAO();
 
-          List <Car> carList = cDAO.getSearchCars(String pick_up, String drop_off);
+          List <Car> carList = cDAO.getSearchCars(pick_up,drop_off);
 
           for (Car c : carList) {
 
