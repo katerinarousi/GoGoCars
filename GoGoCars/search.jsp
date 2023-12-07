@@ -89,9 +89,10 @@ List<User> users = userDAO.getUsersID_First_Last_Name();
         <% for (Car car: cars) { %>
                 <div class="carousel-item">
                 <div class="card">
-                    <!--<%=car.getImage()%>-->
+                    <%--=car.getImage()
+                    ./images/volkswagen_up.jpeg--%>
 
-                    <img class="car-image-carousel" src="" alt="">
+                    <img class="car-image-carousel" src="<%=car.getImage()%>" alt="">
                     <div class="card-body">
                         <div class="mb-2">
                             <h4>
