@@ -89,7 +89,7 @@ List<User> users = userDAO.getUsersID_First_Last_Name();
         <% for (Car car: cars) { %>
                 <div class="carousel-item">
                 <div class="card">
-                    
+                    <!--<%=car.getImage()%>-->
 
                     <img class="car-image-carousel" src="" alt="">
                     <div class="card-body">
