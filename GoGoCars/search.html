@@ -22,10 +22,18 @@
             <h2 style="font-size:2vw">Explore our peer-to-peer rentals</h2>
             <div class="search-bar">
                 <form>
-                    <div class="location-input">
-                        <label>Location</label>
-                        <input type="text" placeholder="Add location">
-                    </div>
+                
+                        <div class="location-input">
+                            <label>Location</label>
+                            <select  name="location" class="form-control">
+                                <option value="">Add location</option>
+                                <option value="Airport">Αεροδρόμιο</option>
+                                <option value="syntagma">Σταθμός Συντάγματος</option>	
+                                <option value="pireus">Λιμάνι Πειραιά</option>
+                            </select>
+                        </div>
+                        
+                   
                     <div class="Pickup-input">
                         <label>Pick Up</label>
                         <input type="date" placeholder= "e.g. 01-01-2023" value="">

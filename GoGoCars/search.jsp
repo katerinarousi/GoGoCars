@@ -54,7 +54,12 @@ List<User> users = userDAO.getUsersID_First_Last_Name();
                 <form method="post" action="searchbyluxuryservlet.java">
                     <div class="location-input">
                         <label>Location</label>
-                        <input type="text" placeholder="Add location" name="location">
+                        <select  name="location" class="form-control">
+                            <option value="">Add location</option>
+                            <option value="Airport">Αεροδρόμιο</option>
+                            <option value="syntagma">Σταθμός Συντάγματος</option>	
+                            <option value="pireus">Λιμάνι Πειραιά</option>
+                        </select>
                     </div>
                     <div class="Pickup-input">
                         <label>Pick Up</label>
