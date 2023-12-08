@@ -51,10 +51,10 @@ List<User> users = userDAO.getUsersID_First_Last_Name();
             <h1 style="font-size:5vw">Find the drive that suits you</h1>
             <h2 style="font-size:2vw">Explore our peer-to-peer rentals</h2>
             <div class="search-bar">
-                <form method="post" action="searchbyluxuryservlet.java">
+                <form method="post" action="results.jsp">
                     <div class="location-input">
                         <label>Location</label>
-                        <select  name="location" class="form-control">
+                        <select  name="location" class="form-control" required>
                             <option value="">Add location</option>
                             <option value="Airport">Αεροδρόμιο</option>
                             <option value="syntagma">Σταθμός Συντάγματος</option>	
@@ -63,19 +63,19 @@ List<User> users = userDAO.getUsersID_First_Last_Name();
                     </div>
                     <div class="Pickup-input">
                         <label>Pick Up</label>
-                        <input type="date" placeholder= "e.g. 01-01-2023" value="" name="pick_up">
+                        <input type="date" placeholder= "e.g. 01-01-2023"  name="pick_up" required>
                     </div>
                     <div class="Pickup-Time">
                         <label>Time</label>
-                        <input type="time" placeholder= "e.g. 01-01-2023" value="" name="pick_up_time" >
+                        <input type="time" placeholder= "e.g. 01-01-2023"  name="pick_up_time" required>
                     </div>
                     <div class="Dropoff-input">
                         <label>Drop Off</label>
-                        <input type="date" placeholder="Add Date" name="drop_off">
+                        <input type="date" placeholder="Add Date" name="drop_off" required>
                     </div>
                     <div class="Dropoff-Time">
                         <label>Time</label>
-                        <input type="time" placeholder= "e.g. 01-01-2023" value="" name="drop_off_time">
+                        <input type="time" placeholder= "e.g. 01-01-2023" name="drop_off_time" required>
                     </div>
                     <button class="search-btn">Search</button>
                 </form>

@@ -8,6 +8,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+
+
 /**
  * CarDAO provides all the necessary methods related to cars.
  *
@@ -20,10 +22,12 @@ public class CarDAO{
      * @return List the luxury cars for carousel.
      * @throws Exception If any error occurs
      */
+
+    
     public List<Car> getSearchCars(String pick_up,String drop_off) throws Exception {
         Connection con = null;
         List<Car> carList = new ArrayList<Car>();
-        String sql = "SELECT carID FROM ismgroup14.rental WHERE carID NOT IN (SELECT UNIQUE carID FROM ismgroup14.rental WHERE (start_datetime <=? AND end_datetime >= ?) OR (start_datetime <= ? AND end_datetime >= ?) OR (start_datetime >= ? AND end_datetime <= ?));";
+        String sql = "SELECT carID FROM rental WHERE carID NOT IN (SELECT DISTINCT carID FROM ismgroup14.rental WHERE (start_datetime <=? AND end_datetime >= ?) OR (start_datetime <= ? AND end_datetime >= ?) OR (start_datetime >= ? AND end_datetime <= ?));";
         BConnection db = new BConnection();
         try {
             con= db.openConnection();

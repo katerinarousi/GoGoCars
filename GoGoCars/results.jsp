@@ -4,8 +4,14 @@
 <%@ page import="GoG.CarDAO" %>
 
 
-<%String pick_up= (String)request.getParameter("pick_up");
+<%
+String pick_up= (String)request.getParameter("pick_up");
 String drop_off = (String)request.getParameter("drop_off");
+
+
+
+// Add more debug statements as needed
+
 %>
 
 <!DOCTYPE html>
@@ -122,18 +128,23 @@ String drop_off = (String)request.getParameter("drop_off");
 
     
 
-</body>
-</html>
 
 
 
 
     <!-- Filters -->
 
+
+
     <!-- Products -->
     <div class="Products">
 
-      <%  CarDAO cDAO = new CarDAO();
+      <%  
+      try{
+
+        System.out.println("pick_up: " + pick_up + ", drop_off: " + drop_off);
+      
+      CarDAO cDAO = new CarDAO();
 
           List <Car> carList = cDAO.getSearchCars(pick_up,drop_off);
 
@@ -172,7 +183,21 @@ String drop_off = (String)request.getParameter("drop_off");
 
         <%
           }
+
+      } catch (Exception e) {
+
+        %>
+
+
+        <p>Error: <%= e.getMessage() %></p>
+        
+        <%    
+
+
+      }
           %>
+
+    </div>
 
 
 
