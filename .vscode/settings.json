@@ -1,9 +1,0 @@
-{
-    "liveServer.settings.port": 5501,
-    "java.project.referencedLibraries": [
-        "lib/**/*.jar",
-        "GoGoCars\\lib\\mysql-connector-java-5.0.7-bin.jar",
-        "c:\\Users\\rousi\\OneDrive\\Desktop\\template_8210130\\vscode_ismgroup14_8210130\\lib\\servlet-api.jar",
-        "GoGoCars\\lib\\servlet-api.jar"
-    ]
-}
