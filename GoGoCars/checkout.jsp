@@ -1,4 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="GoG.Car" %>
+<%@ page import="GoG.CarDAO" %>
+<%@ page import="GoG.User" %>
+<%@ page import="GoG.UserDAO" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,16 +24,25 @@
 
   <div class="container">
     <h1 class="my_title_checkout">Just a few clicks away...</h1>
+<%
+UserDAO userDAO = new UserDAO();
+CarDAO carDAO = new CarDAO();
+String carID = request.getParameter("carID");
+String hostID = request.getParameter("hostID");
+User hostObj = userDAO.findUser(hostID);
+Car carObj = carDAO.findCar(carID);
+User user = (User)session.getAttribute("userObj");
+%>
     <div class="big-field-car">
       <div class="car-details">
         <div class="car-image">
-          <img src="images/mercedes_180CDE-180E.jpeg" alt="Image Description" width="450">
+          <img src="<%=carObj.getImage()%>" alt="Image Description" width="450">
         </div>
         <div class="car-info">
-          <h4> Mercedes-Benz C-Class</h4>
+          <h4> <%=carObj.getModel()%></h4>
           <div>
             <img class="user-image" src="images/user.jpg" alt="User Photo">
-            <span> <strong>Maria Dimitrakopoulou</strong></span>
+            <span> <strong><%=hostObj.getFirstname()%> <%=hostObj.getLastname()%></strong></span>
           </div>
           <div>
             <img class="date-image" src="images/pickup.png" alt="Calendar Image">
@@ -59,19 +72,19 @@
       <div class="form-group">
         <label for="name"class="col-sm-3 control-label main-label">First name: </label>
         <div class="col-sm-9">
-          <input type="text" id="firstname" class="form-control" placeholder="Please enter your name" >
+          <input type="text" id="firstname" class="form-control" value="<%=user.getFistname()%>" placeholder="Please enter your name" >
         </div>
       </div>
       <div class="form-group">
         <label for="lastname"class="col-sm-3 control-label main-label">Last name: </label>
         <div class="col-sm-9">
-          <input type="text" name="lastname" id="surname" class="form-control" placeholder="Please enter your surname">
+          <input type="text" name="lastname" id="surname" class="form-control" value="<%=user.getLastname()%>" placeholder="Please enter your surname">
         </div>
       </div>
       <div class="form-group">
         <label for="email"class="col-sm-3 control-label main-label">Email: </label>
         <div class="col-sm-9">
-          <input type="text" name="email" id="email" class="form-control" placeholder="Please enter your email">
+          <input type="text" name="email" id="email" class="form-control" value="<%=user.getEmail()%>" placeholder="Please enter your email">
         </div>
       </div>
       <div class="form-group">

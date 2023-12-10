@@ -54,6 +54,13 @@ public class Car{
 
     }
 
+    public Car(String model, float price, String ownerID, String image) {
+       this.model = model;
+       this.price = price;
+       this.ownerID = ownerID;
+       this.image = image;
+
+    }
 
      public String getCarID() {
         return carID;
