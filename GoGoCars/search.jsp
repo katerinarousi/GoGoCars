@@ -35,23 +35,13 @@ List<User> users = userDAO.getUsersID_First_Last_Name();
 
         <div class = "container">
             
-            <%
-					if (request.getAttribute("message") != null) {
-			%>
-						<div class="alert alert-danger text-center">
-
-							<%=(String)request.getAttribute("message") %>
-
-						</div>
-			<%
-					}
-			%>	
+            
 
 
             <h1 style="font-size:5vw">Find the drive that suits you</h1>
             <h2 style="font-size:2vw">Explore our peer-to-peer rentals</h2>
             <div class="search-bar">
-                <form method="post" action="results.jsp">
+                <form method="post" action="searchbyluxuryservlet.java">
                     <div class="location-input">
                         <label>Location</label>
                         <select  name="location" class="form-control" required>

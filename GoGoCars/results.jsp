@@ -10,6 +10,7 @@ String pick_up_time= request.getParameter("pick_up_time");
 String drop_off = request.getParameter("drop_off");
 String drop_off_time= request.getParameter("drop_off_time");
 String location = request.getParameter("location");
+List<Car> carList= (List<Car>) request.getAttribute("carList");
 
 
 
@@ -146,23 +147,25 @@ String location = request.getParameter("location");
 
     <!-- Products -->
     <div class="Products">
-      
-       
-      <%  
-      
-     
-      try{
+
+        <%
+		if (request.getAttribute("message") != null) {
+		%>
+			<div class="alert alert-danger text-center">
+
+				<%=(String)request.getAttribute("message") %>
+
+			</div>
+		<%
+		} else {
+	
     
-          int counter = 0;
-          CarDAO cDAO = new CarDAO();
-
-
-          List<Car> carList = cDAO.getSearchCars("06-02-2023", "06-11-2023");
+         try{
 
            
 
           for (Car c : carList) {
-            counter++;
+            
 
         %>
 
@@ -198,12 +201,7 @@ String location = request.getParameter("location");
         <%
           }
 
-          if (counter==0) {
-            String message = "No cars available" ;
-            %>
-            <p> <%= message %> </p>
-            <%
-          }
+          
 
       } catch (Exception e) {
         
@@ -217,6 +215,7 @@ String location = request.getParameter("location");
 
 
       }
+    }
           %>
 
     </div>
