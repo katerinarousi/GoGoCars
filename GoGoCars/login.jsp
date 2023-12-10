@@ -17,27 +17,34 @@
             </nav>
         </header>
 
+        
+        <div class="container mt-4">
+            <% if(request.getAttribute("message") != null) { %>		
+                <div class="danger-button"><%=(String)request.getAttribute("message") %></div>
+            <% } %>
+        </div>
+
         <h2 class="log-h1">WELCOME BACK!</h1>
-        <form>
+        <form method="POST" action="loginController.jsp">
             <div class="data-inputs">
                 <div>
                     <label for="username">USERNAME</label>
                 </div>
                 <div>
-                    <input type="text" id="username" name="userInput">
+                    <input type="text" id="username" name="username">
                 </div>
                 <br>
                 <div>
                     <label for="password">PASSWORD</label>
                 </div>
                 <div>
-                    <input type="password" id="password" name="userInput" required>
+                    <input type="password" id="password" name="password" required>
                     <div class="toggle-password" onclick="togglePasswordVisibility()">
                         <label for="myCheckbox">Show password</label>
                         <input type="checkbox" id="toggle-icon" name="myCheckbox">
                     </div>
                     <div class="btn-continue">
-                        <a class="my-login" href="search.jsp" onclick="return checkFieldsLogin()"><strong>Login</strong></a>
+                        <button class="my-login" type="submit" onclick="return checkFieldsLogin()"><strong>Login</strong></button>
                     </div>
                 </div>
                 <br>

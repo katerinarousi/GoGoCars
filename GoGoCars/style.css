@@ -629,6 +629,17 @@ footer p {
 }
 
 .btn-continue a{
+  text-decoration: none;
+  color: #fd5003;
+  background-color: #003366;
+  border: none;
+  cursor: pointer;
+  padding: 10px 25px;
+  border-radius: 20px;
+  margin-left: 123px;
+}
+
+.btn-continue button{
     text-decoration: none;
     color: #fd5003;
     background-color: #003366;
@@ -637,7 +648,9 @@ footer p {
     padding: 10px 25px;
     border-radius: 20px;
     margin-left: 123px;
-
+    font-weight: 1000;
+    line-height: 1;
+    font-size: 16px;
 }
 
 .btn-continue .as-host {
@@ -676,6 +689,25 @@ footer p {
 .reg-log-footer p {
     color: #fd5003;
     font-size: 14px;
+}
+
+.danger-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid red;
+  color: #fff;
+  background-color: red;
+  border-radius: 4px;
+  margin-left: 40%;
+}
+
+.danger-button:hover {
+  background-color: #c9302c;
+  border-color: #ac2925;
 }
 
 

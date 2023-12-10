@@ -38,7 +38,24 @@ public class User {
         this.isHost = isHost;
     }
 
+    public User(String firstname, String lastname, String email, String username, String password, String userID, int dob, boolean isHost) {        
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.username = username;
+        this.password = password;
+        this.userID = userID;
+        this.dob = dob;
+        this.isHost = isHost;
+    }
 
+    public User(String firstname, String lastname, String email, int dob) {        
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.dob = dob;
+    }
+    
     public User(String userID, String firstname, String lastname) {        
         this.firstname = firstname;
         this.lastname = lastname;

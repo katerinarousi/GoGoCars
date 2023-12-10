@@ -171,4 +171,41 @@ public class CarDAO{
 
         }
     }
+
+    public Car findCar(String carID) throws Exception {
+		
+		BConnection db = new BConnection();
+        Connection conn = null;
+		String query = "SELECT model, price, ownerID, car_image FROM cars WHERE carID =?";
+
+		try {
+
+			Car car = null;
+			conn = db.openConnection();
+			PreparedStatement stmt = conn.prepareStatement(query);
+
+			stmt.setString(1, carID);
+            ResultSet rs = stmt.executeQuery();
+
+			if (rs.next()) {
+				car = new Car( rs.getString(1), rs.getFloat(2), rs.getString(3), rs.getString(4) );
+            }
+
+			rs.close();
+            stmt.close();
+            db.closeConnection();
+
+			return car;
+
+		} catch (SQLException e) {
+            throw new Exception(e.getMessage());
+        } finally {
+            try {
+                db.closeConnection();
+            } catch (Exception e) {
+                
+            }
+        }
+		
+	}
 }

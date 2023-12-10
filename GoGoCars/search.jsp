@@ -11,7 +11,7 @@ UserDAO userDAO = new UserDAO();
 
 
 List<Car> cars = carDAO.getCarouselCars(); 
-List<User> users = userDAO.getUsersID_First_Last_Name();
+List<User> users = userDAO.getUsersID_first_last_name();
 %>
 
 <!DOCTYPE html>
@@ -91,11 +91,12 @@ List<User> users = userDAO.getUsersID_First_Last_Name();
             <div class="carousel">
                 
 
-        <% for (Car car: cars) { %>
+<% 
+            for (Car car: cars) { 
+%>
                 <div class="carousel-item">
                 <div class="card">
-                    <%--=car.getImage()
-                    ./images/volkswagen_up.jpeg--%>
+                    <%--=car.getImage()--%>
 
                     <img class="car-image-carousel" src="<%=car.getImage()%>" alt="">
                     <div class="card-body">
@@ -104,9 +105,14 @@ List<User> users = userDAO.getUsersID_First_Last_Name();
                                 <a class="text-secondary" href="#"> <%=car.getModel() %>  </a>
                             </h4>
                             <h5>
-                                <% for (User user: users) {
-                                    if (user.getUserID().equals(car.getOwnerID())) { %>
-                                        <div class="car-owner" href="#">by <%=user.getFirstname() %> <%= user.getLastname() %></div> <!-- Combine OwnerID with UserID to find Owner Name (add them to the sql + database proccess) -->
+
+                                <% 
+                                User carOwner = null;
+                                for (User user: users) {
+                                    if (user.getUserID().equals(car.getOwnerID())) { 
+                                        carOwner = user;
+                                %>
+                                        <div class="car-owner" href="#">by <%=carOwner.getFirstname() %> <%= carOwner.getLastname() %></div> 
                                 <%
                                         break;
                                     }
@@ -123,13 +129,13 @@ List<User> users = userDAO.getUsersID_First_Last_Name();
                             <a class="d-inline-flex align-items-center small" href="#">
                             </a>
                         </div>
-                        <button class="book-button"><a href="checkout.html">Book Now</a></button>
+                        <button class="book-button"><a href="checkout.jsp?carID=<%=car.getCarID()%>&hostID=<%=carOwner.getUserID()%>">Book Now</a></button>
                     </div>
                 </div>   
-                </div>
-            
-<% } %>
-               
+                </div>           
+<% 
+            } 
+%>             
             </div>
             <button id="prev"><span>&#8592;</span></button>
             <button id="next"><span>&#8594;</span></button>
