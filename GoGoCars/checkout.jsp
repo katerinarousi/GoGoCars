@@ -72,13 +72,13 @@ User user = (User)session.getAttribute("userObj");
       <div class="form-group">
         <label for="name"class="col-sm-3 control-label main-label">First name: </label>
         <div class="col-sm-9">
-          <input type="text" id="firstname" class="form-control" placeholder="Please enter your name" >
+          <input type="text" id="firstname" class="form-control" value="<%=user.getFistname()%>" placeholder="Please enter your name" >
         </div>
       </div>
       <div class="form-group">
         <label for="lastname"class="col-sm-3 control-label main-label">Last name: </label>
         <div class="col-sm-9">
-          <input type="text" name="lastname" id="surname" class="form-control" placeholder="Please enter your surname">
+          <input type="text" name="lastname" id="surname" class="form-control" value="<%=user.getLastname()%>" placeholder="Please enter your surname">
         </div>
       </div>
       <div class="form-group">
