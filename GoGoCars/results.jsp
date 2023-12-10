@@ -5,12 +5,13 @@
 
 
 <%
-String pick_up= (String)request.getParameter("pick_up");
-String drop_off = (String)request.getParameter("drop_off");
+String pick_up= request.getParameter("pick_up");
+String pick_up_time= request.getParameter("pick_up_time");
+String drop_off = request.getParameter("drop_off");
+String drop_off_time= request.getParameter("drop_off_time");
+String location = request.getParameter("location");
 
 
-
-// Add more debug statements as needed
 
 %>
 
@@ -27,6 +28,7 @@ String drop_off = (String)request.getParameter("drop_off");
 <body style="background-color: #fff;">
 
     <div class="header" style="height: 10vh; background-color: #036;">
+       
         <span href="#" class="logo" onclick="window.location.href='search.jsp'">
             <img src="images/blue_back-removebg-preview.png">
         </span>
@@ -39,19 +41,25 @@ String drop_off = (String)request.getParameter("drop_off");
     <div class="main">
         <div class = "container">
             <div class="search-bar">
-                <form>
-                
+                <form method="post" action="results.jsp">
+
                     <div class="location-input">
                         <label>Location</label>
-                        <input type="text" value="Add location">
+                        <select  name="location" class="form-control" required>
+                            <option value="<%=location%>"><%=location%></option>
+                            <option value="Airport">Αεροδρόμιο</option>
+                            <option value="syntagma">Σταθμός Συντάγματος</option>	
+                            <option value="pireus">Λιμάνι Πειραιά</option>
+                        </select>
                     </div>
+                
                     <div class="Pickup-input">
                         <label>Pick Up</label>
                         <input type="date" value="<%=pick_up%>"">
                     </div>
                     <div class="Pickup-Time">
                         <label>Time</label>
-                        <input type="time" placeholder= "e.g. 01-01-2023" value="">
+                        <input type="time" placeholder= "e.g. 01-01-2023" value="<%=pick_up_time%>">
                     </div>
                     <div class="Dropoff-input">
                         <label>Drop Off</label>
@@ -59,9 +67,9 @@ String drop_off = (String)request.getParameter("drop_off");
                     </div>
                     <div class="Dropoff-Time">
                         <label>Time</label>
-                        <input type="time" placeholder= "e.g. 01-01-2023" value="">
+                        <input type="time" placeholder= "e.g. 01-01-2023" value="<%=drop_off_time%>">
                     </div>
-                    <a class="search-btn" href="results.jsp">Search</a>
+                    <button class="search-btn" >Search</button>
                 </form>
 
 
@@ -138,17 +146,23 @@ String drop_off = (String)request.getParameter("drop_off");
 
     <!-- Products -->
     <div class="Products">
-
-      <%  
-      try{
-
-        System.out.println("pick_up: " + pick_up + ", drop_off: " + drop_off);
       
-      CarDAO cDAO = new CarDAO();
+       
+      <%  
+      
+     
+      try{
+    
+          int counter = 0;
+          CarDAO cDAO = new CarDAO();
 
-          List <Car> carList = cDAO.getSearchCars(pick_up,drop_off);
+
+          List<Car> carList = cDAO.getSearchCars("06-02-2023", "06-11-2023");
+
+           
 
           for (Car c : carList) {
+            counter++;
 
         %>
 
@@ -184,11 +198,19 @@ String drop_off = (String)request.getParameter("drop_off");
         <%
           }
 
-      } catch (Exception e) {
+          if (counter==0) {
+            String message = "No cars available" ;
+            %>
+            <p> <%= message %> </p>
+            <%
+          }
 
+      } catch (Exception e) {
+        
+ 
         %>
 
-
+        
         <p>Error: <%= e.getMessage() %></p>
         
         <%    
