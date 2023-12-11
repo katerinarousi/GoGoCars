@@ -198,30 +198,6 @@ List<Car> carList= (List<Car>) request.getAttribute("carList");
             </div>
             <!-- End Product -->
 
-        <%
-          }
-
-          
-
-      } catch (Exception e) {
-        
- 
-        %>
-
-        
-        <p>Error: <%= e.getMessage() %></p>
-        
-        <%    
-
-
-      }
-    }
-          %>
-
-    </div>
-
-
-
     <div class="footer">
         <label>GoGoCars</label>
         <div class="b-example-divider"></div>

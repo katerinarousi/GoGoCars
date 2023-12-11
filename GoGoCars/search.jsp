@@ -41,7 +41,7 @@ List<User> users = userDAO.getUsersID_first_last_name();
             <h1 style="font-size:5vw">Find the drive that suits you</h1>
             <h2 style="font-size:2vw">Explore our peer-to-peer rentals</h2>
             <div class="search-bar">
-                <form method="post" action="/searchbyluxuryservlet.java">
+                <form method="post" action="searchbyluxuryservlet.java">
                     <div class="location-input">
                         <label>Location</label>
                         <select  name="location" class="form-control" required>
