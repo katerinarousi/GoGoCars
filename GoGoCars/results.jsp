@@ -101,6 +101,7 @@ List<Car> carList= (List<Car>) request.getAttribute("carList");
             <div class="dropdown-container">
                 <a href="#"><h6>Super Sport</h5></a>
                 <a href="#"><h6>Off-Road</h6></a>
+                <a href="#"><h6>Compact</h6></a>
                 <a href="#"><h6>SUV</h6></a>
                 <a href="#"><h6>Sedan</h6></a>
             </div>
@@ -122,7 +123,7 @@ List<Car> carList= (List<Car>) request.getAttribute("carList");
                 <a href="#"><h6>automatic</h6></a>
                 <a href="#"><h6>manual</h6></a>
             </div>
-            
+            <!-- 
             <button class="interior-btn" onclick="dropDownMenu()"><h5>Interior</h5> 
                 <i class="fa fa-caret-down"></i>
             </button>
@@ -132,42 +133,41 @@ List<Car> carList= (List<Car>) request.getAttribute("carList");
                 <a href="#"><h6>High-End Interior</h6></a>
                 <a href="#"><h6>Customized Interior</h6></a>
             </div>
+            -->
         </div>
     </div>
 
-    
-
-
-
-
-
     <!-- Filters -->
-
-
 
     <!-- Products -->
     <div class="Products">
 
-        <%
-		if (request.getAttribute("message") != null) {
-		%>
-			<div class="alert alert-danger text-center">
+        <% if (carList != null && !carList.isEmpty()) { %>
+            <c:forEach var="car" items="${carList}">
+                <div class="card">
+                    <img class="card-img-top" src="<%=car.getImage()%>" alt="Car Image">
+                    <div class="card-body">
+                        <div class="mb-2">
+                            <h4><a class="text-secondary" href="#"><%=car.getModel()%></a></h4>
+                            <h5>
+                                <div class="car-owner" href="#">by <%=car.getOwnerID()%></div>
+                                <div><%=car.getCarType()%>|<%=car.getFuel()%>|<%=car.getTransmission()%>|<%=car.isHybrid()%></div>
+                            </h5>
+                            <div class="d-block">
+                                <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span><%=car.getPrice()%>/day</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </c:forEach>
+        <% } else { %>
+            <div class="alert alert-danger text-center">
 
 				<%=(String)request.getAttribute("message") %>
 
 			</div>
-		<%
-		} else {
-	
-    
-         try{
-
-           
-
-          for (Car c : carList) {
-            
-
-        %>
+        <% } %>
+         
 
                     
         <div class="card">
