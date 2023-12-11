@@ -30,7 +30,7 @@ public class Rental {
      */
 
     
-    public Rental(String rentalID, String startDate, String endDate, String location, String startTime, String endTime, int totalPrice) {        
+    public Rental(String rentalID,String startDate, String endDate, String location, String startTime, String endTime, int totalPrice) {        
         this.rentalID = rentalID;
         this.startDate = startDate;
         this.endDate = endDate;

@@ -4,9 +4,12 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+
+import java.text.ParseException;
 
 
 
@@ -24,29 +27,26 @@ public class CarDAO{
      */
 
     
-    public List<Car> getSearchCars(String pick_up,String drop_off) throws Exception {
+public List<Car> getSearchCars(String pick_up,String drop_off) throws Exception {
         Connection con = null;
         List<Car> carList = new ArrayList<Car>();
         String sql = "SELECT carID FROM rental WHERE carID NOT IN (SELECT DISTINCT carID FROM ismgroup14.rental WHERE (start_datetime <=? AND end_datetime >= ?) OR (start_datetime <= ? AND end_datetime >= ?) OR (start_datetime >= ? AND end_datetime <= ?));";
         BConnection db = new BConnection();
         try {
             con= db.openConnection();
+
+            String f_pick_up = formatDateForDatabase(pick_up);
+            String f_drop_off = formatDateForDatabase(drop_off);
+
             PreparedStatement state = con.prepareStatement(sql);
-            state.setString(1, drop_off);
-            state.setString(2, pick_up);
-            state.setString(3, drop_off);
-            state.setString(4, pick_up);
-            state.setString(5, drop_off);
-            state.setString(6, pick_up);
+            state.setString(1, f_drop_off);
+            state.setString(2, f_pick_up);
+            state.setString(3, f_drop_off);
+            state.setString(4, f_pick_up);
+            state.setString(5, f_drop_off);
+            state.setString(6, f_pick_up);
             ResultSet rs = state.executeQuery();
 
-            if (!rs.next()) {
-                rs.close();
-                state.close();
-                db.closeConnection();
-                throw new Exception("Τhere are no cars available on these dates");
-
-            }
 
             while(rs.next()) {
                 int carID = rs.getInt("carID");
@@ -60,45 +60,62 @@ public class CarDAO{
             return carList;
 
         } catch (Exception e) {
-            throw new Exception(e.getMessage());
-        } finally {
-            try{
-                db.closeConnection();
-            } catch (Exception exception) {
-            }
-        }
+            e.printStackTrace();
+            throw new Exception(e);
 
+        } finally {
+            db.closeConnection();
+
+        }
     }
-    private Car getCarByID(int carID) throws Exception{
+
+
+
+    public Car getCarByID(int carID) throws Exception{
         Connection con = null;
         String sql = "SELECT * FROM ismgroup14.cars WHERE carID=?;";
         BConnection db = new BConnection();
         try {
             con= db.openConnection();
             PreparedStatement state = con.prepareStatement(sql);
+            state.setInt(1,carID);
             ResultSet rs = state.executeQuery();
-            if (!rs.next()) {
-				rs.close();
-				state.close();
-				return null;
-			}
-            return new Car(
-    			rs.getString("model"),
-    			rs.getString("fuel"),
-   				rs.getBoolean("hybrid"),
-    			rs.getBoolean("transmission"),
-    			rs.getInt("year_car"),
-                rs.getFloat("price"),
-                rs.getString("ownerID"));
+            Car car = null;
+            if (rs.next()) {
+                car = new Car(
+                    rs.getString("model"),
+                    rs.getString("fuel"),
+                    rs.getBoolean("hybrid"),
+                    rs.getBoolean("transmission"),
+                    rs.getInt("year_car"),
+                    rs.getFloat("price"),
+                    rs.getString("ownerID")
+                );
+            }
+           
 
+            rs.close();
+            state.close();
 
-        } catch (Exception e){
+            return car;
+        } catch (Exception e) {
             throw new Exception(e.getMessage());
+        } finally {
 
+            db.closeConnection();
         }
 
 
     }
+    public String formatDateForDatabase(String date) throws ParseException {
+        SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat outputFormat = new SimpleDateFormat("dd-MM-yyyy");
+    
+        java.util.Date parsedDate = inputFormat.parse(date);
+        return outputFormat.format(parsedDate);
+}
+
+
 
 
     public List<Car> getCarouselCars() throws Exception{

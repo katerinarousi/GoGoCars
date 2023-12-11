@@ -16,30 +16,23 @@
 
         CarDAO cDAO = new CarDAO();
 
-
-      
-      
-          
-         
-
-          List<Car> carList = cDAO.getCarouselCars();
-          if (carList == null) {
-            request.setAttribute("message", "No available cars");
-          }
-
-          request.setAttribute("carList", carList);
-
-          RequestDispatcher dispatcher = request.getRequestDispatcher("search.jsp");
-dispatcher.forward(request, response);
+        try{
+          List<Car> carList = cDAO.getSearchCars(pick_up,drop_off);
+            if (carList == null) {
+              request.setAttribute("message", "No available cars");
+            }
+  
+            request.setAttribute("carList", carList);
+  
+            RequestDispatcher dispatcher = request.getRequestDispatcher("results.html");
+            dispatcher.forward(request, response);
+        } catch (Exception e){
+          e.getMessage();
+        }
 
           
 
-    
-
-    
-
-    
-
+          
 %>
 
 

@@ -142,36 +142,11 @@ List<Car> carList= (List<Car>) request.getAttribute("carList");
     <!-- Products -->
     <div class="Products">
 
-        <% if (carList != null && !carList.isEmpty()) { %>
-            <c:forEach var="car" items="${carList}">
-                <div class="card">
-                    <img class="card-img-top" src="<%=car.getImage()%>" alt="Car Image">
-                    <div class="card-body">
-                        <div class="mb-2">
-                            <h4><a class="text-secondary" href="#"><%=car.getModel()%></a></h4>
-                            <h5>
-                                <div class="car-owner" href="#">by <%=car.getOwnerID()%></div>
-                                <div><%=car.getCarType()%>|<%=car.getFuel()%>|<%=car.getTransmission()%>|<%=car.isHybrid()%></div>
-                            </h5>
-                            <div class="d-block">
-                                <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span><%=car.getPrice()%>/day</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </c:forEach>
-        <% } else { %>
-            <div class="alert alert-danger text-center">
-
-				<%=(String)request.getAttribute("message") %>
-
-			</div>
-        <% } %>
          
-
-                    
+     <%
+        for (Car c : carList) {  %>          
         <div class="card">
-            <img class="card-img-top" src="images/volkswagen_up.jpeg" alt="Image Description">
+            <img class="card-img-top" src="<%=c.getImage()%>" alt="Image Description">
         
             <div class="card-body">
                 <div class="mb-2">
@@ -180,7 +155,7 @@ List<Car> carList= (List<Car>) request.getAttribute("carList");
                 </h4>
                 <h5>
                     <div class="car-owner" href="#">by <%=c.getOwnerID()%></div>
-                    <div><%=c.getFuel()%>|<%=c.getTransmission()%>|<%=c.isHybrid()%> </div>
+                    <div><%=c.getCarType()%>|c.getFuel()%>|<%=c.getTransmission()%>|<%=c.isHybrid()%> </div>
                 </h5>
                 <div class="d-block">
                     <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span><%=c.getPrice()%>/day</span>
@@ -195,8 +170,10 @@ List<Car> carList= (List<Car>) request.getAttribute("carList");
                 </div>
                 <button class="book-button"><a href="checkout.jsp">Book Now</a></button>
             </div>
-            </div>
+           
             <!-- End Product -->
+            <% } %>
+        </div>
 
     <div class="footer">
         <label>GoGoCars</label>
