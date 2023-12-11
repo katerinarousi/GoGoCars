@@ -46,9 +46,9 @@ List<User> users = userDAO.getUsersID_first_last_name();
                         <label>Location</label>
                         <select  name="location" class="form-control" required>
                             <option value="">Add location</option>
-                            <option value="Airport">Αεροδρόμιο</option>
-                            <option value="syntagma">Σταθμός Συντάγματος</option>	
-                            <option value="pireus">Λιμάνι Πειραιά</option>
+                            <option value="Airport">Airport</option>
+                            <option value="syntagma">Syntagma Square</option>	
+                            <option value="pireus">Port of Piraeus</option>
                         </select>
                     </div>
                     <div class="Pickup-input">
