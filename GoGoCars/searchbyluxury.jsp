@@ -1,40 +1,45 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="GoG.*" %>
+<%@ page import="java.util.List" %>
+<%@ page import="GoG.Car" %>
+<%@ page import="GoG.CarDAO" %>
+<%@ page import="GoG.User" %>
+<%@ page import="GoG.UserDAO" %>
+
+
 
 
 
 
 <%
-String location = request.getParameter("location");
-String pick_up = request.getParameter("pick_up");
-String drop_off = request.getParameter("drop_off");
+        String pick_up = request.getParameter("pick_up");
+        String drop_off = request.getParameter("drop_off");
 
-boolean isBefore = false;
-CarDAO cDAO = new CarDAO();
-try{  
-    isBefore = cDAO.correctDates(pick_up, drop_off);
-
-    if (isBefore == true) {
-        response.sendRedirect("results.jsp");
-        return;
-
-    } else 
+        CarDAO cDAO = new CarDAO();
 
 
+      
+      
+          
+         
 
-    }
-}catch (Exception e) {
+          List<Car> carList = cDAO.getCarouselCars();
+          if (carList == null) {
+            request.setAttribute("message", "No available cars");
+          }
 
-    request.setAttribute("message", "Fill all the fields");
+          request.setAttribute("carList", carList);
 
+          RequestDispatcher dispatcher = request.getRequestDispatcher("search.jsp");
+dispatcher.forward(request, response);
 
-    %>
+          
 
-    <jsp:forward page ="search.jsp"/>
+    
 
-<%
+    
 
-}
+    
+
 %>
 
 

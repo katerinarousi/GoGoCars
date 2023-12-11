@@ -41,7 +41,7 @@ List<User> users = userDAO.getUsersID_first_last_name();
             <h1 style="font-size:5vw">Find the drive that suits you</h1>
             <h2 style="font-size:2vw">Explore our peer-to-peer rentals</h2>
             <div class="search-bar">
-                <form method="post" action="searchbyluxuryservlet.java">
+                <form method="post" action="searchbyluxury.jsp">
                     <div class="location-input">
                         <label>Location</label>
                         <select  name="location" class="form-control" required>
@@ -67,7 +67,7 @@ List<User> users = userDAO.getUsersID_first_last_name();
                         <label>Time</label>
                         <input type="time" placeholder= "e.g. 01-01-2023" name="drop_off_time" required>
                     </div>
-                    <button class="search-btn">Search</button>
+                    <button class="search-btn" type="submit">Search</button>
                 </form>
 
 

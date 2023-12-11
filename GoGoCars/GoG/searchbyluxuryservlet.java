@@ -35,7 +35,7 @@ public class searchbyluxuryservlet extends HttpServlet {
     
 
     } catch (Exception e) {
-        e.getMessage();
+        e.printStackTrace();
     }
 }
 }
