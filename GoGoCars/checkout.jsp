@@ -3,6 +3,9 @@
 <%@ page import="GoG.CarDAO" %>
 <%@ page import="GoG.User" %>
 <%@ page import="GoG.UserDAO" %>
+<%@ page import="GoG.priceCalculator" %>
+<%@ page import="java.time.LocalDate" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,13 +28,16 @@
   <div class="container">
     <h1 class="my_title_checkout">Just a few clicks away...</h1>
 <%
+User user = (User)session.getAttribute("userObj");
+
 UserDAO userDAO = new UserDAO();
 CarDAO carDAO = new CarDAO();
+
 String carID = request.getParameter("carID");
 String hostID = request.getParameter("hostID");
+
 User hostObj = userDAO.findUser(hostID);
 Car carObj = carDAO.findCar(carID);
-User user = (User)session.getAttribute("userObj");
 %>
     <div class="big-field-car">
       <div class="car-details">
@@ -45,7 +51,35 @@ User user = (User)session.getAttribute("userObj");
             <span> <strong><%=hostObj.getFirstname()%> <%=hostObj.getLastname()%></strong></span>
           </div>
           <div>
+
+        <!-- This if covers the case where the data comes from the reults page -->
+<%
+        String pick_up= request.getParameter("pick_up");
+        String pick_up_time= request.getParameter("pick_up_time");
+        String drop_off = request.getParameter("drop_off");
+        String drop_off_time= request.getParameter("drop_off_time");
+        String location = request.getParameter("location");
+
+        if (pick_up != null && pick_up_time != null && drop_off != null && drop_off_time != null && location != null) {
+%>
             <img class="date-image" src="images/pickup.png" alt="Calendar Image">
+            <span><strong>Pick up:</strong> <%=pick_up%> <%=pick_up_time%></span>
+          </div>
+          <div>
+            <img class="date-image" src="images/dropoff.png" alt="Calendar Image">
+            <span><strong>Drop Off:</strong> <%=drop_off%> <%=drop_off_time%></span>
+          </div>
+          <div>
+            <img class="map-image" src="images/maps.jpg" alt="Map Image">
+            <span><strong>Location:</strong> <%=location%></span>
+          </div>
+          <div>
+            <img class="price-image" src="images/total cost.png" alt="Price Image">
+            <span><strong>Total price:</strong> <%=priceCalculator.CalculatePrice(pick_up, drop_off, carObj.getPrice())%> &nbsp;&euro;</span>
+<%
+        } else {
+%>
+                      <img class="date-image" src="images/pickup.png" alt="Calendar Image">
             <span><strong>Pick up:</strong> 10/11/2023 10:00</span>
           </div>
           <div>
@@ -58,7 +92,11 @@ User user = (User)session.getAttribute("userObj");
           </div>
           <div>
             <img class="price-image" src="images/total cost.png" alt="Price Image">
-            <span><strong>Total price:</strong> 218.7 &nbsp;&euro;</span>
+            <span><strong>Total price:</strong>218.7 &nbsp;&euro;</span>
+
+<%
+        }
+%>
           </div>
         </div>
       </div>
