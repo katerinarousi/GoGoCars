@@ -48,9 +48,9 @@ List<Car> carList= (List<Car>) request.getAttribute("carList");
                         <label>Location</label>
                         <select  name="location" class="form-control" required>
                             <option value="<%=location%>"><%=location%></option>
-                            <option value="Airport">Αεροδρόμιο</option>
-                            <option value="syntagma">Σταθμός Συντάγματος</option>	
-                            <option value="pireus">Λιμάνι Πειραιά</option>
+                            <option value="Airport">Airport</option>
+                            <option value="syntagma">Syntagma Square</option>	
+                            <option value="pireus">Port of Piraeus</option>
                         </select>
                     </div>
                 
@@ -146,16 +146,28 @@ List<Car> carList= (List<Car>) request.getAttribute("carList");
      <%
         for (Car c : carList) {  %>          
         <div class="card">
-            <img class="card-img-top" src="<%=c.getImage()%>" alt="Image Description">
-        
+            <%--=car.getImage()--%>
+
+            <img class="car-image-carousel" src="<%=car.getImage()%>" alt="">
             <div class="card-body">
                 <div class="mb-2">
                 <h4>
                     <a class="text-secondary" href="#"> <%=c.getModel()%></a>
                 </h4>
                 <h5>
-                    <div class="car-owner" href="#">by <%=c.getOwnerID()%></div>
-                    <div><%=c.getCarType()%>|c.getFuel()%>|<%=c.getTransmission()%>|<%=c.isHybrid()%> </div>
+                    <% 
+                    User carOwner = null;
+                    for (User user: users) {
+                        if (user.getUserID().equals(car.getOwnerID())) { 
+                            carOwner = user;
+                    %>
+                            <div class="car-owner" href="#">by <%=carOwner.getFirstname() %> <%= carOwner.getLastname() %></div> 
+                    <%
+                            break;
+                        }
+                    }
+                    %>
+                    <div><%=c.getCarType()%>|c.getFuel()%>|<%=c.getTransmission()%>|<%=c.isHybrid()%|<%=car.getYear()> </div>
                 </h5>
                 <div class="d-block">
                     <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span><%=c.getPrice()%>/day</span>
@@ -165,10 +177,10 @@ List<Car> carList= (List<Car>) request.getAttribute("carList");
         
             <div class="card-footer">
                 <div class="mb-3">
-                <a class="d-inline-flex align-items-center small" href="#">
-                </a>
+                    <a class="d-inline-flex align-items-center small" href="#">
+                    </a>
                 </div>
-                <button class="book-button"><a href="checkout.jsp">Book Now</a></button>
+                <button class="book-button"><a href="checkout.jsp?carID=<%=car.getCarID()%>&hostID=<%=carOwner.getUserID()%>">Book Now</a></button>
             </div>
            
             <!-- End Product -->
