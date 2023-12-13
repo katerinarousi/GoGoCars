@@ -55,19 +55,17 @@ Car carObj = carDAO.findCar(carID);
         <!-- This if covers the case where the data comes from the reults page -->
 <%
         String pick_up= request.getParameter("pick_up");
-        String pick_up_time= request.getParameter("pick_up_time");
         String drop_off = request.getParameter("drop_off");
-        String drop_off_time= request.getParameter("drop_off_time");
         String location = request.getParameter("location");
 
-        if (pick_up != null && pick_up_time != null && drop_off != null && drop_off_time != null && location != null) {
+        if (pick_up != null && drop_off != null && location != null) {
 %>
             <img class="date-image" src="images/pickup.png" alt="Calendar Image">
-            <span><strong>Pick up:</strong> <%=pick_up%> <%=pick_up_time%></span>
+            <span><strong>Pick up:</strong> <%=pick_up%></span>
           </div>
           <div>
             <img class="date-image" src="images/dropoff.png" alt="Calendar Image">
-            <span><strong>Drop Off:</strong> <%=drop_off%> <%=drop_off_time%></span>
+            <span><strong>Drop Off:</strong> <%=drop_off%></span>
           </div>
           <div>
             <img class="map-image" src="images/maps.jpg" alt="Map Image">
@@ -75,24 +73,30 @@ Car carObj = carDAO.findCar(carID);
           </div>
           <div>
             <img class="price-image" src="images/total cost.png" alt="Price Image">
-            <span><strong>Total price:</strong> <%=priceCalculator.CalculatePrice(pick_up, drop_off, carObj.getPrice())%> &nbsp;&euro;</span>
+            <span><strong>Total price:</strong> <%=carObj.getPrice()%>&nbsp;&euro;</span> <!-- priceCalculator.CalculatePrice(pick_up, drop_off, carObj.getPrice())-->
 <%
         } else {
 %>
-                      <img class="date-image" src="images/pickup.png" alt="Calendar Image">
-            <span><strong>Pick up:</strong> 10/11/2023 10:00</span>
+            <img class="date-image" src="images/pickup.png" alt="Calendar Image">
+            <span><strong>Pick up:</strong> <input type="date" required></span>
           </div>
           <div>
             <img class="date-image" src="images/dropoff.png" alt="Calendar Image">
-            <span><strong>Drop Off:</strong> 14/11/2023 13:00</span>
+            <span><strong>Drop Off:</strong> <input type="date" required></span>
           </div>
           <div>
             <img class="map-image" src="images/maps.jpg" alt="Map Image">
-            <span><strong>Location:</strong> Leoforos Adrea Siggrou</span>
+            <span><strong>Location:</strong>                         
+              <select  name="location" class="form-control" required>
+              <option value="">Add location</option>
+              <option value="Airport">Airport</option>
+              <option value="syntagma">Syntagma Square</option>	
+              <option value="pireus">Port of Piraeus</option>
+          </select></span>
           </div>
           <div>
             <img class="price-image" src="images/total cost.png" alt="Price Image">
-            <span><strong>Total price:</strong>218.7 &nbsp;&euro;</span>
+            <span><strong>Total price:</strong> <%=carObj.getPrice()%>&nbsp;&euro;/day</span>
 
 <%
         }

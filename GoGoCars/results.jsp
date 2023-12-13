@@ -60,7 +60,7 @@ List<User> users = userDAO.getUsersID_first_last_name();
                 
                     <div class="Pickup-input">
                         <label>Pick Up</label>
-                        <input type="date" value="<%=pick_up%>"">
+                        <input type="date" value="<%=pick_up%>">
                     </div>
                     <div class="Pickup-Time">
                         <label>Time</label>
@@ -191,7 +191,9 @@ List<User> users = userDAO.getUsersID_first_last_name();
                             <a class="d-inline-flex align-items-center small" href="#">
                             </a>
                         </div>
-                        <button class="book-button"><a href="checkout.jsp?carID=<%=car.getCarID()%>&hostID=<%=carOwner.getUserID()%>">Book Now</a></button>
+                        <button class="book-button">
+                            <a href="checkout.jsp?carID=<%=car.getCarID()%>&hostID=<%=carOwner.getUserID()%>&pick_up=<%=pick_up%>&drop_off=<%=drop_off%>&location=<%=location%>">Book Now</a>
+                        </button>
                     </div>
                 </div>
             </div>   
