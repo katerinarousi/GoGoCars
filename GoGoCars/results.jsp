@@ -81,7 +81,8 @@ List<User> users = userDAO.getUsersID_first_last_name();
             </div>
         </div>
     </div>
-    <%
+
+    <!-- <%
     if (request.getAttribute("message") != null) {
     %>
         <div class="alert alert-danger text-center">
@@ -90,8 +91,9 @@ List<User> users = userDAO.getUsersID_first_last_name();
         </div>
     <%
     } else {
-    %>
+    %>-->
     <!-- Filters -->
+
     <div class="sidenav">
         <button class="filters-btn" onclick="dropDownMenu()"><p>Filters<span class="glyphicon glyphicon-filter"></span></p>
             <i class="fa fa-caret-down"></i>
@@ -151,12 +153,14 @@ List<User> users = userDAO.getUsersID_first_last_name();
     </div>
 
     <!-- Products -->
-    <main class="row justify-content-center">         
+    <main class="row justify-content-center">
         <% 
+        if (carList != null) {         
+        
         for (Car car: carList) { 
         %>
         <div class="col-md-3">
-            <div class="Myresults"> 
+             
                 <div class="card">
                     <%--=car.getImage()--%>
         
@@ -196,17 +200,18 @@ List<User> users = userDAO.getUsersID_first_last_name();
                         </button>
                     </div>
                 </div>
-            </div>   
+               
         </div>           
         <% 
         } 
+    }
         %>        
     
     </main>
 
-    <% 
+    <!--<% 
     } 
-    %>
+    %>-->
         
     <div class="footer">
         <label>GoGoCars</label>
