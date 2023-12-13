@@ -33,10 +33,8 @@ List<User> users = userDAO.getUsersID_first_last_name();
             <a class="profile-btn" href="rentalinfo.jsp"><span></span>Profile</a>            
         </div>
 
-        <div class = "container">
+        <div class = "container">	
             
-            
-
 
             <h1 style="font-size:5vw">Find the drive that suits you</h1>
             <h2 style="font-size:2vw">Explore our peer-to-peer rentals</h2>

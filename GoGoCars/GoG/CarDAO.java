@@ -30,7 +30,7 @@ public class CarDAO{
 public List<Car> getSearchCars(String pick_up,String drop_off) throws Exception {
         Connection con = null;
         List<Car> carList = new ArrayList<Car>();
-        String sql = "SELECT carID FROM rental WHERE carID NOT IN (SELECT DISTINCT carID FROM ismgroup14.rental WHERE (start_datetime <=? AND end_datetime >= ?) OR (start_datetime <= ? AND end_datetime >= ?) OR (start_datetime >= ? AND end_datetime <= ?));";
+        String sql = "SELECT DISTINCT carID FROM rental WHERE carID NOT IN (SELECT DISTINCT carID FROM ismgroup14.rental WHERE (start_datetime <=? AND end_datetime >= ?) OR (start_datetime <= ? AND end_datetime >= ?) OR (start_datetime >= ? AND end_datetime <= ?));";
         BConnection db = new BConnection();
         try {
             con= db.openConnection();
@@ -83,13 +83,16 @@ public List<Car> getSearchCars(String pick_up,String drop_off) throws Exception 
             Car car = null;
             if (rs.next()) {
                 car = new Car(
-                    rs.getString("model"),
-                    rs.getString("fuel"),
-                    rs.getBoolean("hybrid"),
-                    rs.getBoolean("transmission"),
-                    rs.getInt("year_car"),
-                    rs.getFloat("price"),
-                    rs.getString("ownerID")
+                    rs.getString(1),
+                    rs.getString(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                    rs.getBoolean(5),
+                    rs.getBoolean(6),
+                    rs.getInt(7),
+                    rs.getFloat(8),
+                    rs.getString(9),
+                    rs.getString(10)
                 );
             }
            

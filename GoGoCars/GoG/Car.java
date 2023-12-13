@@ -43,20 +43,7 @@ public class Car{
 
     }
 
-    public Car() {
-        
-    }
 
-    public Car(String model , String fuel, boolean isHybrid, boolean transmission, int year, float price, String ownerID) {        
-       this.model = model;
-       this.fuel = fuel;
-       this.isHybrid = isHybrid;
-       this.transmission = transmission;
-       this.year = year;
-       this.price = price;
-       this.ownerID = ownerID;
-
-    }
 
     public Car(String model, float price, String ownerID, String image) {
        this.model = model;

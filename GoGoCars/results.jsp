@@ -2,7 +2,8 @@
 <%@ page import="java.util.List" %>
 <%@ page import="GoG.Car" %>
 <%@ page import="GoG.CarDAO" %>
-
+<%@ page import="GoG.User" %>
+<%@ page import="GoG.UserDAO" %>
 
 <%
 String pick_up= request.getParameter("pick_up");
@@ -10,7 +11,10 @@ String pick_up_time= request.getParameter("pick_up_time");
 String drop_off = request.getParameter("drop_off");
 String drop_off_time= request.getParameter("drop_off_time");
 String location = request.getParameter("location");
+UserDAO userDAO = new UserDAO();
 List<Car> carList= (List<Car>) request.getAttribute("carList");
+List<User> users = userDAO.getUsersID_first_last_name();
+
 
 
 
@@ -77,7 +81,17 @@ List<Car> carList= (List<Car>) request.getAttribute("carList");
             </div>
         </div>
     </div>
-    
+    <%
+    if (request.getAttribute("message") != null) {
+    %>
+        <div class="alert alert-danger text-center">
+
+            <%=(String)request.getAttribute("message") %>
+
+        </div>
+    <%
+    } else {
+    %>
     <!-- Filters -->
     <div class="sidenav">
         <button class="filters-btn" onclick="dropDownMenu()"><p>Filters<span class="glyphicon glyphicon-filter"></span></p>
@@ -137,56 +151,62 @@ List<Car> carList= (List<Car>) request.getAttribute("carList");
         </div>
     </div>
 
-    <!-- Filters -->
-
     <!-- Products -->
-    <div class="Products">
-
-         
-     <%
-        for (Car c : carList) {  %>          
-        <div class="card">
-            <%--=car.getImage()--%>
-
-            <img class="car-image-carousel" src="<%=car.getImage()%>" alt="">
-            <div class="card-body">
-                <div class="mb-2">
-                <h4>
-                    <a class="text-secondary" href="#"> <%=c.getModel()%></a>
-                </h4>
-                <h5>
-                    <% 
-                    User carOwner = null;
-                    for (User user: users) {
-                        if (user.getUserID().equals(car.getOwnerID())) { 
-                            carOwner = user;
-                    %>
-                            <div class="car-owner" href="#">by <%=carOwner.getFirstname() %> <%= carOwner.getLastname() %></div> 
-                    <%
-                            break;
-                        }
-                    }
-                    %>
-                    <div><%=c.getCarType()%>|c.getFuel()%>|<%=c.getTransmission()%>|<%=c.isHybrid()%|<%=car.getYear()> </div>
-                </h5>
-                <div class="d-block">
-                    <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span><%=c.getPrice()%>/day</span>
-                </div>
-                </div>
-            </div>
+    <main class="row justify-content-center">         
+        <% 
+        for (Car car: carList) { 
+        %>
+        <div class="col-md-3">
+            <div class="Myresults"> 
+                <div class="card">
+                    <%--=car.getImage()--%>
         
-            <div class="card-footer">
-                <div class="mb-3">
-                    <a class="d-inline-flex align-items-center small" href="#">
-                    </a>
+                    <img class="car-image-carousel" src="<%=car.getImage()%>" alt="">
+                    <div class="card-body">
+                        <div class="mb-2">
+                            <h4>
+                                <a class="text-secondary" href="#"> <%=car.getModel() %>  </a>
+                            </h4>
+                            <h5>
+        
+                            <% 
+                            User carOwner = null;
+                            for (User user: users) {
+                                if (user.getUserID().equals(car.getOwnerID())) { 
+                                    carOwner = user;
+                                %>
+                                <div class="car-owner" href="#">by <%=carOwner.getFirstname() %> <%= carOwner.getLastname() %></div> 
+                                <%
+                                    break;
+                                }
+                            }
+                            %>
+                            <div><%=car.getFuel() %>|<%=car.getYear() %>|<%=car.getCarType() %>|<%=car.getTransmission()%>|<%=car.isHybrid() %></div>
+                            </h5>
+                            <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span><%=car.getPrice() %>/day</span>
+                        </div>
+                    </div>
+                        
+                    <div class="card-footer">
+                        <div class="mb-3">
+                            <a class="d-inline-flex align-items-center small" href="#">
+                            </a>
+                        </div>
+                        <button class="book-button"><a href="checkout.jsp?carID=<%=car.getCarID()%>&hostID=<%=carOwner.getUserID()%>">Book Now</a></button>
+                    </div>
                 </div>
-                <button class="book-button"><a href="checkout.jsp?carID=<%=car.getCarID()%>&hostID=<%=carOwner.getUserID()%>">Book Now</a></button>
-            </div>
-           
-            <!-- End Product -->
-            <% } %>
-        </div>
+            </div>   
+        </div>           
+        <% 
+        } 
+        %>        
+    
+    </main>
 
+    <% 
+    } 
+    %>
+        
     <div class="footer">
         <label>GoGoCars</label>
         <div class="b-example-divider"></div>

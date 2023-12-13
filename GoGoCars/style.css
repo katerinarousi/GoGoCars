@@ -375,6 +375,7 @@ footer p {
     padding-top: 20px;
 }
 
+
 .card {
     border: 1px solid #ddd;
     background-color: #f0f0f0;
@@ -385,6 +386,7 @@ footer p {
     text-align: center;
     padding-bottom: 10px;
     height: auto;
+
 
 }
 
@@ -399,6 +401,10 @@ footer p {
     max-width: 100%;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
+}
+.main.row {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
   
 .text-secondary {
@@ -434,7 +440,9 @@ footer p {
   padding-right: 22px;
 
 }
-
+.Myresults {
+  margin-bottom: 20px;
+}
   
 .book-button, .book-button a {
     border-color: none;
