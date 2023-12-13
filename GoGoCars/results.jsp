@@ -85,9 +85,8 @@ List<User> users = userDAO.getUsersID_first_last_name();
     if (request.getAttribute("message") != null) {
     %>
         <div class="alert alert-danger text-center">
-
-            <%=(String)request.getAttribute("message") %>
-
+            "There are no cars available on these dates."
+    
         </div>
     <%
     } else {
