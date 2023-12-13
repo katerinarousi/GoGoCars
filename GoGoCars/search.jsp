@@ -75,26 +75,28 @@ List<User> users = userDAO.getUsersID_first_last_name();
                     function formatDateToYYYYMMDD(inputDate) {
                         const date = new Date(inputDate);
                         const year = date.getFullYear();
-                        const month = String(date.getMonth() + 1).padStart(2, '0'); 
+                        const month = String(date.getMonth() + 1).padStart(2, '0'); // Προσθέτουμε 1 επειδή οι μήνες ξεκινούν από το 0
                         const day = String(date.getDate()).padStart(2, '0');
                 
                         return `${year}-${month}-${day}`;
                     }
                 
+                    // Στη συνέχεια, μπορείτε να χρησιμοποιήσετε αυτήν τη συνάρτηση για να μετατρέψετε τις ημερομηνίες όπως χρειάζεται
                     const pickUpDateInput = document.getElementsByName("pick_up")[0];
                     const dropOffDateInput = document.getElementsByName("drop_off")[0];
                 
-                    
+                    // Παράδειγμα: Μετατροπή της ημερομηνίας pick_up
                     pickUpDateInput.addEventListener("change", function () {
                         const formattedDate = formatDateToYYYYMMDD(this.value);
                         console.log(formattedDate);
-                        
+                        // Εδώ μπορείτε να κάνετε ό,τι θέλετε με τη μορφοποιημένη ημερομηνία
                     });
                 
-                    
+                    // Παράδειγμα: Μετατροπή της ημερομηνίας drop_off
                     dropOffDateInput.addEventListener("change", function () {
                         const formattedDate = formatDateToYYYYMMDD(this.value);
                         console.log(formattedDate);
+                        // Εδώ μπορείτε να κάνετε ό,τι θέλετε με τη μορφοποιημένη ημερομηνία
                     });
                 </script>
 

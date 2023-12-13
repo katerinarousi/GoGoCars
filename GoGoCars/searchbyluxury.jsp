@@ -6,10 +6,6 @@
 <%@ page import="GoG.UserDAO" %>
 
 
-
-
-
-
 <%
         String pick_up = request.getParameter("pick_up");
         String drop_off = request.getParameter("drop_off");
@@ -34,5 +30,3 @@
 
           
 %>
-
-
