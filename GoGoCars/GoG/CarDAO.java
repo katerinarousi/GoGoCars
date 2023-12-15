@@ -30,7 +30,7 @@ public class CarDAO{
 public List<Car> getSearchCars(String pick_up,String drop_off) throws Exception {
         Connection con = null;
         List<Car> carList = new ArrayList<Car>();
-        String sql = "SELECT DISTINCT carID FROM rental WHERE carID NOT IN (SELECT DISTINCT carID FROM ismgroup14.rental WHERE (start_datetime <=? AND end_datetime >= ?) OR (start_datetime <= ? AND end_datetime >= ?) OR (start_datetime >= ? AND end_datetime <= ?));";
+        String sql = "SELECT DISTINCT carID FROM rental WHERE carID NOT IN (SELECT DISTINCT carID FROM ismgroup14.rental WHERE (start_datetime <='2023-03-01 11:00:00' AND end_datetime >= '2023-10-07 11:00:00') OR (start_datetime >= '2023-03-01 11:00:00' AND end_datetime <= '2023-10-07 11:00:00') OR (start_datetime <= '2023-03-01 11:00:00' AND end_datetime <= '2023-10-07 11:00:00') OR (start_datetime >='2023-03-01 11:00:00'  AND end_datetime <= '2023-10-07 11:00:00'));";
         BConnection db = new BConnection();
         try {
             con= db.openConnection();
