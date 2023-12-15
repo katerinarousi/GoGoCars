@@ -46,7 +46,7 @@ List<User> users = userDAO.getUsersID_first_last_name();
     <div class="main">
         <div class = "container">
             <div class="search-bar">
-                <form method="post" action="results.jsp">
+                <form method="post" action="searchbyluxury.jsp">
 
                     <div class="location-input">
                         <label>Location</label>
@@ -60,19 +60,19 @@ List<User> users = userDAO.getUsersID_first_last_name();
                 
                     <div class="Pickup-input">
                         <label>Pick Up</label>
-                        <input type="date" value="<%=pick_up%>">
+                        <input type="date" value="<%=pick_up%>" name="pick_up">
                     </div>
                     <div class="Pickup-Time">
                         <label>Time</label>
-                        <input type="time" placeholder= "e.g. 01-01-2023" value="<%=pick_up_time%>">
+                        <input type="time" placeholder= "e.g. 01-01-2023" value="<%=pick_up_time%>" name="pick_up_time">
                     </div>
                     <div class="Dropoff-input">
                         <label>Drop Off</label>
-                        <input type="date" value="<%=drop_off%>">
+                        <input type="date" value="<%=drop_off%>" name="drop_off" >
                     </div>
                     <div class="Dropoff-Time">
                         <label>Time</label>
-                        <input type="time" placeholder= "e.g. 01-01-2023" value="<%=drop_off_time%>">
+                        <input type="time" placeholder= "e.g. 01-01-2023" value="<%=drop_off_time%>" name="drop_off_time" >
                     </div>
                     <button class="search-btn" >Search</button>
                 </form>
@@ -154,6 +154,10 @@ List<User> users = userDAO.getUsersID_first_last_name();
 
     <!-- Products -->
     <main class="row justify-content-center">
+      
+
+
+
         <% 
         if (carList != null) {         
         
@@ -204,7 +208,8 @@ List<User> users = userDAO.getUsersID_first_last_name();
         </div>           
         <% 
         } 
-    }
+    } 
+
         %>        
     
     </main>
