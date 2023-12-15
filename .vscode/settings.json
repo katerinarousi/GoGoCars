@@ -1,0 +1,7 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "GoGoCars\\lib\\mysql-connector-java-5.0.7-bin.jar",
+        "GoGoCars\\lib\\servlet-api.jar"
+    ]
+}

@@ -66,13 +66,11 @@ public class User {
     /* -!-!-!-!-!-!-> kat: apla gia test treximatos */
     public static void main(String[] args) throws Exception{
         
-        Rental object = new Rental("1","1","1","1","1","1",2);
-        object.showRental("3");
-        /*object.makeRental(1017,2004,"2023-11-23","2003-11-25","10:00:00","10:00:00", "Athens Panormou");*/
+        
 
         CarDAO test = new CarDAO();
        
-        System.out.println(test.getCarouselCars());
+        System.out.println(test.getSearchCars("01-12-2023 10:00:00", "05-12-2023 10:00:00"));
 
         
     }
