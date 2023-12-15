@@ -180,7 +180,7 @@ List<User> users = userDAO.getUsersID_first_last_name();
         </div>
             
         </div>
-    </div>
+</div>
     <script src="script.js"></script>
 
 

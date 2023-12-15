@@ -4,6 +4,8 @@
 <%@ page import="GoG.CarDAO" %>
 <%@ page import="GoG.User" %>
 <%@ page import="GoG.UserDAO" %>
+<%@ page errorPage="errorpage.jsp"%>
+<%@ include file="authentication_guard.jsp" %>
 
 <%
 String pick_up= request.getParameter("pick_up");

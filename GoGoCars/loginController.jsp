@@ -2,6 +2,7 @@
 <%@ page errorPage="error_ex3_8210103.jsp" %>
 <%@ page import="GoG.User" %>
 <%@ page import="GoG.UserDAO" %>
+<%@ page errorPage="errorpage.jsp"%>
 
 <%
 String username = request.getParameter("username");
