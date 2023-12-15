@@ -59,7 +59,7 @@
 
 
 
-        <div class="reg-log-footer">
+        <div class="reg-log-footer" style="padding-top: 10px;">
             <label>GoGoCars</label>
             <div class="b-example-divider"></div>
         
