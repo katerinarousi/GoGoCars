@@ -5,7 +5,6 @@
 <%@ page import="GoG.UserDAO" %>
 <%@ page import="GoG.priceCalculator" %>
 <%@ page import="java.time.LocalDate" %>
-<%@ page errorPage="errorpage.jsp"%>
 <%@ include file="authentication_guard.jsp" %>
 
 <!DOCTYPE html>
