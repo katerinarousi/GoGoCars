@@ -2,12 +2,8 @@ package GoG;
 
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.sql.*;
 import java.text.SimpleDateFormat;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
 
 import java.text.ParseException;
 
@@ -39,10 +35,10 @@ public List<Car> getSearchCars(String pick_up,String drop_off) throws Exception 
             String f_drop_off = formatDateForDatabase(drop_off);
 
             PreparedStatement state = con.prepareStatement(sql);
-            state.setString(2, f_drop_off);
             state.setString(1, f_pick_up);
-            state.setString(4, f_drop_off);
+            state.setString(2, f_drop_off);
             state.setString(3, f_pick_up);
+            state.setString(4, f_drop_off);
             state.setString(6, f_drop_off);
             state.setString(5, f_pick_up);
             ResultSet rs = state.executeQuery();
@@ -110,13 +106,19 @@ public List<Car> getSearchCars(String pick_up,String drop_off) throws Exception 
 
 
     }
-    public String formatDateForDatabase(String date) throws ParseException {
+    public String formatDateForDatabase(String date) throws Exception {
+      
+        try {
+            SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat outputFormat = new SimpleDateFormat("dd-MM-yyyy");
         
-        SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd");
-        SimpleDateFormat outputFormat = new SimpleDateFormat("dd-MM-yyyy");
-    
-        java.util.Date parsedDate = inputFormat.parse(date);
-        return outputFormat.format(parsedDate);
+            java.util.Date parsedDate = inputFormat.parse(date);
+            return outputFormat.format(parsedDate);
+        }catch(Exception e){
+            
+            throw new Exception(e.getMessage());
+
+        }
     }   
 
 
