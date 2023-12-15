@@ -22,6 +22,7 @@
   
           RequestDispatcher dispatcher = request.getRequestDispatcher("results.jsp");
           dispatcher.forward(request, response);
+          
         } catch (Exception e){
           e.getMessage();
         }
