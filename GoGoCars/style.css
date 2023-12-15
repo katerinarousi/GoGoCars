@@ -362,7 +362,7 @@ footer p {
 
 
 
-/*---------------------------------------product grid for results.html-----------------------------*/
+/*---------------------------------------product grid for results.jsp-----------------------------*/
 
 .Products{
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));

@@ -25,7 +25,7 @@ List<User> users = userDAO.getUsersID_first_last_name();
 <body>
     <div class="header" style=" background-image: linear-gradient(rgba(0,0,0,0.3), #036), url(images/background-rocks.jpg)">
         
-        <a href="search.html" class="logo">
+        <a href="search.jsp" class="logo">
             <img src="images/final_logo1small-removebg-preview.png">
         </a>
         <div class="header-right">
@@ -170,7 +170,7 @@ List<User> users = userDAO.getUsersID_first_last_name();
         <div class="container">
             <footer>
                 <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                    <li class="nav-item"><a href="search.html" class="nav-link px-2 text-body-secondary">Home</a></li>
+                    <li class="nav-item"><a href="search.jsp" class="nav-link px-2 text-body-secondary">Home</a></li>
                     <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About Us</a></li>
                     <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Contact</a></li>
                     <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
