@@ -30,7 +30,10 @@ public class CarDAO{
 public List<Car> getSearchCars(String pick_up,String drop_off) throws Exception {
         Connection con = null;
         List<Car> carList = new ArrayList<Car>();
-        String sql = "SELECT DISTINCT carID FROM rental WHERE carID NOT IN (SELECT DISTINCT carID FROM ismgroup14.rental WHERE (start_datetime <=? AND end_datetime >= ?) OR (start_datetime <= ? AND end_datetime >= ?) OR (start_datetime >= ? AND end_datetime <= ?));";
+        String sql = "SELECT DISTINCT carID FROM rental WHERE carID NOT IN (SELECT DISTINCT carID FROM rental 
+                    WHERE (start_datetime <=? AND end_datetime >= ?) 
+                    OR (start_datetime <= ? AND end_datetime >= ?) 
+                    OR (start_datetime >= ? AND end_datetime <= ?));";
         BConnection db = new BConnection();
         try {
             con= db.openConnection();
@@ -111,12 +114,13 @@ public List<Car> getSearchCars(String pick_up,String drop_off) throws Exception 
 
     }
     public String formatDateForDatabase(String date) throws ParseException {
+        
         SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd");
         SimpleDateFormat outputFormat = new SimpleDateFormat("dd-MM-yyyy");
     
         java.util.Date parsedDate = inputFormat.parse(date);
         return outputFormat.format(parsedDate);
-}
+    }   
 
 
 
@@ -158,14 +162,14 @@ public List<Car> getSearchCars(String pick_up,String drop_off) throws Exception 
 
         }
     }
-
+/*
     /**
      * Transforms image path to byte sequence
      *
      * @return The bytes sequence of the image.
      * @throws Exception If any error occurs
      */
-    public String imgToBytes(String path) throws SQLException, IOException {
+ /*   public String imgToBytes(String path) throws SQLException, IOException {
 
         try{
             InputStream input = ClassLoader.getSystemResourceAsStream(path);
@@ -191,7 +195,7 @@ public List<Car> getSearchCars(String pick_up,String drop_off) throws Exception 
 
         }
     }
-
+*/
     public Car findCar(String carID) throws Exception {
 		
 		BConnection db = new BConnection();
