@@ -51,19 +51,19 @@ List<User> users = userDAO.getUsersID_first_last_name();
                     </div>
                     <div class="Pickup-input">
                         <label>Pick Up</label>
-                        <input type="date" placeholder= "e.g. 01-01-2023"  name="pick_up" required>
+                        <input type="date" placeholder= "e.g. 01-01-2023"  name="pickUp" required>
                     </div>
                     <div class="Pickup-Time">
                         <label>Time</label>
-                        <input type="time" placeholder= "e.g. 01-01-2023"  name="pick_up_time" required>
+                        <input type="time" placeholder= "e.g. 01-01-2023"  name="pickUpTime" required>
                     </div>
                     <div class="Dropoff-input">
                         <label>Drop Off</label>
-                        <input type="date" placeholder="Add Date" name="drop_off" required>
+                        <input type="date" placeholder="Add Date" name="dropOff" required>
                     </div>
                     <div class="Dropoff-Time">
                         <label>Time</label>
-                        <input type="time" placeholder= "e.g. 01-01-2023" name="drop_off_time" required>
+                        <input type="time" placeholder= "e.g. 01-01-2023" name="dropOffTime" required>
                     </div>
                     <button class="search-btn" type="submit">Search</button>
                 </form>
@@ -79,8 +79,8 @@ List<User> users = userDAO.getUsersID_first_last_name();
                         return `${year}-${month}-${day}`;
                     }
                 
-                    const pickUpDateInput = document.getElementsByName("pick_up")[0];
-                    const dropOffDateInput = document.getElementsByName("drop_off")[0];
+                    const pickUpDateInput = document.getElementsByName("pickUp")[0];
+                    const dropOffDateInput = document.getElementsByName("dropOff")[0];
                 
                     pickUpDateInput.addEventListener("change", function () {
                         const formattedDate = formatDateToYYYYMMDD(this.value);

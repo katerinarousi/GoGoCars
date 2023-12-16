@@ -8,16 +8,14 @@
 <%@ include file="authentication_guard.jsp" %>
 
 <%
-String pick_up= request.getParameter("pick_up");
-String pick_up_time= request.getParameter("pick_up_time");
-String drop_off = request.getParameter("drop_off");
-String drop_off_time= request.getParameter("drop_off_time");
+String pickUp= request.getParameter("pickUp");
+String pickUpTime= request.getParameter("pickUpTime");
+String dropOff = request.getParameter("dropOff");
+String dropOffTime= request.getParameter("dropOffTime");
 String location = request.getParameter("location");
 UserDAO userDAO = new UserDAO();
 List<Car> carList= (List<Car>) request.getAttribute("carList");
 List<User> users = userDAO.getUsersID_first_last_name();
-
-
 
 
 %>
@@ -62,19 +60,19 @@ List<User> users = userDAO.getUsersID_first_last_name();
                 
                     <div class="Pickup-input">
                         <label>Pick Up</label>
-                        <input type="date" value="<%=pick_up%>" name="pick_up">
+                        <input type="date" value="<%=pickUp%>" name="pickUp">
                     </div>
                     <div class="Pickup-Time">
                         <label>Time</label>
-                        <input type="time" placeholder= "e.g. 01-01-2023" value="<%=pick_up_time%>" name="pick_up_time">
+                        <input type="time" placeholder= "e.g. 01-01-2023" value="<%=pickUpTime%>" name="pickUpTime">
                     </div>
                     <div class="Dropoff-input">
                         <label>Drop Off</label>
-                        <input type="date" value="<%=drop_off%>" name="drop_off" >
+                        <input type="date" value="<%=dropOff%>" name="dropOff" >
                     </div>
                     <div class="Dropoff-Time">
                         <label>Time</label>
-                        <input type="time" placeholder= "e.g. 01-01-2023" value="<%=drop_off_time%>" name="drop_off_time" >
+                        <input type="time" placeholder= "e.g. 01-01-2023" value="<%=dropOffTime%>" name="dropOffTime" >
                     </div>
                     <button class="search-btn" >Search</button>
                 </form>
@@ -202,7 +200,7 @@ List<User> users = userDAO.getUsersID_first_last_name();
                             </a>
                         </div>
                         <button class="book-button">
-                            <a href="checkout.jsp?carID=<%=car.getCarID()%>&hostID=<%=carOwner.getUserID()%>&pick_up=<%=pick_up%>&drop_off=<%=drop_off%>&location=<%=location%>">Book Now</a>
+                            <a href="checkout.jsp?carID=<%=car.getCarID()%>&hostID=<%=carOwner.getUserID()%>&pickUp=<%=pickUp%>&dropOff=<%=dropOff%>&location=<%=location%>">Book Now</a>
                         </button>
                     </div>
                 </div>

@@ -26,24 +26,26 @@ public class CarDAO{
 public List<Car> getSearchCars(String pick_up,String drop_off) throws Exception {
         Connection con = null;
         List<Car> carList = new ArrayList<Car>();
-        String sql = "SELECT DISTINCT carID FROM rental WHERE carID NOT IN (SELECT DISTINCT carID FROM ismgroup14.rental WHERE (start_datetime <=? AND end_datetime >= ?) OR (start_datetime >= ? AND end_datetime <= ?) OR (start_datetime <= ? AND end_datetime <= ?) OR (start_datetime >=?  AND end_datetime <= ?));";
+        String sql = "SELECT DISTINCT carID FROM rental WHERE carID NOT IN (SELECT DISTINCT carID FROM ismgroup14.rental WHERE (start_datetime <=? AND end_datetime >= ?) OR (start_datetime >= ? AND end_datetime <= ?) OR (start_datetime <= ? AND end_datetime <= ?) OR (start_datetime >=?  AND end_datetime <= ?)) AND ? <= ?;";
         BConnection db = new BConnection();
         try {
             con = db.openConnection();
 
-            String f_pick_up = formatDateForDatabase(pick_up);
-            String f_drop_off = formatDateForDatabase(drop_off);
+            String fPickUp = formatDateForDatabase(pick_up);
+            String fDropOff = formatDateForDatabase(drop_off);
 
             PreparedStatement state = con.prepareStatement(sql);
 
-            state.setString(1, f_pick_up);
-            state.setString(2, f_drop_off);
-            state.setString(3, f_pick_up);
-            state.setString(4, f_drop_off);
-            state.setString(5, f_pick_up);
-            state.setString(6, f_drop_off);
-            state.setString(7, f_drop_off);
-            state.setString(8, f_pick_up);
+            state.setString(1, fPickUp);
+            state.setString(2, fDropOff);
+            state.setString(3, fPickUp);
+            state.setString(4, fDropOff);
+            state.setString(5, fPickUp);
+            state.setString(6, fDropOff);
+            state.setString(7, fPickUp);
+            state.setString(8, fDropOff);
+            state.setString(9, fPickUp);
+            state.setString(10, fDropOff);
 
             ResultSet rs = state.executeQuery();
 

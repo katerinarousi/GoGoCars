@@ -55,18 +55,18 @@ Car carObj = carDAO.findCar(carID);
 
         <!-- This if covers the case where the data comes from the reults page -->
 <%
-        String pick_up= request.getParameter("pick_up");
-        String drop_off = request.getParameter("drop_off");
+        String pickUp= request.getParameter("pickUp");
+        String dropOff = request.getParameter("dropOff");
         String location = request.getParameter("location");
 
-        if (pick_up != null && drop_off != null && location != null) {
+        if (pickUp != null && dropOff != null && location != null) {
 %>
             <img class="date-image" src="images/pickup.png" alt="Calendar Image">
-            <span><strong>Pick up:</strong> <%=pick_up%></span>
+            <span><strong>Pick up:</strong> <%=pickUp%></span>
           </div>
           <div>
             <img class="date-image" src="images/dropoff.png" alt="Calendar Image">
-            <span><strong>Drop Off:</strong> <%=drop_off%></span>
+            <span><strong>Drop Off:</strong> <%=dropOff%></span>
           </div>
           <div>
             <img class="map-image" src="images/maps.jpg" alt="Map Image">
@@ -74,7 +74,7 @@ Car carObj = carDAO.findCar(carID);
           </div>
           <div>
             <img class="price-image" src="images/total cost.png" alt="Price Image">
-            <span><strong>Total price:</strong> <%=carObj.getPrice()%>&nbsp;&euro;</span> <!-- priceCalculator.CalculatePrice(pick_up, drop_off, carObj.getPrice())-->
+            <span><strong>Total price:</strong> <%=carObj.getPrice()%>&nbsp;&euro;</span> <!-- priceCalculator.CalculatePrice(pickUp, dropOff, carObj.getPrice())-->
 <%
         } else {
 %>
