@@ -5,7 +5,7 @@
 <%@ page import="GoG.User" %>
 <%@ page import="GoG.UserDAO" %>
 
-
+<!--Pick up and drop off dates work here, format: '2023-10-01'-->
 <%
         String pickUp = request.getParameter("pickUp");
         String dropOff = request.getParameter("dropOff");
@@ -13,7 +13,7 @@
         CarDAO cDAO = new CarDAO();
 
         try{
-          List<Car> carList = cDAO.getSearchCars(pickUp,dropOff);
+          List<Car> carList = cDAO.getSearchCars(pickUp,dropOff);  
           if (carList == null) {
               request.setAttribute("message", "No available cars");
           }
@@ -22,12 +22,11 @@
   
           RequestDispatcher dispatcher = request.getRequestDispatcher("results.jsp");
           dispatcher.forward(request, response);
-          
         } catch (Exception e){
           e.getMessage();
         }
 
           
-
-          
+        
+        
 %>
