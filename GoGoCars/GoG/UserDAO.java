@@ -144,4 +144,43 @@ public class UserDAO {
         }
 		
 	}
+
+    public void register(User user) throws Exception {
+		BConnection db = new BConnection();
+		Connection con;
+		String query1= "SELECT * FROM users WHERE username=? OR email=?;";
+		try {
+			con = db.openConnection();
+			PreparedStatement state = con.prepareStatement(query1);
+			state.setString(1,user.getUsername());
+			state.setString(2, user.getEmail());
+			ResultSet rs=state.executeQuery();
+			if (rs.next()) {
+				throw new Exception("Sorry, username or email already registered");
+			}
+			String sql2="INSERT INTO users(username,email,password,is_host) VALUES (?,?,?,?);";
+			state = con.prepareStatement(sql2);
+			state.setString(1, user.getUsername());
+			state.setString(2, user.getEmail());
+			state.setString(3, user.getPassword());
+			state.setBoolean(4, user.isHost());
+		
+			state.executeUpdate();
+			rs.close();
+			state.close();
+			db.closeConnection();
+			con.close();
+		} catch (Exception e){
+			throw new Exception(e.getMessage());
+		} finally { 
+			try {
+				db.closeConnection();
+			} catch (Exception e){
+
+			}
+
+		}			
+		
+	}
+
 }

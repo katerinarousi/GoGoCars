@@ -74,5 +74,10 @@ function dropDownMenu(button) {
 }
 
 
+function registerAs(role) {
+    document.getElementById('role').value = role;
+    document.forms[0].submit();
+}
+
 
 
