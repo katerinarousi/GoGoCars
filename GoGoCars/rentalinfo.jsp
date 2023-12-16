@@ -24,7 +24,7 @@
   <body style="background-color: #f0f0f0;">
 
     <div class="header" style="height: 10vh; background-color: #036;">
-      <span href="search.html" class="logo">
+      <span href="search.jsp" class="logo">
           <img src="images/blue_back-removebg-preview.png">
       </span>
       <div class="header-right">
@@ -151,7 +151,7 @@
       <div class="container">
           <footer>
               <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                  <li class="nav-item"><a href="search.html" class="nav-link px-2 text-body-secondary">Home</a></li>
+                  <li class="nav-item"><a href="search.jsp" class="nav-link px-2 text-body-secondary">Home</a></li>
                   <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About Us</a></li>
                   <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Contact</a></li>
                   <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>

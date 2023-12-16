@@ -10,9 +10,9 @@
         <header>
             <nav class="header-nav">
                 <ul>
-                    <li><a class="about-us" href="about_us.html"><h4>About us</h4></a></li>
-                    <li><a id="login-regiser" href="register.html"><h4>Register</h4></a></li>
-                    <li><a href="login.html"><h4>Login</h4></a></li>
+                    <li><a class="about-us" href="about_us.jsp"><h4>About us</h4></a></li>
+                    <li><a id="login-regiser" href="register.jsp"><h4>Register</h4></a></li>
+                    <li><a href="login.jsp"><h4>Login</h4></a></li>
                 </ul>
             </nav>
         </header>
@@ -45,8 +45,8 @@
                         <input type="checkbox" id="toggle-icon" name="myCheckbox">
                     </div>
                     <div class="btn-continue">
-                        <a class="as-host" href="login.html" onclick="return checkFieldsRegister()"><strong>Register As Host</strong></a>
-                        <a class="as-guest" href="login.html" onclick="return checkFieldsRegister()"><strong>Register As Guest</strong></a>
+                        <a class="as-host" href="login.jsp" onclick="return checkFieldsRegister()"><strong>Register As Host</strong></a>
+                        <a class="as-guest" href="login.jsp" onclick="return checkFieldsRegister()"><strong>Register As Guest</strong></a>
                     </div>
                 </div>
                 <br>
@@ -65,7 +65,7 @@
             <div class="container">
                 <footer>
                     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                        <li class="nav-item"><a href="search.html" class="nav-link px-2 text-body-secondary">Home</a></li>
+                        <li class="nav-item"><a href="search.jsp" class="nav-link px-2 text-body-secondary">Home</a></li>
                         <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About Us</a></li>
                         <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Contact</a></li>
                         <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
