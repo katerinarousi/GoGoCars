@@ -386,8 +386,11 @@ footer p {
     text-align: center;
     padding-bottom: 10px;
     height: auto;
+    left: 13%
+}
 
-
+.car-results {
+  padding: 1%;
 }
 
 .card:hover{

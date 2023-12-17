@@ -157,60 +157,59 @@ List<User> users = userDAO.getUsersID_first_last_name();
       
 
 
-
-        <% 
-        if (carList != null) {         
+<% 
+if (carList != null) {         
         
-        for (Car car: carList) { 
-        %>
-        <div class="col-md-3">
+    for (Car car: carList) { 
+%>
+        <div class="car-results col-md-3">
              
-                <div class="card">
-                    <%--=car.getImage()--%>
-        
-                    <img class="car-image-carousel" src="<%=car.getImage()%>" alt="">
-                    <div class="card-body">
-                        <div class="mb-2">
-                            <h4>
-                                <a class="text-secondary" href="#"> <%=car.getModel() %>  </a>
-                            </h4>
-                            <h5>
-        
-                            <% 
-                            User carOwner = null;
-                            for (User user: users) {
-                                if (user.getUserID().equals(car.getOwnerID())) { 
-                                    carOwner = user;
-                                %>
-                                <div class="car-owner" href="#">by <%=carOwner.getFirstname() %> <%= carOwner.getLastname() %></div> 
-                                <%
-                                    break;
-                                }
-                            }
+            <div class="card">
+                <%--=car.getImage()--%>
+    
+                <img class="car-image-carousel" src="<%=car.getImage()%>" alt="">
+                <div class="card-body">
+                    <div class="mb-2">
+                        <h4>
+                            <a class="text-secondary" href="#"> <%=car.getModel() %>  </a>
+                        </h4>
+                        <h5>
+    
+                        <% 
+                        User carOwner = null;
+                        for (User user: users) {
+                            if (user.getUserID().equals(car.getOwnerID())) { 
+                                carOwner = user;
                             %>
-                            <div><%=car.getFuel() %>|<%=car.getYear() %>|<%=car.getCarType() %>|<%=car.getTransmission()%>|<%=car.isHybrid() %></div>
-                            </h5>
-                            <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span><%=car.getPrice() %>/day</span>
-                        </div>
-                    </div>
-                        
-                    <div class="card-footer">
-                        <div class="mb-3">
-                            <a class="d-inline-flex align-items-center small" href="#">
-                            </a>
-                        </div>
-                        <button class="book-button">
-                            <a href="checkout.jsp?carID=<%=car.getCarID()%>&hostID=<%=carOwner.getUserID()%>&pickUp=<%=pickUp%>&dropOff=<%=dropOff%>&location=<%=location%>">Book Now</a>
-                        </button>
+                            <div class="car-owner" href="#">by <%=carOwner.getFirstname() %> <%= carOwner.getLastname() %></div> 
+                            <%
+                                break;
+                            }
+                        }
+                        %>
+                        <div><%=car.getFuel() %>|<%=car.getYear() %>|<%=car.getCarType() %>|<%=car.getTransmission()%>|<%=car.isHybrid() %></div>
+                        </h5>
+                        <span class="price"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span><%=car.getPrice() %>/day</span>
                     </div>
                 </div>
+                    
+                <div class="card-footer">
+                    <div class="mb-3">
+                        <a class="d-inline-flex align-items-center small" href="#">
+                        </a>
+                    </div>
+                    <button class="book-button">
+                        <a href="checkout.jsp?carID=<%=car.getCarID()%>&hostID=<%=carOwner.getUserID()%>&pickUp=<%=pickUp%>&dropOff=<%=dropOff%>&location=<%=location%>">Book Now</a>
+                    </button>
+                </div>
+            </div>
                
         </div>           
-        <% 
-        } 
+<% 
     } 
+} 
 
-        %>        
+%>        
     
     </main>
 
