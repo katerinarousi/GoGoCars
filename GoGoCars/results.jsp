@@ -46,15 +46,15 @@ List<User> users = userDAO.getUsersID_first_last_name();
     <div class="main">
         <div class = "container">
             <div class="search-bar">
-                <form method="post" action="searchbyluxury.jsp">
+                <form method="post" action="searchController.jsp">
 
                     <div class="location-input">
                         <label>Location</label>
                         <select  name="location" class="form-control" required>
                             <option value="<%=location%>"><%=location%></option>
                             <option value="Airport">Airport</option>
-                            <option value="syntagma">Syntagma Square</option>	
-                            <option value="pireus">Port of Piraeus</option>
+                            <option value="Syntagma">Syntagma Square</option>	
+                            <option value="Pireus">Port of Piraeus</option>
                         </select>
                     </div>
                 
