@@ -205,23 +205,6 @@ if (carList != null) {
             </div>
                
         </div>           
-<% 
-    } 
-
-} else {
-
-    try {
-        throw new Exception("Unfortunately, there are no results for your requested dates!")
-    } catch(Exception e) {
-        request.setAttribute("message", e.getMessage());
-%>
-        <jsp:forward page="search.jsp"/>
-<%
-}
-%>
-}
-
-%>        
     
     </main>
 
