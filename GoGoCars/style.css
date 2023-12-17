@@ -636,7 +636,7 @@ footer p {
     width: 20px;
 }
 
-.btn-continue a{
+.btn-continue button{
   text-decoration: none;
   color: #fd5003;
   background-color: #003366;
@@ -647,29 +647,21 @@ footer p {
   margin-left: 123px;
 }
 
-.btn-continue button{
-    text-decoration: none;
-    color: #fd5003;
-    background-color: #003366;
-    border: none;
-    cursor: pointer;
-    padding: 10px 25px;
-    border-radius: 20px;
-    margin-left: 123px;
-    font-weight: 1000;
-    line-height: 1;
-    font-size: 16px;
+.btn-continue a{
+  text-decoration: none;
+  color: #fd5003;
 }
+
 
 .btn-continue .as-host {
     position: relative;
-    top: -20px;
-    left: 70px;
+    top: -35px;
+    left: 80px;
 }
 
 .btn-continue .as-guest {
     position: relative;
-    top: -38.5px;
+    top: -70px;
     left: -125px;
 }
 
@@ -678,6 +670,7 @@ footer p {
     position: relative;
     top: -38.5px;
     left: -125px;
+    background-color: #003366;
 }
 
 .reg-log-footer {

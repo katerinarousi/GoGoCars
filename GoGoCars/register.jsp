@@ -10,9 +10,9 @@
         <header>
             <nav class="header-nav">
                 <ul>
-                    <li><a class="about-us" href="about_us.html"><h4>About us</h4></a></li>
-                    <li><a id="login-regiser" href="register.html"><h4>Register</h4></a></li>
-                    <li><a href="login.html"><h4>Login</h4></a></li>
+                    <li><a class="about-us" href="about_us.jsp"><h4>About us</h4></a></li>
+                    <li><a id="login-regiser" href="register.jsp"><h4>Register</h4></a></li>
+                    <li><a href="login.jsp"><h4>Login</h4></a></li>
                 </ul>
             </nav>
         </header>
@@ -45,8 +45,8 @@
                         <input type="checkbox" id="toggle-icon" name="myCheckbox">
                     </div>
                     <div class="btn-continue">
-                        <a class="as-host" href="registerController.jsp" onclick="registerAs('host')"><strong>Register As Host</strong></a>
-                        <a class="as-guest" href="registerController.jsp" onclick="registerAs('guest')"><strong>Register As Guest</strong></a>
+                        <button class="as-host" type="submit"><a href="registerController.jsp" onclick="registerAs('host')"><strong>Register As Host</strong></a></button>
+                        <button class="as-guest" type="submit"><a href="registerController.jsp" onclick="registerAs('guest')"><strong>Register As Guest</strong></a></button>
                     </div>
                 </div>
                 <br>
