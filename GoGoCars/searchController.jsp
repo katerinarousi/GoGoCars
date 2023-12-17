@@ -5,7 +5,7 @@
 <%@ page import="GoG.User" %>
 <%@ page import="GoG.UserDAO" %>
 
-<!--Pick up and drop off dates work here, format: '2023-10-01'-->
+
 <%
         String pickUp = request.getParameter("pickUp");
         String dropOff = request.getParameter("dropOff");
