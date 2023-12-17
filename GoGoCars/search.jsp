@@ -33,6 +33,12 @@ List<User> users = userDAO.getUsersID_first_last_name();
             <a class="profile-btn" href="rentalinfo.jsp"><span></span>Profile</a>            
         </div>
 
+        <div class="container mt-4">
+            <% if(request.getAttribute("message") != null) { %>		
+                <div class="danger-button"><%=(String)request.getAttribute("message") %></div>
+            <% } %>
+        </div>
+
         <div class = "container">	
             
 
