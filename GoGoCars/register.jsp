@@ -45,8 +45,8 @@
                         <input type="checkbox" id="toggle-icon" name="myCheckbox">
                     </div>
                     <div class="btn-continue">
-                        <a class="as-host" href="loginController.jsp" onclick="registerAs('host')"><strong>Register As Host</strong></a>
-                        <a class="as-guest" href="loginController.jsp" onclick="registerAs('guest')"><strong>Register As Guest</strong></a>
+                        <a class="as-host" href="registerController.jsp" onclick="registerAs('host')"><strong>Register As Host</strong></a>
+                        <a class="as-guest" href="registerController.jsp" onclick="registerAs('guest')"><strong>Register As Guest</strong></a>
                     </div>
                 </div>
                 <br>

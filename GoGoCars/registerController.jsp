@@ -7,15 +7,23 @@
 String username = request.getParameter("username");
 String password = request.getParameter("password");
 String email = request.getParameter("email");
-String iSHost = request.getParameter("role");
+
+String isHostString = request.getParameter("role");
+boolean isHost = false;
+
+if ("host".equals(isHostString)) {
+        isHost = true;
+}
+
 
 UserDAO obj = new UserDAO();
 
 try {
     User myuser = new User(username,email,password,isHost);
-    obj.register(myuser);
+    obj.register(myuser); 
+    %>
     <jsp:forward page="login.jsp"/>
-
+<%
 } catch(Exception e) {
     request.setAttribute("message", e.getMessage());
 %>
