@@ -11,8 +11,8 @@
             <nav class="header-nav">
                 <ul>
                     <li><a class="about-us" href="about_us.html"><h4>About us</h4></a></li>
-                    <li><a id="login-regiser" href="register.html"><h4>Register</h4></a></li>
-                    <li><a href="login.html"><h4>Login</h4></a></li>
+                    <li><a id="login-regiser" href="register.jsp"><h4>Register</h4></a></li>
+                    <li><a href="login.jsp"><h4>Login</h4></a></li>
                 </ul>
             </nav>
         </header>
@@ -53,10 +53,6 @@
             </div>
 
         </form>
-        <!--<img class="our-logo-register" src="images/fianil_logo2_slogan.png" alt="">-->
-        <!--<div class="quote-reg">
-           <h2>The world of fast and easy car rentals!</h1>
-        </div>-->
 
         <div class="reg-log-footer">
             <label>GoGoCars</label>
