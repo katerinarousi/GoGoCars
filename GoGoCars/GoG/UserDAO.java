@@ -158,7 +158,7 @@ public class UserDAO {
 			if (rs.next()) {
 				throw new Exception("Sorry, username or email already registered");
 			}
-			String sql2="INSERT INTO users(username,email,password,is_host) VALUES (?,?,?,?);";
+			String sql2="INSERT INTO users(username,email,account_password,is_host) VALUES (?,?,?,?);";
 			state = con.prepareStatement(sql2);
 			state.setString(1, user.getUsername());
 			state.setString(2, user.getEmail());
