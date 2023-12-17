@@ -26,7 +26,7 @@ public class CarDAO{
 public List<Car> getSearchCars(String fPickUp,String fDropOff) throws Exception {
         Connection con = null;
         List<Car> carList = new ArrayList<Car>();
-        String sql = "SELECT DISTINCT carID FROM rental WHERE carID NOT IN (SELECT DISTINCT carID FROM ismgroup14.rental WHERE (start_datetime <=? AND end_datetime >= ?) OR (start_datetime >= ? AND end_datetime <= ?) OR (start_datetime <= ? AND end_datetime <= ?) OR (start_datetime >=?  AND end_datetime <= ?)) AND ? <= ?;";
+        String sql = "SELECT DISTINCT carID FROM rental WHERE carID NOT IN (SELECT DISTINCT carID FROM ismgroup14.rental WHERE (start_datetime <=? AND end_datetime >= ?) OR (start_datetime >= ? AND end_datetime <= ?) OR (start_datetime <= ? AND end_datetime >= ?) OR (start_datetime >=?  AND end_datetime <= ?)) AND (? <= ?);";
         BConnection db = new BConnection();
         try {
             con = db.openConnection();
@@ -38,7 +38,7 @@ public List<Car> getSearchCars(String fPickUp,String fDropOff) throws Exception 
             state.setString(3, fPickUp);
             state.setString(4, fDropOff);
             state.setString(5, fPickUp);
-            state.setString(6, fDropOff);
+            state.setString(6, fPickUp);
             state.setString(7, fPickUp);
             state.setString(8, fDropOff);
             state.setString(9, fPickUp);
@@ -53,6 +53,18 @@ public List<Car> getSearchCars(String fPickUp,String fDropOff) throws Exception 
                 carList.add(car);
             }
 
+            sql = "select carID from cars where carID not in (select rental.carID from rental);";
+
+            state =con.prepareStatement(sql);
+            rs = state.executeQuery();
+
+            while(rs.next()){
+
+                int carID = rs.getInt("carID");
+                Car car = getCarByID(carID);
+                carList.add(car);
+            }
+            
             rs.close();
             state.close();
             db.closeConnection();

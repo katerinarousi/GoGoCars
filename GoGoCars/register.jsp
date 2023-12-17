@@ -53,10 +53,6 @@
             </div>
 
         </form>
-        <!--<img class="our-logo-register" src="images/fianil_logo2_slogan.png" alt="">-->
-        <!--<div class="quote-reg">
-           <h2>The world of fast and easy car rentals!</h1>
-        </div>-->
 
         <div class="reg-log-footer">
             <label>GoGoCars</label>
