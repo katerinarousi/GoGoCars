@@ -4,11 +4,10 @@
 <%@ page import="GoG.CarDAO" %>
 <%@ page import="GoG.User" %>
 <%@ page import="GoG.UserDAO" %>
+
 <%
 CarDAO carDAO = new CarDAO(); 
 UserDAO userDAO = new UserDAO();
-
-
 
 List<Car> cars = carDAO.getCarouselCars(); 
 List<User> users = userDAO.getUsersID_first_last_name();
