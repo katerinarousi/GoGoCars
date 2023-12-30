@@ -74,16 +74,14 @@ public class User {
     /* -!-!-!-!-!-!-> kat: apla gia test treximatos */
     public static void main(String[] args) throws Exception{
         
+        RentalDAO rdao = new RentalDAO();
+        System.out.println(rdao.showRental("1020"));
         
-
-        CarDAO test = new CarDAO();
-       
-        System.out.println(test.getSearchCars("01-12-2023 10:00:00", "05-12-2023 10:00:00"));
+        //CarDAO test = new CarDAO();
+        //System.out.println(test.getSearchCars("01-12-2023 10:00:00", "05-12-2023 10:00:00"));
 
         
     }
-
-
     /**
      *  Setters - Getters 
      * 
