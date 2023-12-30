@@ -3,6 +3,8 @@ package GoG;
 import java.util.List;
 import java.util.ArrayList;
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /**
  * UserDAO provides all the necessary methods related to users.
@@ -185,5 +187,23 @@ public class UserDAO {
 		}			
 		
 	}
+    public Boolean dateComparison(String date) {
+
+        boolean legal = false;
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate birthdate = LocalDate.parse(date, formatter);
+
+        // Get the current date
+        LocalDate currentDate = LocalDate.now();
+
+        // Check if the user is 21 years or more old
+        LocalDate legalAgeDate = currentDate.minusYears(21);
+        if (birthdate.isBefore(legalAgeDate)) {
+            legal = true;
+        }
+        
+        return legal;
+    }
 
 }
