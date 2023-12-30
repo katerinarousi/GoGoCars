@@ -9,6 +9,7 @@
 CarDAO carDAO = new CarDAO(); 
 UserDAO userDAO = new UserDAO();
 
+
 List<Car> cars = carDAO.getCarouselCars(); 
 List<User> users = userDAO.getUsersID_first_last_name();
 %>
@@ -29,7 +30,7 @@ List<User> users = userDAO.getUsersID_first_last_name();
         </a>
         <div class="header-right">
             <a class="profile-btn" href="rentalinfo.jsp"><span></span>Rental Information</a>
-            <a class="profile-btn" href="rentalinfo.jsp"><span></span>Profile</a>            
+            <a class="profile-btn"><span></span>Profile</a>            
         </div>
 
         <div class="container mt-4">

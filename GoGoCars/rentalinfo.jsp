@@ -1,6 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="authentication_guard.jsp" %>
+<%@ page import="GoG.User" %>
+<%@ page import="GoG.UserDAO" %>
+<%@ page import="GoG.Rental" %>
+<%@ page import="GoG.RentalDAO" %>
+<%@ page import="java.util.List" %>
 
+<% 
+
+RentalDAO rDAO = new RentalDAO();
+User hostnow = (User)session.getAttribute("userObj");
+List<Rental> rentals = rDAO.showRental(hostnow.getUserID());
+
+%>
 
 <!DOCTYPE html>
 <html>
@@ -21,7 +33,7 @@
 <!-- END TABLE HEAD -->
   
 <body>
-  <body style="background-color: #f0f0f0;">
+  <div style="background-color: #f0f0f0;">
 
     <div class="header" style="height: 10vh; background-color: #036;">
       <span href="search.jsp" class="logo">
@@ -30,6 +42,17 @@
       <div class="header-right">
           <a class="profile-btn" href="#"><span></span>Profile</a>
       </div>
+      <div class="container mt-4">
+        <% if(request.getAttribute("message") != null) { %>		
+            <div class="danger-button"><%=(String)request.getAttribute("message") %></div>
+        <% } 
+          if (!hostnow.isHost()){
+            %>
+            <div class="danger-button">Please log in as Host to view this page</div>
+         <%}
+            %>
+      </div>
+    </div>
   </div>
       
     
@@ -57,6 +80,8 @@
                                    <th>Status</th>
                                 </tr>
                               </thead>
+                              
+                              
                               <tbody>
                                 <tr>
                                   <th scope="row">1001</th>
@@ -66,28 +91,29 @@
                                   <td>142.50</td>
                                   <td>15/11/2023</td>
                                   <td>18/11/2023</td>
-                                  <td>
-                                    <div
-                                    class="box success">
-                                    Progress
-                                    </div>
-                                  </td>
+                                  <td><div class="box success"> Progress</div></td>
                                 </tr>
-                                <tr>
-                                  <th scope="row">1002</th>
-                                  <td>Renault Clio 2017</td>
-                                  <td>Spyridi</td>
-                                  <td>Zoi</td>
-                                  <td>140</td>
-                                  <td>17/09/2023</td>
-                                  <td>21/09/2023</td>
-                                  <td> 
-                                    <div class="box danger">
-                                      Completed
-                                    </div>
-                                  </td>
-                                </tr>
-    
+                                <% for (Rental rental: rentals){
+                                  %>
+                                  <tr>
+                                    <th scope="row"><%=rental.getRentalID()%></th>
+                                    <td><%=rental.getCarID()%></td>
+                                    <td> </td>
+                                    <td>Zoi</td>
+                                    <td>140</td>
+                                    <td><%=rental.getStartDate()%></td>
+                                    <td><%=rental.getStartDate()%></td>
+                                    <td> 
+                                      <div class="box danger">
+                                        Completed
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <%
+                                }
+                                %>
+                                
+    <!--
                                 <tr>
                                   <th scope="row">1003</th>
                                   <td>Fiat 500</td>
@@ -133,7 +159,7 @@
                                      </div> </td>
                                 </tr>
     
-                                 
+                              -->
                               
                             </table>
                         </div>

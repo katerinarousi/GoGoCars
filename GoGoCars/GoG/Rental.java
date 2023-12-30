@@ -14,6 +14,8 @@ public class Rental {
 	private String startTime;
     private String endTime;
     private int totalPrice;
+    private String renterID;
+    private String carID;
 
 
     /**
@@ -40,6 +42,15 @@ public class Rental {
         this.totalPrice = totalPrice;
 
     }
+
+    public Rental(String rentalID, String renterID, String carID, String startDate, String endDate, String location){
+        this.rentalID = rentalID;
+        this.renterID = renterID;
+        this.carID = carID;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.location = location;
+    }
  
     /**
      *  Setters - Getters 
@@ -52,6 +63,23 @@ public class Rental {
     public void setRentalID(String rentalID) {
         this.rentalID = rentalID;
     }
+    
+    public String getRenterID() {
+        return renterID;
+    }
+
+    public void setRenterID(String renterID) {
+        this.renterID = renterID;
+    }
+     public String getCarID() {
+        return carID;
+    }
+
+    public void setCarID(String carID) {
+        this.carID = carID;
+    }
+
+
 
     public String getStartDate() {
         return startDate;
@@ -101,48 +129,6 @@ public class Rental {
         this.totalPrice = totalPrice;
     }
 
-
-    /**
-     * Retrieves and displays information about a rental specified by its unique ID.
-     *
-     * @param rentalID the unique identifier of the rental to be displayed.
-     * @throws SQLException if a database access error occurs or this method is
-     *                      called on a closed connection. Also, this exception is
-     *                      thrown if the SQL query is invalid.
-    */
-    
-    public void showRental(String renterID) throws SQLException{
-
-        String query = "select * from Rental where renterID = ?";
-
-        BConnection obj = new BConnection();
-        try {
-            Connection c = obj.openConnection();
-            stmt = c.prepareStatement(query);
-            stmt.setString(1, renterID);
-            
-            rs = stmt.executeQuery();
-
-            while (rs.next()) {
-                for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
-                    String columnName = rs.getMetaData().getColumnName(i);
-                    String columnValue = rs.getString(i);
-                    System.out.println(columnName + ": " + columnValue);
-                }
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            
-            if (rs != null) {
-                rs.close();
-            }
-            if (stmt != null) {
-                stmt.close();
-            }
-        }        
-    }
 
     public void makeRental(int renterID, int carID, String startDate, String endDate, String startTime, String endTime,  String Location){
         

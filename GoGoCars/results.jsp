@@ -158,8 +158,7 @@ List<User> users = userDAO.getUsersID_first_last_name();
 
 
 <% 
-if (carList != null) {         
-        
+if (carList != null) {                
     for (Car car: carList) {
 %>
         <div class="car-results col-md-3">
@@ -205,6 +204,8 @@ if (carList != null) {
             </div>
                
         </div>           
+    <% }
+}%>
     
     </main>
 
