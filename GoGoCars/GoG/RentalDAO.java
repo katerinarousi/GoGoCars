@@ -48,44 +48,9 @@ public class RentalDAO {
         } finally {
             db.closeConnection();
         }
-               
-        String rentalQuery = "select * from Rental where carID = ?";
-        List<Rental> rentals = new ArrayList<Rental>();
-        Rental rental = null;
-        try {
-            c = db.openConnection();
-            stmt = c.prepareStatement(rentalQuery);
-            for (int i =0; i < carsOfHost.size(); i++){
-                stmt.setString(1, carsOfHost.get(i));
-                rs = stmt.executeQuery();
-                while (rs.next()) {
-
-                    rental = new Rental(        
-                                        rs.getString(1),
-                                        rs.getString(2),
-                                        rs.getString(3),
-                                        rs.getString(4),
-                                        rs.getString(5),
-                                        rs.getString(6)                               
-                                        );
-                    rentals.add(rental);
-                }
-
-            }
-                      
-            rs.close();
-            stmt.close();
-
-            return rentals;
-
-        } catch (Exception e) {
-            throw new Exception(e.getMessage());
-        } finally {
-
-            db.closeConnection();
-        }
+        
+        return resultList;
     }
-
 }
 
 
