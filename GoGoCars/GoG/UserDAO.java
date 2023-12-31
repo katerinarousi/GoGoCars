@@ -68,7 +68,7 @@ public class UserDAO {
 			
 		BConnection db = new BConnection();
         Connection conn = null;
-		String query = "SELECT userID, username, email, account_password, first_name, last_name, date_of_birth, is_host FROM users WHERE username=? AND account_password=?";
+		String query = "SELECT * FROM users WHERE username=? AND account_password=?";
 
 		try {
 
@@ -90,7 +90,7 @@ public class UserDAO {
 
 			User user = new User( rs.getString(5), rs.getString(6),
                  rs.getString(3), rs.getString(2), rs.getString(4), rs.getString(1),
-                 rs.getString(7), rs.getBoolean(8));
+                 rs.getString(8), rs.getString(7) ,rs.getBoolean(9));
 
 			rs.close();
             stmt.close();
