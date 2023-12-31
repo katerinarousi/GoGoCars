@@ -75,7 +75,7 @@ public class User {
     public static void main(String[] args) throws Exception{
         
         RentalDAO rdao = new RentalDAO();
-        System.out.println(rdao.showRental("1020"));
+        System.out.println(rdao.showRental("1002"));
         
         //CarDAO test = new CarDAO();
         //System.out.println(test.getSearchCars("01-12-2023 10:00:00", "05-12-2023 10:00:00"));

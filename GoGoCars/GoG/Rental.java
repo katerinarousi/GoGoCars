@@ -79,8 +79,6 @@ public class Rental {
         this.carID = carID;
     }
 
-
-
     public String getStartDate() {
         return startDate;
     }
