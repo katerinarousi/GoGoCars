@@ -9,6 +9,7 @@
 <% 
 
 RentalDAO rDAO = new RentalDAO();
+UserDAO uDAO = new UserDAO();
 User hostnow = (User)session.getAttribute("userObj");
 List<Rental> rentals = rDAO.showRental(hostnow.getUserID());
 
@@ -65,9 +66,14 @@ List<Rental> rentals = rDAO.showRental(hostnow.getUserID());
              
                 <div class="row">
                     <div class="col-md-12">
+                      <% if (rentals.size() == 0) {
+                             %>
+                        <div class = "danger-button">No rentals to show bro</div>  
+                      <%} else {         
+                      %>
                         <div class="table-wrap">
-                            <table class="table table-striped" >
-                              
+                            <table class="table table-striped" style="text-align: center;" >
+                           
                               <thead>
                                 <tr>
                                   <th>Rental ID</th>
@@ -80,29 +86,20 @@ List<Rental> rentals = rDAO.showRental(hostnow.getUserID());
                                    <th>Status</th>
                                 </tr>
                               </thead>
-                              
-                              
+                                            
                               <tbody>
-                                <tr>
-                                  <th scope="row">1001</th>
-                                  <td>Toyota Yaris Hybrid 2023</td>
-                                  <td>Papadopoulos</td>
-                                  <td>Nikos</td>
-                                  <td>142.50</td>
-                                  <td>15/11/2023</td>
-                                  <td>18/11/2023</td>
-                                  <td><div class="box success"> Progress</div></td>
-                                </tr>
+                                
                                 <% for (Rental rental: rentals){
+                                  User renter = uDAO.findUser(rental.getRenterID());
                                   %>
                                   <tr>
                                     <th scope="row"><%=rental.getRentalID()%></th>
                                     <td><%=rental.getCarID()%></td>
-                                    <td> </td>
-                                    <td>Zoi</td>
+                                    <td><%=renter.getLastname()%></td>
+                                    <td><%=renter.getFirstname()%></td>
                                     <td>140</td>
                                     <td><%=rental.getStartDate()%></td>
-                                    <td><%=rental.getStartDate()%></td>
+                                    <td><%=rental.getEndDate()%></td>
                                     <td> 
                                       <div class="box danger">
                                         Completed
@@ -111,8 +108,44 @@ List<Rental> rentals = rDAO.showRental(hostnow.getUserID());
                                   </tr>
                                   <%
                                 }
+                      
                                 %>
-                                
+              
+                              
+                            </table>
+                        </div>
+                      <% } 
+                      %>
+                    </div>
+                </div>
+        </div>
+    </section>
+    
+      
+
+    <div class="footer">
+      <label>GoGoCars</label>
+      <div class="b-example-divider"></div>
+
+      <div class="container">
+          <footer>
+              <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                  <li class="nav-item"><a href="search.jsp" class="nav-link px-2 text-body-secondary">Home</a></li>
+                  <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About Us</a></li>
+                  <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Contact</a></li>
+                  <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
+              </ul>
+              <p>&copy; 2023 Company, Inc</p>
+          </footer>
+      </div>
+          
+      </div>
+  </div>
+
+
+</body>
+</html>
+                  
     <!--
                                 <tr>
                                   <th scope="row">1003</th>
@@ -160,35 +193,3 @@ List<Rental> rentals = rDAO.showRental(hostnow.getUserID());
                                 </tr>
     
                               -->
-                              
-                            </table>
-                        </div>
-                    </div>
-                </div>
-        </div>
-    </section>
-    
-      
-
-    <div class="footer">
-      <label>GoGoCars</label>
-      <div class="b-example-divider"></div>
-
-      <div class="container">
-          <footer>
-              <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                  <li class="nav-item"><a href="search.jsp" class="nav-link px-2 text-body-secondary">Home</a></li>
-                  <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About Us</a></li>
-                  <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Contact</a></li>
-                  <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
-              </ul>
-              <p>&copy; 2023 Company, Inc</p>
-          </footer>
-      </div>
-          
-      </div>
-  </div>
-
-
-</body>
-</html>
