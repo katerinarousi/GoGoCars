@@ -52,7 +52,7 @@ public List<Car> getSearchCars(String fPickUp,String fDropOff) throws Exception 
                 carList.add(car);
             }
 
-            sql = "select carID from cars where carID not in (select rental.carID from rental);";
+            sql = "SELECT carID FROM cars WHERE carID NOT IN (SELECT rental.carID FROM rental);";
 
             state =con.prepareStatement(sql);
             rs = state.executeQuery();
@@ -74,7 +74,11 @@ public List<Car> getSearchCars(String fPickUp,String fDropOff) throws Exception 
             throw new Exception(e);
 
         } finally {
-            db.closeConnection();
+            try {
+				db.closeConnection();
+			} catch (Exception e){
+
+			}	
 
         }
     }
@@ -114,8 +118,11 @@ public List<Car> getSearchCars(String fPickUp,String fDropOff) throws Exception 
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         } finally {
+			try {
+				db.closeConnection();
+			} catch (Exception e){
 
-            db.closeConnection();
+			}	
         }
 
 
@@ -172,8 +179,11 @@ public List<Car> getSearchCars(String fPickUp,String fDropOff) throws Exception 
             throw new Exception(e);
 
         } finally {
-            db.closeConnection();
+			try {
+				db.closeConnection();
+			} catch (Exception e){
 
+			}	
         }
     }
 /*
@@ -247,7 +257,7 @@ public List<Car> getSearchCars(String fPickUp,String fDropOff) throws Exception 
 		
 	}
 
-    public static float CalculatePrice(String pick_up, String drop_off, float dayPrice) throws Exception{
+    public float CalculatePrice(String pick_up, String drop_off, float dayPrice) throws Exception{
 
         String pickDay = pick_up.substring(0, 2);
         String pickMonth = pick_up.substring(3, 5);

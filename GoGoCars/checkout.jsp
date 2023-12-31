@@ -3,6 +3,7 @@
 <%@ page import="GoG.CarDAO" %>
 <%@ page import="GoG.User" %>
 <%@ page import="GoG.UserDAO" %>
+<%@ page import="GoG.RentalDAO" %>
 <%@ page import="java.time.LocalDate" %>
 <%@ include file="authentication_guard.jsp" %>
 
@@ -19,6 +20,12 @@ CarDAO carDAO = new CarDAO();
 
 String carID = request.getParameter("carID");
 String hostID = request.getParameter("hostID");
+String pickUpResults= request.getParameter("pickUp");
+String dropOffResults = request.getParameter("dropOff");
+String locationResults = request.getParameter("locationResults");
+String pickUpCheckout= request.getParameter("pickUpCheckout");
+String dropOffCheckout = request.getParameter("dropOffCheckout");
+String locationCheckout = request.getParameter("locationCheckout");
 
 User hostObj = userDAO.findUser(hostID);
 Car carObj = carDAO.findCar(carID);
@@ -46,7 +53,8 @@ Car carObj = carDAO.findCar(carID);
 <%
 if (firstname != null || lastname != null || dateOfBirth != null || contactNumber != null) {
   UserDAO legalAge = new UserDAO();
-  Boolean flag = true;
+  RentalDAO rental = new RentalDAO();
+  boolean flag = true;
 %>
   <div class="container mt-4">
     <div class="danger-button">
@@ -66,29 +74,38 @@ if (firstname != null || lastname != null || dateOfBirth != null || contactNumbe
   if (legalAge.dateComparison(dateOfBirth) == false) {
     flag = false;		
 %>
-      <div>You must be older than 21 years old</div>
+      <div>You must be older than 21 years old</div>    <!-- Ensures renter is within the appropriate age for a reservation-->
 <%
   }
   if (contactNumber.length() < 8) {
     flag = false;	
 %>	
       <div>Please enter a valid contact number</div>
+
+<%
+  }
+  if (rental.checkAvailability(carID, pickUpCheckout, dropOffCheckout) == false) {
+    flag = false;	
+%>
+      <div>Unfortunately, this vechile is not available for the date requested, please pick another date or vechile</div>
 <%
   }
   if (flag == true) {
 %>
-      <span>Payment proccess is under construction!</span>
-
-      <!-- In case that the user filled the form correctly, save his data for next time in case the data doesn't already exist-->
+      <span>Payment proccess is under construction, but your reservation has been successfully made with the data below! </span>
+<%
+      if (pickUpResults == null && dropOffResults == null) {
+        locationResults = locationCheckout;
+        pickUpResults = pickUpCheckout;
+        dropOffResults = dropOffCheckout;
+      }
+%>
+      <!-- In case that the user filled the form correctly, save users data for next time in case the data doesn't already exist and MAKE THE RESERVATION-->
 <%
       if (firstname != user.getFirstname() || lastname != user.getLastname() || dateOfBirth != user.getDob() || contactNumber != user.getPhone()) {
         userDAO.updateUserData(user.getUserID(), firstname, lastname, dateOfBirth, contactNumber);
+        rental.makeReservation(hostID, carID, pickUpCheckout, dropOffCheckout, locationCheckout);
       }
-%>
-      <!-- MAKE RESERVATION HERE -->
-
-
-<%
   }
 %>
     </div>
@@ -115,49 +132,39 @@ if (firstname != null || lastname != null || dateOfBirth != null || contactNumbe
 
           <!-- This if covers the case where the data comes from the reults page -->
 <%
-          String pickUp= request.getParameter("pickUp");
-          String dropOff = request.getParameter("dropOff");
-          String location = request.getParameter("location");
-
-          if (pickUp != null && dropOff != null && location != null) {
+          if (pickUpResults != null && dropOffResults != null && locationResults != null) {
 %>
             <div>
               <img class="date-image" src="images/pickup.png" alt="Calendar Image">
-              <span><strong>Pick up:</strong> <input type="date" value="<%=pickUp%>" required></span>
+              <span><strong>Pick up:</strong> <span><%=pickUpResults%></span>
             </div>
             <div>
               <img class="date-image" src="images/dropoff.png" alt="Calendar Image">
-              <span><strong>Pick up:</strong> <input type="date" value="<%=dropOff%>" required></span>
+              <span><strong>Drop off:</strong> <span><%=dropOffResults%></span>
             </div>
             <div>
               <img class="map-image" src="images/maps.jpg" alt="Map Image">
-              <span><strong>Location:</strong></span>
-              <select  name="location" value="<%=location%>" class="form-control" required>
-                <option value="<%=location%>"><%=location%></option>
-                <option value="Airport">Airport</option>
-                <option value="Syntagma">Syntagma Square</option>	
-                <option value="Piraeus">Port of Piraeus</option>
-              </select>
+              <span><strong>Location:</strong></span> <span><%=locationResults%></span>
             </div>
             <div>
               <img class="price-image" src="images/total cost.png" alt="Price Image">
-              <span><strong>Total price:</strong> <%=carObj.getPrice()%>&nbsp;&euro;</span> <!-- priceCalculator.CalculatePrice(pickUp, dropOff, carObj.getPrice())-->
+              <span><strong>Total price:</strong> <%=carObj.getPrice()%>&nbsp;&euro;/day</span> <!-- carDAO.CalculatePrice(pickUpResults, dropOffResults, carObj.getPrice()) -->
             </div>
 <%
           } else {
 %>            
             <div>
               <img class="date-image" src="images/pickup.png" alt="Calendar Image">
-              <span><strong>Pick up:</strong> <input type="date" name="pickUp" required></span>
+              <span><strong>Pick up:</strong> <input type="date" name="pickUpCheckout" required></span>
             </div>
             <div>
               <img class="date-image" src="images/dropoff.png" alt="Calendar Image">
-              <span><strong>Drop Off:</strong> <input type="date" name="dropOff" required></span>
+              <span><strong>Drop Off:</strong> <input type="date" name="dropOffCheckout" required></span>
             </div>
             <div>
               <img class="map-image" src="images/maps.jpg" alt="Map Image">
               <span><strong>Location:</strong>                         
-                <select name="location" class="form-control" required>
+                <select name="locationCheckout" class="form-control" required>
                   <option value="">Add location</option>
                   <option value="Airport">Airport</option>
                   <option value="Syntagma">Syntagma Square</option>	
@@ -279,9 +286,9 @@ if (firstname != null || lastname != null || dateOfBirth != null || contactNumbe
 
         <input type="hidden" name="carID" value="<%=carID%>">
         <input type="hidden" name="hostID" value="<%=hostID%>">
-        <input type="hidden" name="pickUp" value="<%=pickUp%>">
-        <input type="hidden" name="dropOff" value="<%=dropOff%>">
-        <input type="hidden" name="location" value="<%=location%>">
+        <input type="hidden" name="pickUpCheckout" value="<%=pickUpCheckout%>">
+        <input type="hidden" name="dropOffCheckout" value="<%=dropOffCheckout%>">
+        <input type="hidden" name="locationCheckout" value="<%=locationCheckout%>">
 
         <button class="checkout-button" type="submit">Continue to Payment</button>
       </div>
