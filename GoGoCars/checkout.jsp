@@ -11,6 +11,17 @@ String firstname = request.getParameter("firstname");
 String lastname = request.getParameter("lastname");
 String dateOfBirth = request.getParameter("dateOfBirth");
 String contactNumber = request.getParameter("contactNumber");
+
+User user = (User)session.getAttribute("userObj");
+
+UserDAO userDAO = new UserDAO();
+CarDAO carDAO = new CarDAO();
+
+String carID = request.getParameter("carID");
+String hostID = request.getParameter("hostID");
+
+User hostObj = userDAO.findUser(hostID);
+Car carObj = carDAO.findCar(carID);
 %>
 
 <!DOCTYPE html>
@@ -39,39 +50,44 @@ if (firstname != null || lastname != null || dateOfBirth != null || contactNumbe
 %>
   <div class="container mt-4">
     <div class="danger-button">
-      <ol>
 <%
   if (firstname.length() < 3) {
     flag = false;	
 %>
-        <div>First name must be at least 3 characters long</div>
+      <div>First name must be at least 3 characters long</div>
 <%
   }
   if (lastname.length() < 3) {
     flag = false;	
 %>
-        <div>Last name must be at least 5 characters long</div>
+      <div>Last name must be at least 5 characters long</div>
 <%
   }
   if (legalAge.dateComparison(dateOfBirth) == false) {
     flag = false;		
 %>
-       <div>You must be older than 21 years old</div>
+      <div>You must be older than 21 years old</div>
 <%
   }
   if (contactNumber.length() < 8) {
     flag = false;	
 %>	
-        <div>Please enter a valid contact number</div>
+      <div>Please enter a valid contact number</div>
 <%
   }
-%>
-      </ol>
-<%
   if (flag == true) {
 %>
       <span>Payment proccess is under construction!</span>
-    <!-- INSERT TO DATABSE GOES INSIDE HERE -->
+
+      <!-- In case that the user filled the form correctly, save his data for next time in case the data doesn't already exist-->
+<%
+      if (firstname != user.getFirstname() || lastname != user.getLastname() || dateOfBirth != user.getDob() || contactNumber != user.getPhone()) {
+        userDAO.updateUserData(user.getUserID(), firstname, lastname, dateOfBirth, contactNumber);
+      }
+%>
+      <!-- MAKE RESERVATION HERE -->
+
+
 <%
   }
 %>
@@ -84,18 +100,6 @@ if (firstname != null || lastname != null || dateOfBirth != null || contactNumbe
 <!-- Checkout original form -->
   <div class="container">
     <h1 class="my_title_checkout">Just a few clicks away...</h1>
-<%
-User user = (User)session.getAttribute("userObj");
-
-UserDAO userDAO = new UserDAO();
-CarDAO carDAO = new CarDAO();
-
-String carID = request.getParameter("carID");
-String hostID = request.getParameter("hostID");
-
-User hostObj = userDAO.findUser(hostID);
-Car carObj = carDAO.findCar(carID);
-%>
     <form method="POST" action="checkout.jsp"> 
       <div class="big-field-car">
         <div class="car-details">
@@ -220,9 +224,9 @@ Car carObj = carDAO.findCar(carID);
           <label for="Date of birth" class="col-sm-3 control-label main-label">Date of birth: </label>
           <div class="col-sm-9">
 <%
-            if (dateOfBirth != null) {
+            if (user.getDob() != null) {
 %>
-              <input type="date" name="dateOfBirth" id="Date of birth" class="form-control" value="<%=dateOfBirth%>" placeholder="Please enter your date of birth" required>
+              <input type="date" name="dateOfBirth" id="Date of birth" class="form-control" value="<%=user.getDob()%>" placeholder="Please enter your date of birth" required>
 <%
             } else {
 %>
@@ -244,9 +248,9 @@ Car carObj = carDAO.findCar(carID);
               <option value="Kenya">+254 (Kenya)</option>
             </select>
 <%
-            if (contactNumber != null) {
+            if (user.getPhone() != null) {
 %>
-              <input type="number" id="contactNumber" name="contactNumber" value="<%=contactNumber%>" required>
+              <input type="number" id="contactNumber" name="contactNumber" value="<%=user.getPhone()%>" required>
 <%
             } else {
 %>

@@ -7,8 +7,8 @@ public class User {
 	private String username;
 	private String password;
     private String userID;
-    private int phone;
-    private int dob;
+    private String phone;
+    private String dob;
     private boolean isHost;
 
 
@@ -26,7 +26,7 @@ public class User {
      * @param isHost
      */
     
-    public User(String firstname, String lastname, String email, String username, String password, String userID, int phone, int dob, boolean isHost) {        
+    public User(String firstname, String lastname, String email, String username, String password, String userID, String phone, String dob, boolean isHost) {        
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
@@ -38,7 +38,7 @@ public class User {
         this.isHost = isHost;
     }
 
-    public User(String firstname, String lastname, String email, String username, String password, String userID, int dob, boolean isHost) {        
+    public User(String firstname, String lastname, String email, String username, String password, String userID, String dob, boolean isHost) {        
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
@@ -49,7 +49,7 @@ public class User {
         this.isHost = isHost;
     }
 
-    public User(String firstname, String lastname, String email, int dob) {        
+    public User(String firstname, String lastname, String email, String dob) {        
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
@@ -135,19 +135,19 @@ public class User {
         this.userID = userID;
     }
 
-    public int getPhone(){
+    public String getPhone(){
         return phone;
     }
 
-    public void setPhone(int phone){
+    public void setPhone(String phone){
         this.phone = phone;
     }
 
-    public int getDob(){
+    public String getDob(){
         return dob;
     }
 
-    public void setDob(int dob){
+    public void setDob(String dob){
         this.dob = dob;
     }
 
