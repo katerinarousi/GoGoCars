@@ -4,7 +4,6 @@ import java.sql.*;
 public class Rental {
 
     private PreparedStatement stmt = null;
-    private ResultSet rs = null;
 
 
     private String rentalID;
@@ -16,6 +15,8 @@ public class Rental {
     private int totalPrice;
     private String renterID;
     private String carID;
+
+
 
 
     /**
@@ -42,6 +43,7 @@ public class Rental {
         this.totalPrice = totalPrice;
 
     }
+
 
     public Rental(String rentalID, String renterID, String carID, String startDate, String endDate, String location){
         this.rentalID = rentalID;
