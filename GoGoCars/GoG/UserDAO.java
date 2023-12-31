@@ -3,6 +3,8 @@ package GoG;
 import java.util.List;
 import java.util.ArrayList;
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /**
  * UserDAO provides all the necessary methods related to users.
@@ -88,7 +90,7 @@ public class UserDAO {
 
 			User user = new User( rs.getString(5), rs.getString(6),
                  rs.getString(3), rs.getString(2), rs.getString(4), rs.getString(1),
-                 rs.getInt(7), rs.getBoolean(8));
+                 rs.getString(7), rs.getBoolean(8));
 
 			rs.close();
             stmt.close();
@@ -124,7 +126,7 @@ public class UserDAO {
             ResultSet rs = stmt.executeQuery();
 
 			if (rs.next()) {
-				user = new User( rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4) );
+				user = new User( rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4) );
             }
 
 			rs.close();
@@ -185,5 +187,57 @@ public class UserDAO {
 		}			
 		
 	}
+
+    public void updateUserData(String userID, String firstname, String lastname, String dateOfBirth, String contactNumber) throws Exception {
+		BConnection db = new BConnection();
+		Connection con;
+		String sql= "UPDATE ismgroup14.users SET first_name =?, last_name =?, date_of_birth =?, phone =? WHERE userID =?;";
+		try {
+			con = db.openConnection();
+			PreparedStatement stmt = con.prepareStatement(sql);
+
+            stmt = con.prepareStatement(sql);
+            stmt.setString(1, firstname);
+            stmt.setString(2, lastname);
+            stmt.setString(3, dateOfBirth);
+            stmt.setString(4, contactNumber);
+            stmt.setString(5, userID);
+        
+            stmt.executeUpdate();
+            stmt.close();
+            db.closeConnection();
+            con.close();
+
+		} catch (Exception e){
+			throw new Exception(e.getMessage());
+		} finally { 
+			try {
+				db.closeConnection();
+			} catch (Exception e){
+
+			}
+
+		}			
+		
+	}
+
+    public Boolean dateComparison(String date) {
+
+        boolean legal = false;
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate birthdate = LocalDate.parse(date, formatter);
+
+        // Get the current date
+        LocalDate currentDate = LocalDate.now();
+
+        // Check if the user is 21 years or more old
+        LocalDate legalAgeDate = currentDate.minusYears(21);
+        if (birthdate.isBefore(legalAgeDate)) {
+            legal = true;
+        }
+        
+        return legal;
+    }
 
 }

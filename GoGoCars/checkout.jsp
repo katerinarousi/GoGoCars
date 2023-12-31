@@ -3,9 +3,26 @@
 <%@ page import="GoG.CarDAO" %>
 <%@ page import="GoG.User" %>
 <%@ page import="GoG.UserDAO" %>
-<%@ page import="GoG.priceCalculator" %>
 <%@ page import="java.time.LocalDate" %>
 <%@ include file="authentication_guard.jsp" %>
+
+<%
+String firstname = request.getParameter("firstname");
+String lastname = request.getParameter("lastname");
+String dateOfBirth = request.getParameter("dateOfBirth");
+String contactNumber = request.getParameter("contactNumber");
+
+User user = (User)session.getAttribute("userObj");
+
+UserDAO userDAO = new UserDAO();
+CarDAO carDAO = new CarDAO();
+
+String carID = request.getParameter("carID");
+String hostID = request.getParameter("hostID");
+
+User hostObj = userDAO.findUser(hostID);
+Car carObj = carDAO.findCar(carID);
+%>
 
 <!DOCTYPE html>
 <html>
@@ -26,170 +43,251 @@
       </div>
   </div>
 
+<%
+if (firstname != null || lastname != null || dateOfBirth != null || contactNumber != null) {
+  UserDAO legalAge = new UserDAO();
+  Boolean flag = true;
+%>
+  <div class="container mt-4">
+    <div class="danger-button">
+<%
+  if (firstname.length() < 3) {
+    flag = false;	
+%>
+      <div>First name must be at least 3 characters long</div>
+<%
+  }
+  if (lastname.length() < 3) {
+    flag = false;	
+%>
+      <div>Last name must be at least 5 characters long</div>
+<%
+  }
+  if (legalAge.dateComparison(dateOfBirth) == false) {
+    flag = false;		
+%>
+      <div>You must be older than 21 years old</div>
+<%
+  }
+  if (contactNumber.length() < 8) {
+    flag = false;	
+%>	
+      <div>Please enter a valid contact number</div>
+<%
+  }
+  if (flag == true) {
+%>
+      <span>Payment proccess is under construction!</span>
+
+      <!-- In case that the user filled the form correctly, save his data for next time in case the data doesn't already exist-->
+<%
+      if (firstname != user.getFirstname() || lastname != user.getLastname() || dateOfBirth != user.getDob() || contactNumber != user.getPhone()) {
+        userDAO.updateUserData(user.getUserID(), firstname, lastname, dateOfBirth, contactNumber);
+      }
+%>
+      <!-- MAKE RESERVATION HERE -->
+
+
+<%
+  }
+%>
+    </div>
+  </div>
+<%
+}
+%>
+
+<!-- Checkout original form -->
   <div class="container">
     <h1 class="my_title_checkout">Just a few clicks away...</h1>
+    <form method="POST" action="checkout.jsp"> 
+      <div class="big-field-car">
+        <div class="car-details">
+          <div class="car-image">
+            <img src="<%=carObj.getImage()%>" alt="Image Description" width="450">
+          </div>
+          <div class="car-info">
+            <h4> <%=carObj.getModel()%></h4>
+            <div>
+              <img class="user-image" src="images/user.jpg" alt="User Photo">
+              <span> <strong><%=hostObj.getFirstname()%> <%=hostObj.getLastname()%></strong></span>
+            </div>
+
+          <!-- This if covers the case where the data comes from the reults page -->
 <%
-User user = (User)session.getAttribute("userObj");
+          String pickUp= request.getParameter("pickUp");
+          String dropOff = request.getParameter("dropOff");
+          String location = request.getParameter("location");
 
-UserDAO userDAO = new UserDAO();
-CarDAO carDAO = new CarDAO();
-
-String carID = request.getParameter("carID");
-String hostID = request.getParameter("hostID");
-
-User hostObj = userDAO.findUser(hostID);
-Car carObj = carDAO.findCar(carID);
+          if (pickUp != null && dropOff != null && location != null) {
 %>
-    <div class="big-field-car">
-      <div class="car-details">
-        <div class="car-image">
-          <img src="<%=carObj.getImage()%>" alt="Image Description" width="450">
-        </div>
-        <div class="car-info">
-          <h4> <%=carObj.getModel()%></h4>
-          <div>
-            <img class="user-image" src="images/user.jpg" alt="User Photo">
-            <span> <strong><%=hostObj.getFirstname()%> <%=hostObj.getLastname()%></strong></span>
-          </div>
-          <div>
-
-        <!-- This if covers the case where the data comes from the reults page -->
-<%
-        String pickUp= request.getParameter("pickUp");
-        String dropOff = request.getParameter("dropOff");
-        String location = request.getParameter("location");
-
-        if (pickUp != null && dropOff != null && location != null) {
-%>
-            <img class="date-image" src="images/pickup.png" alt="Calendar Image">
-            <span><strong>Pick up:</strong> <%=pickUp%></span>
-          </div>
-          <div>
-            <img class="date-image" src="images/dropoff.png" alt="Calendar Image">
-            <span><strong>Drop Off:</strong> <%=dropOff%></span>
-          </div>
-          <div>
-            <img class="map-image" src="images/maps.jpg" alt="Map Image">
-            <span><strong>Location:</strong> <%=location%></span>
-          </div>
-          <div>
-            <img class="price-image" src="images/total cost.png" alt="Price Image">
-            <span><strong>Total price:</strong> <%=carObj.getPrice()%>&nbsp;&euro;</span> <!-- priceCalculator.CalculatePrice(pickUp, dropOff, carObj.getPrice())-->
-<%
-        } else {
-%>
-            <img class="date-image" src="images/pickup.png" alt="Calendar Image">
-            <span><strong>Pick up:</strong> <input type="date" required></span>
-          </div>
-          <div>
-            <img class="date-image" src="images/dropoff.png" alt="Calendar Image">
-            <span><strong>Drop Off:</strong> <input type="date" required></span>
-          </div>
-          <div>
-            <img class="map-image" src="images/maps.jpg" alt="Map Image">
-            <span><strong>Location:</strong>                         
-              <select  name="location" class="form-control" required>
-              <option value="">Add location</option>
-              <option value="Airport">Airport</option>
-              <option value="syntagma">Syntagma Square</option>	
-              <option value="pireus">Port of Piraeus</option>
-          </select></span>
-          </div>
-          <div>
-            <img class="price-image" src="images/total cost.png" alt="Price Image">
-            <span><strong>Total price:</strong> <%=carObj.getPrice()%>&nbsp;&euro;/day</span>
-
-<%
-        }
-%>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="Billing-info">
-      <div class="billing-container">
-       <h3 style="font-size: 2vw;">Billing Info:</h3>
-      </div>
-      <div class="form-group">
-        <label for="name"class="col-sm-3 control-label main-label">First name: </label>
-        <div class="col-sm-9">
-<%
-          if (user.getFirstname() != null) {
-%>
-            <input type="text" id="firstname" class="form-control" value="<%=user.getFirstname()%>" placeholder="Please enter your name" >
+            <div>
+              <img class="date-image" src="images/pickup.png" alt="Calendar Image">
+              <span><strong>Pick up:</strong> <input type="date" value="<%=pickUp%>" required></span>
+            </div>
+            <div>
+              <img class="date-image" src="images/dropoff.png" alt="Calendar Image">
+              <span><strong>Pick up:</strong> <input type="date" value="<%=dropOff%>" required></span>
+            </div>
+            <div>
+              <img class="map-image" src="images/maps.jpg" alt="Map Image">
+              <span><strong>Location:</strong></span>
+              <select  name="location" value="<%=location%>" class="form-control" required>
+                <option value="<%=location%>"><%=location%></option>
+                <option value="Airport">Airport</option>
+                <option value="Syntagma">Syntagma Square</option>	
+                <option value="Piraeus">Port of Piraeus</option>
+              </select>
+            </div>
+            <div>
+              <img class="price-image" src="images/total cost.png" alt="Price Image">
+              <span><strong>Total price:</strong> <%=carObj.getPrice()%>&nbsp;&euro;</span> <!-- priceCalculator.CalculatePrice(pickUp, dropOff, carObj.getPrice())-->
+            </div>
 <%
           } else {
-%>
-            <input type="text" id="firstname" class="form-control" placeholder="Please enter your name" >
+%>            
+            <div>
+              <img class="date-image" src="images/pickup.png" alt="Calendar Image">
+              <span><strong>Pick up:</strong> <input type="date" name="pickUp" required></span>
+            </div>
+            <div>
+              <img class="date-image" src="images/dropoff.png" alt="Calendar Image">
+              <span><strong>Drop Off:</strong> <input type="date" name="dropOff" required></span>
+            </div>
+            <div>
+              <img class="map-image" src="images/maps.jpg" alt="Map Image">
+              <span><strong>Location:</strong>                         
+                <select name="location" class="form-control" required>
+                  <option value="">Add location</option>
+                  <option value="Airport">Airport</option>
+                  <option value="Syntagma">Syntagma Square</option>	
+                  <option value="Piraeus">Port of Piraeus</option>
+                </select>
+              </span>
+            </div>
+            <div>
+              <img class="price-image" src="images/total cost.png" alt="Price Image">
+              <span><strong>Total price:</strong> <%=carObj.getPrice()%>&nbsp;&euro;/day</span>
+            </div>
 <%
           }
 %>
+          </div>
         </div>
       </div>
-      <div class="form-group">
-        <label for="lastname"class="col-sm-3 control-label main-label">Last name: </label>
-        <div class="col-sm-9">
+
+
+      <div class="Billing-info">
+        <div class="billing-container">
+        <h3 style="font-size: 2vw;">Billing Info:</h3>
+        </div>
+        <div class="form-group">
+          <label for="name"class="col-sm-3 control-label main-label">First name: </label>
+          <div class="col-sm-9">
 <%
-          if (user.getLastname() != null) {
+            if (user.getFirstname() != null) {
 %>
-            <input type="text" name="lastname" id="surname" class="form-control" value="<%=user.getLastname()%>" placeholder="Please enter your surname">
+              <input type="text" id="firstname" name="firstname" class="form-control" value="<%=user.getFirstname()%>" placeholder="Please enter your name" >
 <%
-          } else {
+            } else {
 %>
-            <input type="text" name="lastname" id="surname" class="form-control" placeholder="Please enter your surname">
+              <input type="text" id="firstname" name="firstname" class="form-control" placeholder="Please enter your name" >
 <%
-          }
+            }
 %>
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="email"class="col-sm-3 control-label main-label">Email: </label>
-        <div class="col-sm-9">
-          <input type="text" name="email" id="email" class="form-control" value="<%=user.getEmail()%>" placeholder="Please enter your email">
+        <div class="form-group">
+          <label for="lastname"class="col-sm-3 control-label main-label">Last name: </label>
+          <div class="col-sm-9">
+<%
+            if (user.getLastname() != null) {
+%>
+              <input type="text" name="lastname" id="surname" class="form-control" value="<%=user.getLastname()%>" placeholder="Please enter your surname">
+<%
+            } else {
+%>
+              <input type="text" name="lastname" id="surname" class="form-control" placeholder="Please enter your surname">
+<%
+            }
+%>
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="Date of birth" class="col-sm-3 control-label main-label">Date of birth: </label>
-        <div class="col-sm-9">
-          <input type="text" name="Date of birth" id="Date of birth" class="form-control" placeholder="Please enter your date of birth">
+        <div class="form-group">
+          <label for="email"class="col-sm-3 control-label main-label">Email: </label>
+          <div class="col-sm-9">
+            <input type="text" name="email" id="email" class="form-control" value="<%=user.getEmail()%>" placeholder="Please enter your email">
+          </div>
         </div>
-      </div>    
-      <div class="form-group">
-        <label for="contact-number" class="col-sm-3 control-label main-label">Contact number:</label>
-        <div class="contact-input">
-          <select id="contact_country_code" name="contact_country_code">
-            <option value="Greece">+30 (Greece)</option>
-            <option value="Germany">+49 (Germany)</option>
-            <option value="France">+33 (France)</option>
-            <option value="Italy">+39 (Italy)</option>
-            <option value="Kenya">+254 (Kenya)</option>
-          </select>
-          <input type="tel" id="contact_number" name="contact_number" required>
+
+        <div class="form-group">
+          <label for="Date of birth" class="col-sm-3 control-label main-label">Date of birth: </label>
+          <div class="col-sm-9">
+<%
+            if (user.getDob() != null) {
+%>
+              <input type="date" name="dateOfBirth" id="Date of birth" class="form-control" value="<%=user.getDob()%>" placeholder="Please enter your date of birth" required>
+<%
+            } else {
+%>
+              <input type="date" name="dateOfBirth" id="Date of birth" class="form-control" placeholder="Please enter your date of birth" required>
+<%
+            }
+%>
+            
+          </div>
+        </div>    
+        <div class="form-group">
+          <label for="contact-number" class="col-sm-3 control-label main-label">Contact number:</label>
+          <div class="contact-input">
+            <select id="contact_country_code" name="contact_country_code">
+              <option value="Greece">+30 (Greece)</option>
+              <option value="Germany">+49 (Germany)</option>
+              <option value="France">+33 (France)</option>
+              <option value="Italy">+39 (Italy)</option>
+              <option value="Kenya">+254 (Kenya)</option>
+            </select>
+<%
+            if (user.getPhone() != null) {
+%>
+              <input type="number" id="contactNumber" name="contactNumber" value="<%=user.getPhone()%>" required>
+<%
+            } else {
+%>
+              <input type="number" id="contactNumber" name="contactNumber" required>
+<%
+            }
+%>        
+          </div>
         </div>
+        <div class="form-group">
+          <label for="Payment-method" class="col-sm-3 control-label main-label">Payment Method: </label>
+          <div class="payment-method">
+          <label>
+            <input type="radio" name="payment" value="Credit card" required> Credit Card
+          </label>
+          <label>
+            <input type="radio" name="payment" value="Debit card" required> Debit Card
+          </label>
+          <label>
+            <input type="radio" name="payment" value="Paypal" required> Pay-Pal
+          </label>
+          <label>
+            <input type="radio" name="payment" value="Cash" required> Cash
+          </label>
+        </div>
+
+        <input type="hidden" name="carID" value="<%=carID%>">
+        <input type="hidden" name="hostID" value="<%=hostID%>">
+        <input type="hidden" name="pickUp" value="<%=pickUp%>">
+        <input type="hidden" name="dropOff" value="<%=dropOff%>">
+        <input type="hidden" name="location" value="<%=location%>">
+
+        <button class="checkout-button" type="submit">Continue to Payment</button>
       </div>
-      <div class="form-group">
-        <label for="Payment-method" class="col-sm-3 control-label main-label">Payment Method: </label>
-        <div class="payment-method">
-        <label>
-          <input type="radio" name="payment" value="Credit card" required> Cash
-        </label>
-        <label>
-          <input type="radio" name="payment" value="Debit card" required> Credit Card
-        </label>
-        <label>
-          <input type="radio" name="payment" value="Paypal" required> Pay-Pal
-        </label>
-        <label>
-          <input type="radio" name="payment" value="Cash" required> Phone
-        </label>
-      </div>
-    </div>
-  </div> 
-  
+    </form>
   </div>
-  <button class="checkout-button" type="button">Continue to Payment</button>
+  
  
  
  
@@ -213,11 +311,6 @@ Car carObj = carDAO.findCar(carID);
     </div>
     </div>
  </div>
- 
-  
-      
-  </div>
-</div>
 
             
       
