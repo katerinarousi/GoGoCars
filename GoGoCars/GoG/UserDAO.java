@@ -26,7 +26,7 @@ public class UserDAO {
         BConnection db = new BConnection();
         Connection conn = null;
 
-        String query = "select userID, first_name, last_name from Users";
+        String query = "SELECT userID, first_name, last_name FROM Users";
 
         try {
             conn = db.openConnection();
