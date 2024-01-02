@@ -10,38 +10,38 @@ public class RentalDAO {
     private PreparedStatement stmt = null;
     private ResultSet rs = null;
 
+
     /**
      * Retrieves and displays information about a rental specified by its unique renter ID.
      *
      * @param rentalID the unique identifier of the rental to be displayed.
      * @throws Exception
     */  
-    public List<Map<String, String>> showRental(String hostID) throws Exception {
+    public List<Rental> showRental(String hostID) throws Exception {
         Connection con = null;
-        String query = "select rentalID, model, last_name, first_name, price, start_datetime, end_datetime " +
-                       "from rental, cars, users " +
-                       "where rental.carID = cars.carID AND cars.ownerID = ? and rental.renterID = users.userID;";
+        String query = "select rentalID,renterID,carID, start_datetime, end_datetime " +
+                       "from rental" +
+                       "where cars.ownerID = ?;";
         
-        List<Map<String, String>> resultList = new ArrayList<>();
+        List<Rental> rentals = new ArrayList<>();
         BConnection db = new BConnection();
         
         try {
+             Rental rental;
             con = db.openConnection();
             stmt = con.prepareStatement(query);
             stmt.setString(1, hostID);
             rs = stmt.executeQuery();
             
             while (rs.next()) {
-                Map<String, String> resultMap = new HashMap<>();
-                resultMap.put("rentalID", rs.getString("rentalID"));
-                resultMap.put("model", rs.getString("model"));
-                resultMap.put("last_name", rs.getString("last_name"));
-                resultMap.put("first_name", rs.getString("first_name"));
-                resultMap.put("price", rs.getString("price"));
-                resultMap.put("start_datetime", rs.getString("start_datetime"));
-                resultMap.put("end_datetime", rs.getString("end_datetime"));
-
-                resultList.add(resultMap);
+                rental = new Rental(
+                    rs.getString(1),
+                    rs.getString(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                    rs.getString(5)
+        );
+        rentals.add(rental);
             }
         } catch (Exception e) {
             throw new Exception(e.getMessage());
@@ -49,7 +49,7 @@ public class RentalDAO {
             db.closeConnection();
         }
         
-        return resultList;
+        return rentals;
     }
 }
 

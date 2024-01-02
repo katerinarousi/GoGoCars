@@ -53,7 +53,15 @@ public class Rental {
         this.endDate = endDate;
         this.location = location;
     }
- 
+
+    public Rental(String rentalID, String renterID, String carID, String startDate, String endDate){
+        this.rentalID = rentalID;
+        this.renterID = renterID;
+        this.carID = carID;
+        this.startDate = startDate;
+        this.endDate = endDate;
+      
+    }
     /**
      *  Setters - Getters 
      * 

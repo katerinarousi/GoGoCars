@@ -11,6 +11,8 @@
 RentalDAO rDAO = new RentalDAO();
 UserDAO uDAO = new UserDAO();
 User hostnow = (User)session.getAttribute("userObj");
+CarDAO cDAO = new CarDAO();
+
 List<Rental> rentals = rDAO.showRental(hostnow.getUserID());
 
 %>
@@ -66,7 +68,7 @@ List<Rental> rentals = rDAO.showRental(hostnow.getUserID());
              
                 <div class="row">
                     <div class="col-md-12">
-                      <% if (rentals.size() == 0) {
+                      <% if (myrentals.size() == 0) {
                              %>
                         <div class = "danger-button">No rentals to show bro</div>  
                       <%} else {         
@@ -80,7 +82,7 @@ List<Rental> rentals = rDAO.showRental(hostnow.getUserID());
                                   <th>Car</th>
                                   <th>Last Name</th>
                                   <th>First Name</th>
-                                  <th>Total Price (in €€)</th>
+                                  <th>Price per day (in €€)</th>
                                   <th>Start date</th>
                                    <th>End date</th>
                                    <th>Status</th>
@@ -89,20 +91,22 @@ List<Rental> rentals = rDAO.showRental(hostnow.getUserID());
                                             
                               <tbody>
                                 
-                                <% for (Rental rental: rentals){
+                                <% for (Rental rental: my){
                                   User renter = uDAO.findUser(rental.getRenterID());
+                                  Car car = cDAO.findmycar(rental.getCarID());
                                   %>
                                   <tr>
                                     <th scope="row"><%=rental.getRentalID()%></th>
-                                    <td><%=rental.getCarID()%></td>
+                                    <td><%=renter.getModel()%></td>
                                     <td><%=renter.getLastname()%></td>
                                     <td><%=renter.getFirstname()%></td>
-                                    <td>140</td>
+                                    <td><%=renter.getPrice()%></td>
                                     <td><%=rental.getStartDate()%></td>
                                     <td><%=rental.getEndDate()%></td>
                                     <td> 
                                       <div class="box danger">
                                         Completed
+
                                       </div>
                                     </td>
                                   </tr>
