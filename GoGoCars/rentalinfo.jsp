@@ -4,6 +4,8 @@
 <%@ page import="GoG.UserDAO" %>
 <%@ page import="GoG.Rental" %>
 <%@ page import="GoG.RentalDAO" %>
+<%@ page import="GoG.Car" %>
+<%@ page import="GoG.CarDAO" %>
 <%@ page import="java.util.List" %>
 
 <% 
@@ -68,7 +70,7 @@ List<Rental> rentals = rDAO.showRental(hostnow.getUserID());
              
                 <div class="row">
                     <div class="col-md-12">
-                      <% if (myrentals.size() == 0) {
+                      <% if (rentals.size() == 0) {
                              %>
                         <div class = "danger-button">No rentals to show bro</div>  
                       <%} else {         
@@ -91,23 +93,41 @@ List<Rental> rentals = rDAO.showRental(hostnow.getUserID());
                                             
                               <tbody>
                                 
-                                <% for (Rental rental: my){
+                                <% for (Rental rental: rentals){
                                   User renter = uDAO.findUser(rental.getRenterID());
                                   Car car = cDAO.findmycar(rental.getCarID());
                                   %>
                                   <tr>
                                     <th scope="row"><%=rental.getRentalID()%></th>
-                                    <td><%=renter.getModel()%></td>
+                                    <td><%=car.getModel()%></td>
                                     <td><%=renter.getLastname()%></td>
                                     <td><%=renter.getFirstname()%></td>
-                                    <td><%=renter.getPrice()%></td>
+                                    <td><%=car.getPrice()%></td>
                                     <td><%=rental.getStartDate()%></td>
                                     <td><%=rental.getEndDate()%></td>
                                     <td> 
-                                      <div class="box danger">
-                                        Completed
-
-                                      </div>
+                                      <% int status = rDAO.getStatus(rental.getStartDate(), rental.getEndDate());
+                                        if (status == 1){
+                                          %>
+                                          <div class="box danger">
+                                            Completed
+                                          </div>
+                                          <%
+                                        } else if (status == 2) {
+                                          %>
+                                          <div class="box warning">
+                                            In Progress
+                                          </div>
+                                          <%
+                                        } else {
+                                          %>
+                                          <div class="box success">
+                                            Upcoming
+                                          </div>
+                                          <%
+                                        }
+                                        %>
+                                    
                                     </td>
                                   </tr>
                                   <%
