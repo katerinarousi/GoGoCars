@@ -52,8 +52,10 @@ List<Rental> rentals = rDAO.showRental(hostnow.getUserID());
             <div class="danger-button"><%=(String)request.getAttribute("message") %></div>
         <% } 
           if (!hostnow.isHost()){
+            request.setAttribute("message", "Please login as host to view this page!");
             %>
-            <div class="danger-button">Please log in as Host to view this page</div>
+            <div class="danger-button"><%=(String)request.getAttribute("message") %></div>
+            <jsp:forward page="login.jsp" />
          <%}
             %>
       </div>
