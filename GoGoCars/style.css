@@ -711,6 +711,22 @@ footer p {
 
 }
 
+.success-button {
+  display: block;
+  position: relative;
+  
+  padding: 13px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  
+  color: #fff;
+  background-color: #5cb85c;
+  border-radius: 7px;
+
+}
+
 
 
 /*-----------------------------------checkout-----------------------------------------------*/
@@ -835,7 +851,7 @@ footer p {
   margin-right: 20px;
 }
 
-.checkout-button {
+.checkout-element {
   background-color: green;
   color: #fff;
   font-size: 25px;
@@ -843,16 +859,20 @@ footer p {
   cursor: pointer;
   border-radius: 10px;
   padding: 20px;
-  display: block;
-  position: relative;
+  display: inline-block; /* Change from block to inline-block */
+  text-align: center; /* Center the text horizontally */
+  text-decoration: none; /* Remove underline for the link */
+  box-sizing: border-box; /* Include padding in the total width/height */
   width: auto;
   margin: auto;
   margin-bottom: 50px;
 }
 
-.checkout-button:hover{
+.checkout-element:hover {
   transform: scale(0.9);
 }
+
+
 
 .col-sm-9 {
   flex: 1;

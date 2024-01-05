@@ -12,17 +12,25 @@ String firstname = request.getParameter("firstname");
 String lastname = request.getParameter("lastname");
 String dateOfBirth = request.getParameter("dateOfBirth");
 String contactNumber = request.getParameter("contactNumber");
+String email = request.getParameter("email");
 
 User user = (User)session.getAttribute("userObj");
 
 UserDAO userDAO = new UserDAO();
 CarDAO carDAO = new CarDAO();
 
+boolean returnFlag = false;
+boolean checkoutFlag = false;
+boolean resultsFlag = false;
+
 String carID = request.getParameter("carID");
 String hostID = request.getParameter("hostID");
 String pickUpResults= request.getParameter("pickUp");
 String dropOffResults = request.getParameter("dropOff");
-String locationResults = request.getParameter("locationResults");
+String locationResults = request.getParameter("location");
+if (pickUpResults != null && dropOffResults != null && locationResults != null && !pickUpResults.equals("null") && !dropOffResults.equals("null") && !locationResults.equals("null")) {
+  resultsFlag = true;
+}
 String pickUpCheckout= request.getParameter("pickUpCheckout");
 String dropOffCheckout = request.getParameter("dropOffCheckout");
 String locationCheckout = request.getParameter("locationCheckout");
@@ -49,66 +57,77 @@ Car carObj = carDAO.findCar(carID);
 
       </div>
   </div>
-
+  <div class="container mt-4">
 <%
 if (firstname != null || lastname != null || dateOfBirth != null || contactNumber != null) {
   UserDAO legalAge = new UserDAO();
   RentalDAO rental = new RentalDAO();
   boolean flag = true;
+    
+  if (lastname.length() < 3 || lastname.length() < 5 || legalAge.dateComparison(dateOfBirth) == false || contactNumber.length() < 8 || (rental.checkAvailability(carID, pickUpCheckout, dropOffCheckout) == false && pickUpCheckout != null && dropOffCheckout != null && locationCheckout != null)) {
 %>
-  <div class="container mt-4">
+    
     <div class="danger-button">
 <%
-  if (firstname.length() < 3) {
-    flag = false;	
+    if (firstname.length() < 3) {
+      flag = false;
 %>
       <div>First name must be at least 3 characters long</div>
 <%
-  }
-  if (lastname.length() < 3) {
-    flag = false;	
+    }
+    if (lastname.length() < 5) {
+      flag = false;
 %>
       <div>Last name must be at least 5 characters long</div>
 <%
-  }
-  if (legalAge.dateComparison(dateOfBirth) == false) {
-    flag = false;		
+    }
+    if (legalAge.dateComparison(dateOfBirth) == false) {
+      flag = false;
 %>
       <div>You must be older than 21 years old</div>    <!-- Ensures renter is within the appropriate age for a reservation-->
 <%
-  }
-  if (contactNumber.length() < 8) {
-    flag = false;	
+    }
+    if (contactNumber.length() < 8) {
+      flag = false;
 %>	
       <div>Please enter a valid contact number</div>
-
 <%
-  }
-  if (rental.checkAvailability(carID, pickUpCheckout, dropOffCheckout) == false) {
-    flag = false;	
+    }
+    if (pickUpCheckout != null && dropOffCheckout != null && locationCheckout != null && !pickUpCheckout.equals("null") && !dropOffCheckout.equals("null") && !locationCheckout.equals("null")) {
+      if (rental.checkAvailability(carID, pickUpCheckout, dropOffCheckout) == false && flag == true) {	
 %>
       <div>Unfortunately, this vechile is not available for the date requested, please pick another date or vechile</div>
 <%
-  }
-  if (flag == true) {
-%>
-      <span>Payment proccess is under construction, but your reservation has been successfully made with the data below! </span>
-<%
-      if (pickUpResults == null && dropOffResults == null) {
-        locationResults = locationCheckout;
-        pickUpResults = pickUpCheckout;
-        dropOffResults = dropOffCheckout;
       }
+    }
+%>
+    </div>
+    
+<%
+  } else {
+    
+%>
+    
+    <div class="success-button">
+      <div>Payment proccess is under construction, but your reservation has been successfully made with the data below!</div>
+    </div>
+<%
+    if (pickUpCheckout == null && dropOffCheckout == null && locationCheckout == null || "null".equals(pickUpCheckout) || "null".equals(dropOffCheckout) || "null".equals(locationCheckout)) {
+      rental.makeReservation(hostID, carID, pickUpResults, dropOffResults, locationResults);
+      resultsFlag = true;
+    } else {
+      rental.makeReservation(hostID, carID, pickUpCheckout, dropOffCheckout, locationCheckout);
+      checkoutFlag = true;
+    }
 %>
       <!-- In case that the user filled the form correctly, save users data for next time in case the data doesn't already exist and MAKE THE RESERVATION-->
 <%
-      if (firstname != user.getFirstname() || lastname != user.getLastname() || dateOfBirth != user.getDob() || contactNumber != user.getPhone()) {
-        userDAO.updateUserData(user.getUserID(), firstname, lastname, dateOfBirth, contactNumber);
-        rental.makeReservation(hostID, carID, pickUpCheckout, dropOffCheckout, locationCheckout);
-      }
+    if (firstname != user.getFirstname() || lastname != user.getLastname() || dateOfBirth != user.getDob() || contactNumber != user.getPhone()) {
+      userDAO.updateUserData(user.getUserID(), firstname, lastname, dateOfBirth, contactNumber);
+      returnFlag = true;
+    }
   }
 %>
-    </div>
   </div>
 <%
 }
@@ -129,11 +148,28 @@ if (firstname != null || lastname != null || dateOfBirth != null || contactNumbe
               <img class="user-image" src="images/user.jpg" alt="User Photo">
               <span> <strong><%=hostObj.getFirstname()%> <%=hostObj.getLastname()%></strong></span>
             </div>
-
-          <!-- This if covers the case where the data comes from the reults page -->
 <%
-          if (pickUpResults != null && dropOffResults != null && locationResults != null) {
+          if (checkoutFlag == true) {
 %>
+            <div>
+              <img class="date-image" src="images/pickup.png" alt="Calendar Image">
+              <span><strong>Pick up:</strong> <span><%=pickUpCheckout%></span>
+            </div>
+            <div>
+              <img class="date-image" src="images/dropoff.png" alt="Calendar Image">
+              <span><strong>Drop off:</strong> <span><%=dropOffCheckout%></span>
+            </div>
+            <div>
+              <img class="map-image" src="images/maps.jpg" alt="Map Image">
+              <span><strong>Location:</strong></span> <span><%=locationCheckout%></span>
+            </div>
+            <div>
+              <img class="price-image" src="images/total cost.png" alt="Price Image">
+              <span><strong>Total price:</strong> <%=carObj.getPrice()%>&nbsp;&euro;/day</span>
+            </div>
+<%
+          } else if (resultsFlag == true) {
+%>            
             <div>
               <img class="date-image" src="images/pickup.png" alt="Calendar Image">
               <span><strong>Pick up:</strong> <span><%=pickUpResults%></span>
@@ -148,11 +184,11 @@ if (firstname != null || lastname != null || dateOfBirth != null || contactNumbe
             </div>
             <div>
               <img class="price-image" src="images/total cost.png" alt="Price Image">
-              <span><strong>Total price:</strong> <%=carObj.getPrice()%>&nbsp;&euro;/day</span> <!-- carDAO.CalculatePrice(pickUpResults, dropOffResults, carObj.getPrice()) -->
-            </div>
+              <span><strong>Total price:</strong> <%=carObj.getPrice()%>&nbsp;&euro;/day</span>
+            </div> 
 <%
           } else {
-%>            
+%>   
             <div>
               <img class="date-image" src="images/pickup.png" alt="Calendar Image">
               <span><strong>Pick up:</strong> <input type="date" name="pickUpCheckout" required></span>
@@ -286,11 +322,20 @@ if (firstname != null || lastname != null || dateOfBirth != null || contactNumbe
 
         <input type="hidden" name="carID" value="<%=carID%>">
         <input type="hidden" name="hostID" value="<%=hostID%>">
-        <input type="hidden" name="pickUpCheckout" value="<%=pickUpCheckout%>">
-        <input type="hidden" name="dropOffCheckout" value="<%=dropOffCheckout%>">
-        <input type="hidden" name="locationCheckout" value="<%=locationCheckout%>">
-
-        <button class="checkout-button" type="submit">Continue to Payment</button>
+        <input type="hidden" name="pickUp" value="<%=pickUpResults%>">
+        <input type="hidden" name="dropOff" value="<%=dropOffResults%>">
+        <input type="hidden" name="location" value="<%=locationResults%>">
+<%
+      if (returnFlag == true) {
+%>
+        <a class="checkout-element" href="search.jsp">Back to navigation</a>
+<%
+      } else {
+%>
+        <button class="checkout-element" type="submit">Continue to Payment</button>
+<%
+      }
+%>
       </div>
     </form>
   </div>
