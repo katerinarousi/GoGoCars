@@ -127,7 +127,44 @@ public List<Car> getSearchCars(String fPickUp,String fDropOff) throws Exception 
 
 
     }
+    
 
+    public Car findmycar(String carID) throws Exception {
+		
+		BConnection db = new BConnection();
+        Connection conn = null;
+		String query = "SELECT model, price FROM cars WHERE carID=?";
+
+		try {
+
+			Car car= null; 
+			conn = db.openConnection();
+			PreparedStatement stmt = conn.prepareStatement(query);
+
+			stmt.setString(1, carID);
+            ResultSet rs = stmt.executeQuery();
+
+			if (rs.next()) {
+				car = new Car( rs.getString(1), rs.getFloat(2) );
+            }
+
+			rs.close();
+            stmt.close();
+            db.closeConnection();
+
+			return car;
+
+		} catch (SQLException e) {
+            throw new Exception(e.getMessage());
+        } finally {
+            try {
+                db.closeConnection();
+            } catch (Exception e) {
+                
+            }
+        }
+		
+	}
     public String formatDateForDatabase(String date) throws Exception {
       
         try {

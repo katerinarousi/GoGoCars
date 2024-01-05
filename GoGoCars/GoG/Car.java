@@ -43,7 +43,12 @@ public class Car{
 
     }
 
+   public Car(String model,float price) {
+       this.model = model;
+       this.price = price;
+    
 
+   }
 
     public Car(String model, float price, String ownerID, String image) {
        this.model = model;

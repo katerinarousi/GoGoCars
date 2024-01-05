@@ -4,6 +4,8 @@
 <%@ page import="GoG.UserDAO" %>
 <%@ page import="GoG.Rental" %>
 <%@ page import="GoG.RentalDAO" %>
+<%@ page import="GoG.Car" %>
+<%@ page import="GoG.CarDAO" %>
 <%@ page import="java.util.List" %>
 
 <% 
@@ -11,6 +13,8 @@
 RentalDAO rDAO = new RentalDAO();
 UserDAO uDAO = new UserDAO();
 User hostnow = (User)session.getAttribute("userObj");
+CarDAO cDAO = new CarDAO();
+
 List<Rental> rentals = rDAO.showRental(hostnow.getUserID());
 
 %>
@@ -48,8 +52,10 @@ List<Rental> rentals = rDAO.showRental(hostnow.getUserID());
             <div class="danger-button"><%=(String)request.getAttribute("message") %></div>
         <% } 
           if (!hostnow.isHost()){
+            request.setAttribute("message", "Please login as host to view this page!");
             %>
-            <div class="danger-button">Please log in as Host to view this page</div>
+            <div class="danger-button"><%=(String)request.getAttribute("message") %></div>
+            <jsp:forward page="login.jsp" />
          <%}
             %>
       </div>
@@ -80,7 +86,7 @@ List<Rental> rentals = rDAO.showRental(hostnow.getUserID());
                                   <th>Car</th>
                                   <th>Last Name</th>
                                   <th>First Name</th>
-                                  <th>Total Price (in €€)</th>
+                                  <th>Price per day (in €€)</th>
                                   <th>Start date</th>
                                    <th>End date</th>
                                    <th>Status</th>
@@ -91,19 +97,39 @@ List<Rental> rentals = rDAO.showRental(hostnow.getUserID());
                                 
                                 <% for (Rental rental: rentals){
                                   User renter = uDAO.findUser(rental.getRenterID());
+                                  Car car = cDAO.findmycar(rental.getCarID());
                                   %>
                                   <tr>
                                     <th scope="row"><%=rental.getRentalID()%></th>
-                                    <td><%=rental.getCarID()%></td>
+                                    <td><%=car.getModel()%></td>
                                     <td><%=renter.getLastname()%></td>
                                     <td><%=renter.getFirstname()%></td>
-                                    <td>140</td>
+                                    <td><%=car.getPrice()%></td>
                                     <td><%=rental.getStartDate()%></td>
                                     <td><%=rental.getEndDate()%></td>
                                     <td> 
-                                      <div class="box danger">
-                                        Completed
-                                      </div>
+                                      <% int status = rDAO.getStatus(rental.getStartDate(), rental.getEndDate());
+                                        if (status == 1){
+                                          %>
+                                          <div class="box danger">
+                                            Completed
+                                          </div>
+                                          <%
+                                        } else if (status == 2) {
+                                          %>
+                                          <div class="box warning">
+                                            In Progress
+                                          </div>
+                                          <%
+                                        } else {
+                                          %>
+                                          <div class="box success">
+                                            Upcoming
+                                          </div>
+                                          <%
+                                        }
+                                        %>
+                                    
                                     </td>
                                   </tr>
                                   <%

@@ -24,7 +24,7 @@
             <% } %>
         </div>
 
-        <h2 class="log-h1">WELCOME BACK!</h1>
+        <h2 class="log-h1"> WELCOME BACK!</h1>
         <form method="POST" action="loginController.jsp">
             <div class="data-inputs">
                 <div>
