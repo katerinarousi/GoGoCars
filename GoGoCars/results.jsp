@@ -18,6 +18,7 @@ List<Car> carList= (List<Car>) request.getAttribute("carList");
 List<User> users = userDAO.getUsersID_first_last_name();
 
 
+
 %>
 
 <!DOCTYPE html>
@@ -95,34 +96,20 @@ List<User> users = userDAO.getUsersID_first_last_name();
     <!-- Filters -->
 
     <div class="sidenav">
-        <button class="filters-btn" onclick="dropDownMenu()"><p>Filters<span class="glyphicon glyphicon-filter"></span></p>
-            <i class="fa fa-caret-down"></i>
+        <button class="filters-btn" onclick="dropDownMenu(this)">
+            <p>Filters<span class="glyphicon glyphicon-filter"></span></p>
         </button>
         <div class="dropdown-container">
 
-            <button class="vechile-type-btn" onclick="dropDownMenu()"><h5>Vechile Type</h5> 
-                <i class="fa fa-caret-down"></i>
+            <button class="category-btn" onclick="dropDownMenu(this)"><h5>Category</h5> 
             </button>
             <div class="dropdown-container">
-                <a href="#"><h6>Car</h5></a>
-                <a href="#"><h6>Motorcycle</h6></a>
-                <a href="#"><h6>Bicycle</h6></a>
-                <a href="#"><h6>Truck</h6></a>
-            </div>
-
-            <button class="category-btn" onclick="dropDownMenu()"><h5>Category</h5> 
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-container">
-                <a href="#"><h6>Super Sport</h5></a>
-                <a href="#"><h6>Off-Road</h6></a>
                 <a href="#"><h6>Compact</h6></a>
                 <a href="#"><h6>SUV</h6></a>
                 <a href="#"><h6>Sedan</h6></a>
             </div>
 
-            <button class="engine-type-btn" onclick="dropDownMenu()"><h5>Engine Type</h5> 
-                <i class="fa fa-caret-down"></i>
+            <button class="engine-type-btn" onclick="dropDownMenu(this)"><h5>Engine Type</h5> 
             </button>
             <div class="dropdown-container">
                 <a href="#"><h6>gasoline</h6></a>
@@ -131,24 +118,13 @@ List<User> users = userDAO.getUsersID_first_last_name();
                 <a href="#"><h6>fully electric</h6></a>
             </div>
 
-            <button class="transmissiom-btn" onclick="dropDownMenu()"><h5>Transmission</h5> 
-                <i class="fa fa-caret-down"></i>
+            <button class="transmission-btn" onclick="dropDownMenu(this)"><h5>Transmission</h5> 
             </button>
             <div class="dropdown-container">
                 <a href="#"><h6>automatic</h6></a>
                 <a href="#"><h6>manual</h6></a>
             </div>
-            <!-- 
-            <button class="interior-btn" onclick="dropDownMenu()"><h5>Interior</h5> 
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-container">
-                <a href="#"><h6>Cloth Interior</h6></a>
-                <a href="#"><h6>Leather Interior</h6></a>
-                <a href="#"><h6>High-End Interior</h6></a>
-                <a href="#"><h6>Customized Interior</h6></a>
-            </div>
-            -->
+            
         </div>
     </div>
 
@@ -234,3 +210,29 @@ if (carList != null) {
     <script src="script.js"></script>
 </body>
 </html>
+
+
+
+<!-- 
+                <button class="vechile-type-btn" onclick="dropDownMenu()"><h5>Vechile Type</h5> 
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <a href="#"><h6>Car</h5></a>
+                <a href="#"><h6>Motorcycle</h6></a>
+                <a href="#"><h6>Bicycle</h6></a>
+                <a href="#"><h6>Truck</h6></a>
+            </div>
+            <button class="interior-btn" onclick="dropDownMenu()"><h5>Interior</h5> 
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <a href="#"><h6>Cloth Interior</h6></a>
+                <a href="#"><h6>Leather Interior</h6></a>
+                <a href="#"><h6>High-End Interior</h6></a>
+                <a href="#"><h6>Customized Interior</h6></a>
+            </div>
+
+                        <i class="fa fa-caret-down"></i>
+
+            -->

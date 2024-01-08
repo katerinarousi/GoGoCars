@@ -7,6 +7,7 @@
 
 /*--------------header---------------*/
 .header{
+    position: fixed;
     overflow: hidden;
     width: 100%;
     padding-top: 10px;
@@ -155,7 +156,8 @@
     background: #fff;
     border: solid #036;
     width: 80%;
-    margin: 30px auto;
+    /*margin: 30px auto;*/
+    margin: 0;
     padding: 6px 10px 6px 30px;
     border-radius: 50px;
 }
@@ -288,7 +290,7 @@ footer p {
   width: 200px;
   z-index: 1;
   top: -105px;
-  left:10%;
+  /*left:10%;*/
   background-color: rgba(0, 0, 0, 0);
   overflow-x: hidden;
   border-radius: 30px;
@@ -352,6 +354,10 @@ footer p {
   display: none;
   background-color: #f0f0f0;
   padding-left: 8px;
+}
+
+.dropdown-container.show {
+  display: block;
 }
 
 
