@@ -18,13 +18,20 @@
         </header>
 
         
+        
+<% 
+if(request.getAttribute("message") != null) { 
+%>		
         <div class="container mt-4">
-            <% if(request.getAttribute("message") != null) { %>		
-                <div class="danger-button"><%=(String)request.getAttribute("message") %></div>
-            <% } %>
+            <div class="danger-button"><%=(String)request.getAttribute("message") %></div>
         </div>
-
-        <h2 class="log-h1"> WELCOME BACK!</h1>
+<% 
+} else {
+%>
+        <h2 class="log-h1"> WELCOME BACK!</h2>
+<%
+}
+%>
         <form method="POST" action="loginController.jsp">
             <div class="data-inputs">
                 <div>

@@ -33,9 +33,9 @@ List<User> users = userDAO.getUsersID_first_last_name();
             <a class="profile-btn"><span></span>Profile</a>            
         </div>
 
-        <div class="container mt-4">
+        <div>
             <% if(request.getAttribute("message") != null) { %>		
-                <div class="danger-button"><%=(String)request.getAttribute("message") %></div>
+                <div class="warning-button"><%=(String)request.getAttribute("message") %></div>
             <% } %>
         </div>
 
