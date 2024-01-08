@@ -48,16 +48,18 @@ List<Rental> rentals = rDAO.showRental(hostnow.getUserID());
           <a class="profile-btn" href="#"><span></span>Profile</a>
       </div>
       <div class="container mt-4">
-        <% if(request.getAttribute("message") != null) { %>		
-            <div class="danger-button"><%=(String)request.getAttribute("message") %></div>
-        <% } 
-          if (!hostnow.isHost()){
-            request.setAttribute("message", "Please login as host to view this page!");
-            %>
-            <div class="danger-button"><%=(String)request.getAttribute("message") %></div>
-            <jsp:forward page="login.jsp" />
-         <%}
-            %>
+<%      
+        if(request.getAttribute("message") != null) { %>		
+          <div class="danger-button"><%=(String)request.getAttribute("message") %></div>
+<%      
+        } 
+        if (!hostnow.isHost()){
+          request.setAttribute("message", "Access denied! Rental informations are only available for registered hosts.");
+%>
+          <jsp:forward page="search.jsp" />
+<%      
+        }
+%>
       </div>
     </div>
   </div>
@@ -74,7 +76,7 @@ List<Rental> rentals = rDAO.showRental(hostnow.getUserID());
                     <div class="col-md-12">
                       <% if (rentals.size() == 0) {
                              %>
-                        <div class = "danger-button">No rentals to show bro</div>  
+                        <div class = "danger-button">Unfortunately, there are no reservations considering your rentals</div>  
                       <%} else {         
                       %>
                         <div class="table-wrap">
