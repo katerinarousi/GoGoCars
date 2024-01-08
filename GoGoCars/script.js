@@ -80,4 +80,22 @@ function registerAs(role) {
 }
 
 
+function setFilter(filterType, filterValue) {
+    document.getElementById('filterType').value = filterType;
+    document.getElementById('filterValue').value = filterValue;
+    document.getElementById('filterForm').submit();
+}
 
+function dropDownMenu(filterId) {
+    // Κρύψε όλα τα dropdown
+    var dropdowns = document.getElementsByClassName('dropdown-container');
+    for (var i = 0; i < dropdowns.length; i++) {
+        dropdowns[i].style.display = 'none';
+    }
+
+    // Εμφάνισε το επιλεγμένο dropdown
+    var filterDropdown = document.getElementById(filterId);
+    if (filterDropdown) {
+        filterDropdown.style.display = (filterDropdown.style.display === 'block') ? 'none' : 'block';
+    }
+}
