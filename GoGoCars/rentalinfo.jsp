@@ -54,7 +54,7 @@ List<Rental> rentals = rDAO.showRental(hostnow.getUserID());
 <%      
         } 
         if (!hostnow.isHost()){
-          request.setAttribute("message", "Access denied! Rental information only available for registered hosts.");
+          request.setAttribute("message", "Access denied! Rental informations are only available for registered hosts.");
 %>
           <jsp:forward page="search.jsp" />
 <%      
@@ -76,7 +76,7 @@ List<Rental> rentals = rDAO.showRental(hostnow.getUserID());
                     <div class="col-md-12">
                       <% if (rentals.size() == 0) {
                              %>
-                        <div class = "danger-button">No rentals to show bro</div>  
+                        <div class = "danger-button">Unfortunately, there are no reservations considering your rentals</div>  
                       <%} else {         
                       %>
                         <div class="table-wrap">
