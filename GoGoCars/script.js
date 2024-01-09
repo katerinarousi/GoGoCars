@@ -60,18 +60,23 @@ function updateCarousel() {
 /*---------------------------------------------------------------------*/
 
 function dropDownMenu(button) {
-    // Get the corresponding dropdown content
-    var dropdownContent = button.nextElementSibling;
+    var dropdownContent = document.getElementById(button);
+    dropdownContent.classList.toggle("show");
+    /*var dropdownContent = button.nextElementSibling;*/
 
-    // Toggle the "active" class and display property
+
     button.classList.toggle("active");
-    
+
     if (dropdownContent.style.display === "block") {
         dropdownContent.style.display = "none";
     } else {
         dropdownContent.style.display = "block";
     }
 }
+
+
+
+
 
 
 function registerAs(role) {
@@ -85,7 +90,7 @@ function setFilter(filterType, filterValue) {
     document.getElementById('filterValue').value = filterValue;
     document.getElementById('filterForm').submit();
 }
-
+/*
 function dropDownMenu(filterId) {
     // Κρύψε όλα τα dropdown
     var dropdowns = document.getElementsByClassName('dropdown-container');
@@ -98,4 +103,4 @@ function dropDownMenu(filterId) {
     if (filterDropdown) {
         filterDropdown.style.display = (filterDropdown.style.display === 'block') ? 'none' : 'block';
     }
-}
+}*/

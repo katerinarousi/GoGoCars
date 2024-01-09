@@ -1,3 +1,8 @@
+
+
+
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>
 <%@ page import="GoG.Car" %>
@@ -46,51 +51,45 @@ List<User> users = userDAO.getUsersID_first_last_name();
     <div class="main">
         <div class = "container">
             <div class="search-bar">
-                <form method="post" action="resultsController.jsp">
-                    <div class="sidenav">
-                        <button class="filters-btn" onclick="dropDownMenu()">
-                            <p>Filters<span class="glyphicon glyphicon-filter"></span></p>
-                            <i class="fa fa-caret-down"></i>
-                        </button>
-                        <div class="dropdown-container">
-                            <!-- Add buttons for different filters (vehicle type, category, engine type, transmission) -->
-                            <button class="vehicle-type-btn" onclick="showFilterOptions('vehicleTypeFilter')">Vehicle Type</button>
-                            <div class="filter-options" id="vehicleTypeFilter">
-                                <a href="#" onclick="setFilter('vehicleType', 'Car')">Car</a>
-                                <a href="#" onclick="setFilter('vehicleType', 'Motorcycle')">Motorcycle</a>
-                                <a href="#" onclick="setFilter('vehicleType', 'Bicycle')">Bicycle</a>
-                                <a href="#" onclick="setFilter('vehicleType', 'Truck')">Truck</a>
-                            </div>
-                            <!-- Repeat similar structure for other filters -->
-                            <button class="category-btn" onclick="showFilterOptions('categoryFilter')">Category</button>
-                            <div class="filter-options" id="categoryFilter">
-                                <a href="#" onclick="setFilter('categoryType', 'Super Sport')">Super Sport</a>
-                                <a href="#" onclick="setFilter('categoryType', 'Off-Road')">Off-Road</a>
-                                <a href="#" onclick="setFilter('categoryType', 'Compact')">Compact</a>
-                                <a href="#" onclick="setFilter('categoryType', 'SUV')">SUV</a>
-                                <a href="#" onclick="setFilter('categoryType', 'Sedan')">Sedan</a>
-                            </div>
-                            <!-- Engine Type -->
-                            <button class="engine-type-btn" onclick="showFilterOptions('engineTypeFilter')">Engine Type</button>
-                            <div class="filter-options" id="engineTypeFilter">
-                                <a href="#" onclick="setFilter('engineType', 'Gasoline')">Gasoline</a>
-                                <a href="#" onclick="setFilter('engineType', 'Diesel')">Diesel</a>
-                                <a href="#" onclick="setFilter('engineType', 'Hybrid')">Hybrid</a>
-                                <a href="#" onclick="setFilter('engineType', 'Fully Electric')">Fully Electric</a>
-                            </div>
-                            <!-- Transmission -->
-                            <button class="transmission-btn" onclick="showFilterOptions('transmissionFilter')">Transmission</button>
-                            <div class="filter-options" id="transmissionFilter">
-                                <a href="#" onclick="setFilter('transmissionType', 'Automatic')">Automatic</a>
-                                <a href="#" onclick="setFilter('transmissionType', 'Manual')">Manual</a>
-                            </div>
-                        </div>
+                <form method="post" action="searchController.jsp">
+
+                    <div class="location-input">
+                        <label>Location</label>
+                        <select  name="location" class="form-control" required>
+                            <option value="<%=location%>"><%=location%></option>
+                            <option value="Airport">Airport</option>
+                            <option value="Syntagma">Syntagma Square</option>	
+                            <option value="Pireus">Port of Piraeus</option>
+                        </select>
                     </div>
+                
+                    <div class="Pickup-input">
+                        <label>Pick Up</label>
+                        <input type="date" value="<%=pickUp%>" name="pickUp">
+                    </div>
+                    <div class="Pickup-Time">
+                        <label>Time</label>
+                        <input type="time" placeholder= "e.g. 01-01-2023" value="<%=pickUpTime%>" name="pickUpTime">
+                    </div>
+                    <div class="Dropoff-input">
+                        <label>Drop Off</label>
+                        <input type="date" value="<%=dropOff%>" name="dropOff" >
+                    </div>
+                    <div class="Dropoff-Time">
+                        <label>Time</label>
+                        <input type="time" placeholder= "e.g. 01-01-2023" value="<%=dropOffTime%>" name="dropOffTime" >
+                    </div>
+                    <button class="search-btn" >Search</button>
                 </form>
 
 
             </div>
         </div>
+    
+    
+    
+    
+    
     </div>
 
     <!-- <%
@@ -104,75 +103,37 @@ List<User> users = userDAO.getUsersID_first_last_name();
     } else {
     %>-->
     <!-- Filters -->
-    <form method="post" action="resultsController.jsp">
+
         <div class="sidenav">
-            <button class="filters-btn" onclick="dropDownMenu()"><p>Filters<span class="glyphicon glyphicon-filter"></span></p>
-                <i class="fa fa-caret-down"></i>
+            <button class="filters-btn" onclick="dropDownMenu('filters')">
+                <p>Filters<span class="glyphicon glyphicon-filter"></span></p>
             </button>
-            <div class="dropdown-container">
+            <div class="dropdown-container" id="filters" style="z-index: 10; position:relative; ">
+                <h5 class="category-btn">Category</h5> 
+                    <a href="#"><h6>Compact</h6></a>
+                    <a href="#"><h6>SUV</h6></a>
+                    <a href="#"><h6>Sedan</h6></a>
+
+                <h5 class="engine-type-btn">Engine Type</h5> 
+                    <a href="#"><h6>Gasoline</h6></a>
+                    <a href="#"><h6>Diesel</h6></a>
+                    <a href="#"><h6>Hybrid</h6></a>
+                    <a href="#"><h6>Fully electric</h6></a>
+
+                <h5 class="transmission-btn">Transmission</h5> 
+                    <a href="#"><h6>Automatic</h6></a>
+                    <a href="#"><h6>Manual</h6></a>
             
-                <!-- Vechile Type -->
-                <button id="vechileTypeFilterBtn" class="vechile-type-btn" onclick="dropDownMenu('vechileTypeFilter')">
-                    <h5>Vechile Type</h5> 
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-container" id="vechileTypeFilter">
-                    <a href="#" onclick="setFilter('vechileType', 'Car')">Car</a>
-                    <a href="#" onclick="setFilter('vechileType', 'Motorcycle')">Motorcycle</a>
-                    <a href="#" onclick="setFilter('vechileType', 'Bicycle')">Bicycle</a>
-                    <a href="#" onclick="setFilter('vechileType', 'Truck')">Truck</a>
-                </div>
-        <!-- Category -->
-<button id="categoryTypeFilterBtn" class="category-btn" onclick="dropDownMenu('categoryTypeFilter')">
-    <h5>Category</h5> 
-    <i class="fa fa-caret-down"></i>
-</button>
-<div class="dropdown-container" id="categoryTypeFilter">
-    <a href="#" onclick="setFilter('categoryType', 'Super Sport')">Super Sport</a>
-    <a href="#" onclick="setFilter('categoryType', 'Off-Road')">Off-Road</a>
-    <a href="#" onclick="setFilter('categoryType', 'Compact')">Compact</a>
-    <a href="#" onclick="setFilter('categoryType', 'SUV')">SUV</a>
-    <a href="#" onclick="setFilter('categoryType', 'Sedan')">Sedan</a>
-</div>
-
-<!-- Engine Type -->
-<button id="engineTypeFilterBtn" class="engine-type-btn" onclick="dropDownMenu('engineTypeFilter')">
-    <h5>Engine Type</h5> 
-    <i class="fa fa-caret-down"></i>
-</button>
-<div class="dropdown-container" id="engineTypeFilter">
-    <a href="#" onclick="setFilter('engineType', 'gasoline')">Gasoline</a>
-    <a href="#" onclick="setFilter('engineType', 'diesel')">Diesel</a>
-    <a href="#" onclick="setFilter('engineType', 'hybrid')">Hybrid</a>
-    <a href="#" onclick="setFilter('engineType', 'fully-electric')">Fully Electric</a>
-</div>
-
-<!-- Transmission -->
-<button id="transmissionTypeFilterBtn" class="transmissiom-btn" onclick="dropDownMenu('transmissionTypeFilter')">
-    <h5>Transmission</h5> 
-    <i class="fa fa-caret-down"></i>
-</button>
-<div class="dropdown-container" id="transmissionTypeFilter">
-    <a href="#" onclick="setFilter('transmissionType', 'Automatic')">Automatic</a>
-    <a href="#" onclick="setFilter('transmissionType', 'Manual')">Manual</a>
-</div>
-            <!-- 
-            <button class="interior-btn" onclick="dropDownMenu()"><h5>Interior</h5> 
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-container">
-                <a href="#"><h6>Cloth Interior</h6></a>
-                <a href="#"><h6>Leather Interior</h6></a>
-                <a href="#"><h6>High-End Interior</h6></a>
-                <a href="#"><h6>Customized Interior</h6></a>
             </div>
-            -->
         </div>
-    </div>
+
+
+        
     
-    </form>
+
+
     <!-- Products -->
-    <main class="row justify-content-center">
+    <main class="row justify-content-center"  style="z-index: 1;">
       
 
 
@@ -253,3 +214,19 @@ if (carList != null) {
     <script src="script.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
