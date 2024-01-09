@@ -87,7 +87,7 @@ public List<Car> getSearchCars(String fPickUp,String fDropOff) throws Exception 
     public List<Car> getFiltered(List<Car> carsIn, String filter, String value) throws Exception {
         Connection con = null;
         List<Car> carsOut = new ArrayList<Car>();
-        String query = "SELECT * FROM cars WHERE " + filter + " = ?";
+        String query = "SELECT carID FROM cars WHERE " + filter + " = ?";
     
         BConnection db = new BConnection();
         try {
@@ -99,9 +99,12 @@ public List<Car> getSearchCars(String fPickUp,String fDropOff) throws Exception 
             ResultSet rs = state.executeQuery();
     
             while (rs.next()) {
-                String path = (rs.getString(10));
-                carsOut.add(new Car(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getBoolean(5),
-                        rs.getBoolean(6), rs.getInt(7), rs.getFloat(8), rs.getString(9), path/* img */));
+                int carID = rs.getInt("carID");
+                Car car = getCarByID(carID);
+                if (carsIn.contains(car)) {   
+                    carsOut.add(car);
+                }
+                
             }
     
             rs.close();

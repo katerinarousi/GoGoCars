@@ -110,19 +110,23 @@ List<User> users = userDAO.getUsersID_first_last_name();
             </button>
             <div class="dropdown-container" id="filters" style="z-index: 10; position:relative; ">
                 <h5 class="category-btn">Category</h5> 
-                    <a href="#"><h6>Compact</h6></a>
-                    <a href="#"><h6>SUV</h6></a>
-                    <a href="#"><h6>Sedan</h6></a>
+
+                    <a href="resultsController.jsp?filtertype=carType&filtervalue=Compact&carList=carList"><h6>Compact</h6></a>
+                    <a href="resultsController.jsp?filtertype=carType&filtervalue=SUV&carList=carList"><h6>SUV</h6></a>
+                    <a href="resultsController.jsp?filtertype=carType&filtervalue=Sedan&carList=carList"><h6>Sedan</h6></a>
 
                 <h5 class="engine-type-btn">Engine Type</h5> 
-                    <a href="#"><h6>Gasoline</h6></a>
-                    <a href="#"><h6>Diesel</h6></a>
-                    <a href="#"><h6>Hybrid</h6></a>
-                    <a href="#"><h6>Fully electric</h6></a>
+                    <a href="resultsController.jsp?filtertype=fuel&filtervalue=Gasoline&carList=carList"><h6>Gasoline</h6></a>
+                    <a href="resultsController.jsp?filtertype=fuel&filtervalue=Diesel&carList=carList"><h6>Diesel</h6></a>
+                    <a href="resultsController.jsp?filtertype=fuel&filtervalue=Fully Electric&carList=carList"><h6>Fully Electric</h6></a>
 
                 <h5 class="transmission-btn">Transmission</h5> 
-                    <a href="#"><h6>Automatic</h6></a>
-                    <a href="#"><h6>Manual</h6></a>
+                    <a href="resultsController.jsp?filtertype=transmission&filtervalue=automatic&carList=carList"><h6>Automatic</h6></a>
+                    <a href="resultsController.jsp?filtertype=transmission&filtervalue=manual&carList=carList"><h6>Manual</h6></a>
+
+                <h5 class="hybrid-type-btn">Hybrid</h5> 
+                    <a href="resultsController.jsp?filtertype=hybrid&filtervalue=hybrid&carList=carList"><h6>Hybrid</h6></a>
+                    <a href="resultsController.jsp?filtertype=hybrid&filtervalue=nothybrid&carList=carList"><h6>Not Hybrid</h6></a>
             
             </div>
         </div>
