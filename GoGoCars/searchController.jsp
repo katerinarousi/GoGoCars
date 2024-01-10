@@ -19,6 +19,7 @@
           }
   
           request.setAttribute("carList", carList);
+          session.setAttribute("list", carList);
   
           RequestDispatcher dispatcher = request.getRequestDispatcher("results.jsp");
           dispatcher.forward(request, response);

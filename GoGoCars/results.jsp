@@ -1,8 +1,4 @@
 
-
-
-
-
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>
 <%@ page import="GoG.Car" %>
@@ -19,7 +15,8 @@ String dropOff = request.getParameter("dropOff");
 String dropOffTime= request.getParameter("dropOffTime");
 String location = request.getParameter("location");
 UserDAO userDAO = new UserDAO();
-List<Car> carList= (List<Car>) request.getAttribute("carList");
+List<Car> carList= (List<Car>)request.getAttribute("carList");
+List<Car> copy = carList;
 List<User> users = userDAO.getUsersID_first_last_name();
 
 
@@ -105,40 +102,38 @@ List<User> users = userDAO.getUsersID_first_last_name();
     <!-- Filters -->
 
         <div class="sidenav">
+            <%carList = (List<Car>)request.getAttribute("copy"); %>
             <button class="filters-btn" onclick="dropDownMenu('filters')">
                 <p>Filters<span class="glyphicon glyphicon-filter"></span></p>
             </button>
-            <div class="dropdown-container" id="filters" style="z-index: 10; position:relative; ">
-                <h5 class="category-btn">Category</h5> 
 
-                    <a href="resultsController.jsp?filtertype=carType&filtervalue=Compact&carList=carList"><h6>Compact</h6></a>
-                    <a href="resultsController.jsp?filtertype=carType&filtervalue=SUV&carList=carList"><h6>SUV</h6></a>
-                    <a href="resultsController.jsp?filtertype=carType&filtervalue=Sedan&carList=carList"><h6>Sedan</h6></a>
+                <div class="dropdown-container" id="filters" style="z-index: 10; position:relative; ">
+                    <h5 class="category-btn">Category</h5> 
+                        <a href="resultsController.jsp?filtertype=carType&filtervalue=Compact"><h6>Compact</h6></a>
+                        <a href="resultsController.jsp?filtertype=carType&filtervalue=SUV"><h6>SUV</h6></a>
+                        <a href="resultsController.jsp?filtertype=carType&filtervalue=Sedan"><h6>Sedan</h6></a>
 
-                <h5 class="engine-type-btn">Engine Type</h5> 
-                    <a href="resultsController.jsp?filtertype=fuel&filtervalue=Gasoline&carList=carList"><h6>Gasoline</h6></a>
-                    <a href="resultsController.jsp?filtertype=fuel&filtervalue=Diesel&carList=carList"><h6>Diesel</h6></a>
-                    <a href="resultsController.jsp?filtertype=fuel&filtervalue=Fully Electric&carList=carList"><h6>Fully Electric</h6></a>
+                    <h5 class="engine-type-btn">Engine Type</h5> 
+                        <a href="resultsController.jsp?filtertype=fuel&filtervalue=Gasoline"><h6>Gasoline</h6></a>
+                        <a href="resultsController.jsp?filtertype=fuel&filtervalue=Diesel"><h6>Diesel</h6></a>
+                        <a href="resultsController.jsp?filtertype=fuel&filtervalue=Fully"><h6>Fully Electric</h6></a>
 
-                <h5 class="transmission-btn">Transmission</h5> 
-                    <a href="resultsController.jsp?filtertype=transmission&filtervalue=automatic&carList=carList"><h6>Automatic</h6></a>
-                    <a href="resultsController.jsp?filtertype=transmission&filtervalue=manual&carList=carList"><h6>Manual</h6></a>
+                    <h5 class="transmission-btn">Transmission</h5> 
+                        <a href="resultsController.jsp?filtertype=transmission&filtervalue=automatic&carList=carList"><h6>Automatic</h6></a>
+                        <a href="resultsController.jsp?filtertype=transmission&filtervalue=manual&carList=carList"><h6>Manual</h6></a>
 
-                <h5 class="hybrid-type-btn">Hybrid</h5> 
-                    <a href="resultsController.jsp?filtertype=hybrid&filtervalue=hybrid&carList=carList"><h6>Hybrid</h6></a>
-                    <a href="resultsController.jsp?filtertype=hybrid&filtervalue=nothybrid&carList=carList"><h6>Not Hybrid</h6></a>
-            
-            </div>
+                    <h5 class="hybrid-type-btn">Hybrid</h5> 
+                        <a href="resultsController.jsp?filtertype=hybrid&filtervalue=hybrid&carList=carList"><h6>Hybrid</h6></a>
+                        <a href="resultsController.jsp?filtertype=hybrid&filtervalue=nothybrid&carList=carList"><h6>Not Hybrid</h6></a>
+                
+                </div>
         </div>
-
-
-        
-    
 
 
     <!-- Products -->
     <main class="row justify-content-center"  style="z-index: 1;">
       
+        <%carList = (List<Car>)session.getAttribute("list"); %>
 
 
 <% 
