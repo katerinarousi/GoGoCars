@@ -127,6 +127,49 @@ public List<Car> getSearchCars(String fPickUp,String fDropOff) throws Exception 
         }
     }
 
+    public List<Car> getFilteredextra(List<Car> carsIn, String filter, boolean value) throws Exception {
+        Connection con = null;
+        List<Car> carsOut = new ArrayList<Car>();
+        List<String> aidis = new ArrayList<String>();
+        for (int i=0; i<carsIn.size(); i++ ){
+            aidis.add(carsIn.get(i).getCarID());
+        }
+        String query = "SELECT carID FROM cars WHERE " + filter + " = ?;";
+        System.err.println(query);
+        BConnection db = new BConnection();
+        try {
+            con = db.openConnection();
+    
+            PreparedStatement state = con.prepareStatement(query);
+            state.setBoolean(1, value);
+    
+            ResultSet rs = state.executeQuery();
+    
+            while (rs.next()) {
+                String carID = rs.getString(1);
+                if (aidis.contains(carID)) {   
+                    carsOut.add(getCarByID(Integer.parseInt(carID)));
+                }
+                
+            }
+
+            rs.close();
+            state.close();
+            db.closeConnection();
+            return carsOut;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new Exception(e);
+        } finally {
+            try {
+                db.closeConnection();
+            } catch (Exception e) {
+    
+            }
+        }
+    }
+
     public Car getCarByID(int carID) throws Exception{
         Connection con = null;
         String sql = "SELECT * FROM ismgroup14.cars WHERE carID=?;";

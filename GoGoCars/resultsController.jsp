@@ -19,7 +19,25 @@ List<User> users = userDAO.getUsersID_first_last_name();
 
 CarDAO carDAO = new CarDAO();
 if (filtertype != null && filtervalue != null) {
-    carList = carDAO.getFiltered(carList, filtertype, filtervalue);
+
+    if (filtertype.equals("transmission")) {
+        boolean value = false;
+        if (filtervalue.equals("manual")) {
+            value= true;
+        }
+        carList = carDAO.getFilteredextra(carList, filtertype, value); 
+
+    } else if (filtertype.equals("hybrid")) {
+        boolean value = false;
+        if (filtervalue.equals("hybrid")) {
+            value= true;
+        } 
+        carList = carDAO.getFilteredextra(carList, filtertype, value);
+
+    } else {
+        carList = carDAO.getFiltered(carList, filtertype, filtervalue);
+    }
+    
     
 }
 
