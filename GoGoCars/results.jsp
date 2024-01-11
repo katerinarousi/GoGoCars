@@ -41,6 +41,7 @@ List<User> users = userDAO.getUsersID_first_last_name();
         </span>
         <div class="header-right">
             <a class="profile-btn" href="#"><span></span>Profile</a>
+            <a class="profile-btn" href="#"><span></span>Logout</a>
         
         </div>
     </div>

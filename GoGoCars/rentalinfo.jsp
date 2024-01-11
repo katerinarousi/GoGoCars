@@ -46,7 +46,10 @@ List<Rental> rentals = rDAO.showRental(hostnow.getUserID());
       </span>
       <div class="header-right">
           <a class="profile-btn" href="#"><span></span>Profile</a>
+          <a class="profile-btn" href="#"><span></span>Logout</a>
+
       </div>
+      
       <div class="container mt-4">
 <%      
         if(request.getAttribute("message") != null) { %>		

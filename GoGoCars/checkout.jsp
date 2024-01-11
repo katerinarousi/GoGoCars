@@ -54,6 +54,8 @@ Car carObj = carDAO.findCar(carID);
       </span>
       <div class="header-right">
           <a class="profile-btn" href="#"><span></span>Profile</a>
+          <a class="profile-btn" href="#"><span></span>Logout</a>
+
 
       </div>
   </div>
