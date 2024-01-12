@@ -12,6 +12,9 @@
 
 String filtertype = request.getParameter("filtertype");
 String filtervalue = request.getParameter("filtervalue");
+String pickUp= request.getParameter("pickUp");
+String dropOff = request.getParameter("dropOff");
+String location = request.getParameter("location");
 
 UserDAO userDAO = new UserDAO();
 List<Car> carList = (List<Car>)session.getAttribute("list");
@@ -42,6 +45,9 @@ if (filtertype != null && filtervalue != null) {
 }
 
 session.setAttribute("list", carList);
+session.setAttribute("pickUpController", pickUp);
+session.setAttribute("dropOffController", dropOff);
+session.setAttribute("locationController", location);
 
 request.getRequestDispatcher("results.jsp").forward(request, response);
 %>

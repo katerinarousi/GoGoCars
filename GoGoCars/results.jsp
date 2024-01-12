@@ -110,22 +110,22 @@ List<User> users = userDAO.getUsersID_first_last_name();
 
                 <div class="dropdown-container" id="filters" style="z-index: 10; position:relative; ">
                     <h5 class="category-btn">Category</h5> 
-                        <a href="resultsController.jsp?filtertype=carType&filtervalue=Compact"><h6>Compact</h6></a>
-                        <a href="resultsController.jsp?filtertype=carType&filtervalue=SUV"><h6>SUV</h6></a>
-                        <a href="resultsController.jsp?filtertype=carType&filtervalue=Sedan"><h6>Sedan</h6></a>
+                        <a href="resultsController.jsp?filtertype=carType&filtervalue=Compact&pickUp=<%=pickUp%>&dropOff=<%=dropOff%>&location=<%=location%>"><h6>Compact</h6></a>
+                        <a href="resultsController.jsp?filtertype=carType&filtervalue=SUV&pickUp=<%=pickUp%>&dropOff=<%=dropOff%>&location=<%=location%>"><h6>SUV</h6></a>
+                        <a href="resultsController.jsp?filtertype=carType&filtervalue=Sedan&pickUp=<%=pickUp%>&dropOff=<%=dropOff%>&location=<%=location%>"><h6>Sedan</h6></a>
 
                     <h5 class="engine-type-btn">Engine Type</h5> 
-                        <a href="resultsController.jsp?filtertype=fuel&filtervalue=Gasoline"><h6>Gasoline</h6></a>
-                        <a href="resultsController.jsp?filtertype=fuel&filtervalue=Diesel"><h6>Diesel</h6></a>
-                        <a href="resultsController.jsp?filtertype=fuel&filtervalue=Fully"><h6>Fully Electric</h6></a>
+                        <a href="resultsController.jsp?filtertype=fuel&filtervalue=Gasoline&pickUp=<%=pickUp%>&dropOff=<%=dropOff%>&location=<%=location%>"><h6>Gasoline</h6></a>
+                        <a href="resultsController.jsp?filtertype=fuel&filtervalue=Diesel&pickUp=<%=pickUp%>&dropOff=<%=dropOff%>&location=<%=location%>"><h6>Diesel</h6></a>
+                        <a href="resultsController.jsp?filtertype=fuel&filtervalue=Fully&pickUp=<%=pickUp%>&dropOff=<%=dropOff%>&location=<%=location%>"><h6>Fully Electric</h6></a>
 
                     <h5 class="transmission-btn">Transmission</h5> 
-                        <a href="resultsController.jsp?filtertype=transmission&filtervalue=automatic&carList=carList"><h6>Automatic</h6></a>
-                        <a href="resultsController.jsp?filtertype=transmission&filtervalue=manual&carList=carList"><h6>Manual</h6></a>
+                        <a href="resultsController.jsp?filtertype=transmission&filtervalue=automatic&carList=carList&pickUp=<%=pickUp%>&dropOff=<%=dropOff%>&location=<%=location%>"><h6>Automatic</h6></a>
+                        <a href="resultsController.jsp?filtertype=transmission&filtervalue=manual&carList=carList&pickUp=<%=pickUp%>&dropOff=<%=dropOff%>&location=<%=location%>"><h6>Manual</h6></a>
 
                     <h5 class="hybrid-type-btn">Hybrid</h5> 
-                        <a href="resultsController.jsp?filtertype=hybrid&filtervalue=hybrid&carList=carList"><h6>Hybrid</h6></a>
-                        <a href="resultsController.jsp?filtertype=hybrid&filtervalue=nothybrid&carList=carList"><h6>Not Hybrid</h6></a>
+                        <a href="resultsController.jsp?filtertype=hybrid&filtervalue=hybrid&carList=carList&pickUp=<%=pickUp%>&dropOff=<%=dropOff%>&location=<%=location%>"><h6>Hybrid</h6></a>
+                        <a href="resultsController.jsp?filtertype=hybrid&filtervalue=nothybrid&carList=carList&pickUp=<%=pickUp%>&dropOff=<%=dropOff%>&location=<%=location%>"><h6>Not Hybrid</h6></a>
                 
                 </div>
         </div>
@@ -138,7 +138,10 @@ List<User> users = userDAO.getUsersID_first_last_name();
 
 
 <% 
-if (carList != null) {                
+if (carList != null) {
+    String pickUpFilters = request.getParameter("pickUpController");
+    String dropOffFilters = request.getParameter("dropOffController");
+    String locationFilters = request.getParameter("locationController");     
     for (Car car: carList) {
 %>
         <div class="car-results col-md-3">
@@ -178,7 +181,17 @@ if (carList != null) {
                         </a>
                     </div>
                     <button class="book-button">
+<%
+        if (pickUpFilters == null || dropOffFilters == null || locationFilters == null) {
+%>
                         <a href="checkout.jsp?carID=<%=car.getCarID()%>&hostID=<%=carOwner.getUserID()%>&pickUp=<%=pickUp%>&dropOff=<%=dropOff%>&location=<%=location%>">Book Now</a>
+<%
+        } else {
+%>
+                        <a href="checkout.jsp?carID=<%=car.getCarID()%>&hostID=<%=carOwner.getUserID()%>&pickUp=<%=pickUpFilters%>&dropOff=<%=dropOffFilters%>&location=<%=locationFilters%>">Book Now</a> 
+<%
+        }
+%>
                     </button>
                 </div>
             </div>
