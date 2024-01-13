@@ -5,6 +5,8 @@
 <%@ page import="GoG.User" %>
 <%@ page import="GoG.UserDAO" %>
 
+<%@ include file="authentication_guard.jsp" %>
+
 
 <%
         String pickUp = request.getParameter("pickUp");
