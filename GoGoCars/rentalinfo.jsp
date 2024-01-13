@@ -57,7 +57,7 @@ List<Rental> rentals = rDAO.showRental(hostnow.getUserID());
 <%      
         } 
         if (!hostnow.isHost()){
-          request.setAttribute("message", "Access denied! Rental informations are only available for registered hosts.");
+          request.setAttribute("message", "Access denied! Rental information is only available for registered hosts.");
 %>
           <jsp:forward page="search.jsp" />
 <%      
