@@ -199,7 +199,14 @@ if (carList != null) {
                
         </div>           
     <% }
-}%>
+} else {
+%>
+        <div class="container mt-4">
+            <div class="danger-button">No cars available for the requested date!</div>
+        </div>
+<%
+}
+%>
     
     </main>
 

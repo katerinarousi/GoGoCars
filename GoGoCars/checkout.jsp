@@ -98,7 +98,7 @@ if (firstname != null || lastname != null || dateOfBirth != null || contactNumbe
     if (pickUpCheckout != null && dropOffCheckout != null && locationCheckout != null && !pickUpCheckout.equals("null") && !dropOffCheckout.equals("null") && !locationCheckout.equals("null")) {
       if (rental.checkAvailability(carID, pickUpCheckout, dropOffCheckout) == false && flag == true) {	
 %>
-      <div>Unfortunately, this vechile is not available for the date requested, please pick another date or vechile</div>
+      <div>Unfortunately, this vehicle is not available for the date requested, please pick another date or vehicle</div>
 <%
       }
     }
