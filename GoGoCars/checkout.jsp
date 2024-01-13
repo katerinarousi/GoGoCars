@@ -54,7 +54,7 @@ Car carObj = carDAO.findCar(carID);
       </span>
       <div class="header-right">
           <a class="profile-btn" href="#"><span></span>Profile</a>
-          <a class="profile-btn" href="#"><span></span>Logout</a>
+          <a href="logout.jsp" class="profile-btn"><span></span>Logout</a>
 
 
       </div>
@@ -190,7 +190,7 @@ if (firstname != null || lastname != null || dateOfBirth != null || contactNumbe
             </div> 
 <%
           } else {
-%>   
+%>
             <div>
               <img class="date-image" src="images/pickup.png" alt="Calendar Image">
               <span><strong>Pick up:</strong> <input type="date" name="pickUpCheckout" required></span>

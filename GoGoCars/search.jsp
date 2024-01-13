@@ -31,8 +31,8 @@ List<User> users = userDAO.getUsersID_first_last_name();
         <div class="header-right">
             <a class="profile-btn" href="rentalinfo.jsp"><span></span>Rental Information</a>
             <a class="profile-btn"><span></span>Profile</a>    
-            <a class="profile-btn"><span></span>Logout</a>            
-        
+            <a href="logout.jsp" class="profile-btn"><span></span>Logout</a>  
+
         </div>
 
         <div>

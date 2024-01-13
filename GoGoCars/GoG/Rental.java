@@ -137,32 +137,6 @@ public class Rental {
         this.totalPrice = totalPrice;
     }
 
-
-    public void makeRental(int renterID, int carID, String startDate, String endDate, String startTime, String endTime,  String Location){
-        
-        String query = "insert into rental (renterID, carID, start_datetime, end_datetime, place) values (?,?,?,?,?)";
-
-        BConnection obj = new BConnection();
-        try {
-            Connection c = obj.openConnection();
-            stmt = c.prepareStatement(query);
-            stmt.setInt(1, renterID);
-            stmt.setInt(2, carID);
-            stmt.setString(3, startDate + " " + startTime);
-            stmt.setString(4, endDate + " " + endTime);
-            stmt.setString(5, location);
-
-            
-            stmt.executeUpdate();
-            stmt.close();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        
-
-    }
 }
 
     
