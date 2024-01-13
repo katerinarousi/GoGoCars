@@ -9,6 +9,7 @@
 <%
         String pickUp = request.getParameter("pickUp");
         String dropOff = request.getParameter("dropOff");
+        String location = request.getParameter("location");
 
         CarDAO cDAO = new CarDAO();
 
@@ -20,6 +21,9 @@
   
           request.setAttribute("carList", carList);
           session.setAttribute("list", carList);
+          request.setAttribute("pickUp", pickUp);
+          request.setAttribute("dropOff", dropOff);
+          request.setAttribute("location", location);
   
           RequestDispatcher dispatcher = request.getRequestDispatcher("results.jsp");
           dispatcher.forward(request, response);

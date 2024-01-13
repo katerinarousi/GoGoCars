@@ -46,7 +46,7 @@ List<Rental> rentals = rDAO.showRental(hostnow.getUserID());
       </span>
       <div class="header-right">
           <a class="profile-btn" href="#"><span></span>Profile</a>
-          <a class="profile-btn" href="#"><span></span>Logout</a>
+          <a href="logout.jsp" class="profile-btn"><span></span>Logout</a>
 
       </div>
       
