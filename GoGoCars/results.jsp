@@ -109,6 +109,7 @@ List<User> users = userDAO.getUsersID_first_last_name();
             </button>
 
                 <div class="dropdown-container" id="filters" style="z-index: 10; position:relative; ">
+                    <button class="clear-filters"><a href="searchController.jsp?pickUp=<%=pickUp%>&dropOff=<%=dropOff%>" style="background-color: green; color:black; border: none;"> Clear Filters </a></button>
                     <h5 class="category-btn">Category</h5> 
                         <a href="resultsController.jsp?filtertype=carType&filtervalue=Compact&pickUp=<%=pickUp%>&dropOff=<%=dropOff%>&location=<%=location%>"><h6>Compact</h6></a>
                         <a href="resultsController.jsp?filtertype=carType&filtervalue=SUV&pickUp=<%=pickUp%>&dropOff=<%=dropOff%>&location=<%=location%>"><h6>SUV</h6></a>

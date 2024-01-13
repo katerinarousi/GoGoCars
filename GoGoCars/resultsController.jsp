@@ -12,7 +12,7 @@
 
 String filtertype = request.getParameter("filtertype");
 String filtervalue = request.getParameter("filtervalue");
-String pickUp= request.getParameter("pickUp");
+String pickUp = request.getParameter("pickUp");
 String dropOff = request.getParameter("dropOff");
 String location = request.getParameter("location");
 

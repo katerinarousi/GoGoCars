@@ -153,13 +153,36 @@ float:right;
 /*-----------------------------SEARCH BAR-------------------------------*/
 .search-bar {
   background: #fff;
-  border: solid #036;
+  /*border: solid #036;*/
   width: 80%;
   margin: 30px auto;
   padding: 6px 10px 6px 30px;
   border-radius: 50px;
 }
 
+/* Media query for screens with a maximum width of 600px */
+@media only screen and (max-width: 600px) {
+  .search-bar {
+    width: 90%; /* Adjust the width for smaller screens */
+    padding: 6px 10px; /* Adjust the padding */
+  }
+}
+
+/* Media query for screens with a minimum width of 601px and a maximum width of 1024px */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  .search-bar {
+    width: 70%; /* Adjust the width for medium-sized screens */
+    padding: 8px 12px; /* Adjust the padding */
+  }
+}
+
+/* Media query for screens with a minimum width of 1025px */
+@media only screen and (min-width: 1025px) {
+  .search-bar {
+    width: 60%; /* Adjust the width for larger screens */
+    padding: 10px 16px; /* Adjust the padding */
+  }
+}
 
 @media (max-width:800px){
 .search-bar{
@@ -294,7 +317,15 @@ overflow-x: hidden;
 border-radius: 30px;
 }
 
-.sidenav a, .engine-type-btn, .filters-btn, .category-btn, .interior-btn, .vehicle-type-btn, .transmission-btn {
+@media only screen and (max-width: 600px) {
+  .sidenav {
+    width: 100%; /* Set the width to 100% for smaller screens */
+    left: 0; /* Center the sidenav on smaller screens */
+    border-radius: 0; /* Remove border-radius on smaller screens if needed */
+  }
+}
+
+.sidenav a, .engine-type-btn, .filters-btn, .category-btn, .transmission-btn {
 padding: 5px 10px;/* 10px 6px 16px;*/
 text-decoration: solid;
 font-size: large;
@@ -318,6 +349,29 @@ color: #fff;
 flex: 1;
 
 }
+/* Media query for screens with a maximum width of 600px */
+@media only screen and (max-width: 600px) {
+  .filters-btn {
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+}
+
+/* Media query for screens with a minimum width of 601px and a maximum width of 1024px */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  .filters-btn {
+    height: 40px; /* Adjust height for medium-sized screens */
+  }
+}
+
+/* Media query for screens with a minimum width of 1025px */
+@media only screen and (min-width: 1025px) {
+  .filters-btn {
+    height: 60px; /* Adjust height for larger screens */
+  }
+}
+
+
+
 
 .filters-btn:hover{
 transform: scale(0.9);
@@ -330,7 +384,7 @@ color: #fff;
 left: 20px;
 }
 
-.sidenav a:hover, .engine-type-btn:hover, .category-btn:hover, .interior-btn:hover, .vehicle-type-btn:hover, .transmission-btn:hover {
+.sidenav a:hover, .engine-type-btn:hover, .category-btn:hover, .transmission-btn:hover {
 color: #003366;
 background-color: #fd5003;
 border-radius: 10px;
@@ -358,6 +412,12 @@ padding-left: 8px;
 .fa-caret-down {
 float: right;
 padding-right: 8px;
+}
+
+.clear-filters{
+  border: none;
+  text-decoration: none;
+  
 }
 
 
