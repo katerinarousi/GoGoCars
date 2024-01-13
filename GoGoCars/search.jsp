@@ -4,6 +4,7 @@
 <%@ page import="GoG.CarDAO" %>
 <%@ page import="GoG.User" %>
 <%@ page import="GoG.UserDAO" %>
+<%@ include file="authentication_guard.jsp" %>
 
 <%
 CarDAO carDAO = new CarDAO(); 
